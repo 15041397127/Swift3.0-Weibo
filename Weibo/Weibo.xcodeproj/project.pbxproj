@@ -14,6 +14,7 @@
 		3415EC70200612230087B901 /* WBMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC6F200612230087B901 /* WBMessageViewController.swift */; };
 		3415EC72200612470087B901 /* WBDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC71200612470087B901 /* WBDiscoverViewController.swift */; };
 		3415EC74200612620087B901 /* WBProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC73200612620087B901 /* WBProfileViewController.swift */; };
+		346FEF7E2007A463003EE3C8 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */; };
 		3481AF7E2005DF96009F58BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF7D2005DF96009F58BF /* AppDelegate.swift */; };
 		3481AF852005DF96009F58BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3481AF842005DF96009F58BF /* Assets.xcassets */; };
 		3481AF932005DF96009F58BF /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF922005DF96009F58BF /* WeiboTests.swift */; };
@@ -59,6 +60,7 @@
 		3415EC6F200612230087B901 /* WBMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBMessageViewController.swift; sourceTree = "<group>"; };
 		3415EC71200612470087B901 /* WBDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDiscoverViewController.swift; sourceTree = "<group>"; };
 		3415EC73200612620087B901 /* WBProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBProfileViewController.swift; sourceTree = "<group>"; };
+		346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
 		3481AF7A2005DF96009F58BF /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3481AF7D2005DF96009F58BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3481AF842005DF96009F58BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,11 +196,20 @@
 		3415EC6620060E830087B901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				346FEF7C2007A42B003EE3C8 /* 测试 */,
 				3415EC67200610210087B901 /* WBMainViewController.swift */,
 				3415EC69200610C00087B901 /* WBNavigationController.swift */,
 				3415EC6B200610F30087B901 /* WBBaseViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		346FEF7C2007A42B003EE3C8 /* 测试 */ = {
+			isa = PBXGroup;
+			children = (
+				346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */,
+			);
+			path = "测试";
 			sourceTree = "<group>";
 		};
 		3481AF712005DF96009F58BF = {
@@ -469,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				349DDE8F200700280078743F /* UIViewController+CZAddition.m in Sources */,
+				346FEF7E2007A463003EE3C8 /* WBDemoViewController.swift in Sources */,
 				349DDE99200700280078743F /* NSObject+CZRuntime.m in Sources */,
 				3415EC6C200610F30087B901 /* WBBaseViewController.swift in Sources */,
 				349DDE94200700280078743F /* NSAttributedString+CZAdditon.m in Sources */,

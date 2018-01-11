@@ -10,17 +10,37 @@ import UIKit
 
 class WBHomeViewController: WBBaseViewController {
     
-    override func  viewDidLoad(){
+    override func viewDidLoad(){
         
-       super .viewDidLoad()
+       super.viewDidLoad()
         
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-       
+    @objc private func showFriends(){
+        
+        print(#function)
+        let demoVC = WBDemoViewController()
+        
+        demoVC.hidesBottomBarWhenPushed = true
+        
+        navigationController?.pushViewController(demoVC, animated: true)
+        
+        
     }
-    
-    
+
 }
+
+//MARK:设置页面
+extension WBHomeViewController {
+    
+    //重写父类方法
+    
+    override func setupUI() {
+
+        //设置导航栏按钮
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", style: .plain, target: self, action:#selector(showFriends))
+    }
+   
+}
+
