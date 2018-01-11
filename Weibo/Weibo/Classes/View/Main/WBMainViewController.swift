@@ -20,6 +20,17 @@ class WBMainViewController: UITabBarController {
         
         // Do any additional setup after loading the view.
     }
+    
+    //MARK: - 监听方法
+    //撰写微博
+    //FIXME:没有实现
+    //private 能够保证方法私有,仅在当前对象被访问
+    //@objc  允许函数在运行时通过OC 的消息机制被调用!
+    @objc private func composeStatues()  {
+        
+        print("撰写微博")
+    }
+    
 
     //MARK - 私有控件
     //加号按钮
@@ -52,6 +63,9 @@ extension WBMainViewController{
         tabBar.addSubview(composeButton)
         print("\(composeButton.bounds.width)")
         
+        //按钮监听方法
+        
+        composeButton.addTarget(self, action: #selector(composeStatues), for: .touchUpInside)
         
     }
     
