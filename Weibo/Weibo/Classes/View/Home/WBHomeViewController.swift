@@ -9,7 +9,6 @@
 import UIKit
 
 class WBHomeViewController: WBBaseViewController {
-
     
     override func  viewDidLoad(){
         

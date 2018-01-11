@@ -61,26 +61,32 @@ extension WBMainViewController{
     private func controller(dict:[String: String]) -> UIViewController{
         
         //1.取得字典内容
-      guard  let clsName = dict["clsName"],
-             let title = dict["title"],
-             let imageName = dict["imageName"],
-             let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? UIViewController.Type
-             else {
-            
-            return UIViewController()
-            
+        guard  let clsName = dict["clsName"],
+            let title = dict["title"],
+            let imageName = dict["imageName"],
+            let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? UIViewController.Type
+            else {
+                
+                return UIViewController()
+                
         }
-      //2.创建视图控制器
-      //将clsName 转换成 cls
-      let vc = cls.init()
+        //2.创建视图控制器
+        //将clsName 转换成 cls
+        let vc = cls.init()
         
-       vc.title = title
+        vc.title = title
         
         //3设置图像
         
         vc.tabBarItem.image = UIImage(named:"tabbar_" + imageName)
         vc.tabBarItem.selectedImage = UIImage(named:"tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)
-       let nav = WBNavigationController(rootViewController:vc)
+        //4.设置tabBar标题字体(大小)
+    vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor:UIColor.orange], for: .highlighted)
+   
+   //系统默认大小12
+   vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize:12)], for: .normal)
+        
+        let nav = WBNavigationController(rootViewController:vc)
         
         return nav//多态
     }
