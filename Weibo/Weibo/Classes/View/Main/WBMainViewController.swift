@@ -14,12 +14,17 @@ class WBMainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupChildController()
+        setupComposeButton()
+        
         // Do any additional setup after loading the view.
     }
 
-
+    //MARK - 私有控件
+    //加号按钮
+    private lazy var composeButton:UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,12 +38,32 @@ class WBMainViewController: UITabBarController {
 //MARK:-设置页面
 extension WBMainViewController{
     
+    //设置加号按钮
+    private func setupComposeButton(){
+        
+     
+        //计算按钮的宽度
+        let count = CGFloat(childViewControllers.count)
+        //容错点:tabBar两个按钮之间会有一个点的位置会漏出去 因此-1  将向内的宽度减少,能够让按钮的宽度变大,盖住容错点,防止穿帮
+        let width = tabBar.bounds.width / count - 1
+
+        //CGRectInset 正数向内缩进,负数向外扩展
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
+        tabBar.addSubview(composeButton)
+        print("\(composeButton.bounds.width)")
+        
+        
+    }
+    
+    
+    
     //设置所有子控制器
     private func setupChildController(){
         
         let array = [
             ["clsName":"WBHomeViewController","title":"首页","imageName":"home"],
              ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
+             ["clsName":"UIViewController"],//增加中间加号
               ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
                ["clsName":"WBProfileViewController","title":"我","imageName":"profile"],
             ]
