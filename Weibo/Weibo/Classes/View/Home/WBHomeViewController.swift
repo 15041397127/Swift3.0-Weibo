@@ -13,19 +13,19 @@ class WBHomeViewController: WBBaseViewController {
     override func viewDidLoad(){
         
        super.viewDidLoad()
-        
+   
         
     }
     @objc private func showFriends(){
         
         print(#function)
+        
         let demoVC = WBDemoViewController()
         
-        demoVC.hidesBottomBarWhenPushed = true
+//        demoVC.hidesBottomBarWhenPushed = true
         
         navigationController?.pushViewController(demoVC, animated: true)
-        
-        
+
     }
 
 }
@@ -35,8 +35,9 @@ extension WBHomeViewController {
     
     //重写父类方法
     
-    override func setupUI() {
+       override func setupUI() {
 
+        super.setupUI()
         //设置导航栏按钮
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", style: .plain, target: self, action:#selector(showFriends))

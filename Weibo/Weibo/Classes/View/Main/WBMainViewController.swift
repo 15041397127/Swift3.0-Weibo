@@ -125,6 +125,7 @@ extension WBMainViewController{
    //系统默认大小12
    vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize:12)], for: .normal)
         
+        //实例化导航控制器的时候,会调用 push方法将 rootVC压栈
         let nav = WBNavigationController(rootViewController:vc)
         
         return nav//多态

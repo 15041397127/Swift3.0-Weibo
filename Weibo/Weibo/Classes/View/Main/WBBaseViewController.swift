@@ -27,7 +27,7 @@ class WBBaseViewController: UIViewController {
 //MARK:设置界面
 extension WBBaseViewController{
     
-    @objc func setupUI(){
+    @objc  func setupUI(){
         
         view.backgroundColor = UIColor.cz_random()
         
