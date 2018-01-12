@@ -10,11 +10,28 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
+    //自定义导航条
+    lazy var navigationBar = UINavigationBar(frame:CGRect(x:0,y:0,width:UIScreen.cz_screenWidth(),height:64))
+    
+   //自定义的导航条目
+    lazy var navItem = UINavigationItem()
+        
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override var title: String?{
+        //didSet重写set方法
+        didSet{
+            
+            navItem.title = title
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +48,10 @@ extension WBBaseViewController{
         
         view.backgroundColor = UIColor.cz_random()
         
+        //添加导航条
+        view.addSubview(navigationBar)
+        //将item设置给bar
+        navigationBar.items = [navItem]
     }
 
 }

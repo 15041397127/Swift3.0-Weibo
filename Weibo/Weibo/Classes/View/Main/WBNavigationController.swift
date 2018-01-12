@@ -10,6 +10,15 @@ import UIKit
 
 class WBNavigationController: UINavigationController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //隐藏默认的NavigationBar
+        navigationBar.isHidden = true
+        // Do any additional setup after loading the view.
+    }
+
+    
+    
     //重写push方法,所有push动作都会调用此方法
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
@@ -29,16 +38,11 @@ class WBNavigationController: UINavigationController {
     }
     
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Do any additional setup after loading the view.
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 
     /*
