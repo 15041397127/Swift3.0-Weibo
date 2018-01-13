@@ -30,13 +30,42 @@ class WBNavigationController: UINavigationController {
         if childViewControllers.count > 0{
             
             viewController.hidesBottomBarWhenPushed = true
+            
+            //判断控制器的类型
+            if let vc = viewController as? WBBaseViewController {
+                
+                var title = "返回"
+                
+                //判断控制器的级数
+                if childViewControllers.count == 1{
+                    
+                    //title显示首页标题
+                    
+                    title = childViewControllers.first?.title ?? "返回"
+                    
+                    
+                }
+                
+                
+                //取出自定义的 navItem
+                vc.navItem.leftBarButtonItem = UIBarButtonItem(title:title,target:self,action:#selector(popToParent))
+                
+            }
         }
         
-        
+ 
         super .pushViewController(viewController, animated: true)
         
     }
     
+    //POP返回到上一级控制器
+    @objc private func popToParent(){
+        
+        popViewController(animated: true)
+        
+        
+        
+    }
 
 
     override func didReceiveMemoryWarning() {
