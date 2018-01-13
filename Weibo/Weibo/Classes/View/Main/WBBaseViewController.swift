@@ -11,8 +11,9 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     //自定义导航条
-    lazy var navigationBar = UINavigationBar(frame:CGRect(x: 0,y:0,width:UIScreen.cz_screenWidth(),height: 64))
-    
+ 
+    lazy var navigationBar = UINavigationBar(frame:CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64))
+
    //自定义的导航条目
     lazy var navItem = UINavigationItem()
     
@@ -23,20 +24,43 @@ class WBBaseViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-//    - (void)viewDidLayoutSubviews {
-//    [super viewDidLayoutSubviews];
-//    UIEdgeInsets safeAreaInsets = sgm_safeAreaInset(self.view);
-//    CGFloat height = 44.0; // 导航栏原本的高度，通常是44.0
-//    height += safeAreaInsets.top > 0 ? safeAreaInsets.top : 20.0; // 20.0是statusbar的高度，这里假设statusbar不消失
-//    if (_navigationbar && _navigationbar.height != height) {
-//    _navigationbar.height = height;
-//    }
+
     
     override func viewDidLayoutSubviews() {
         
-   
-        
-        
+       super.viewDidLayoutSubviews()
+ 
+
+         if #available(iOS 11.0, *) {
+            navigationBar.isTranslucent = false
+            if UIScreen.main.bounds.height == 812 {
+                
+                navigationBar.frame = CGRect(x: 0, y: 44, width: UIScreen.cz_screenWidth(), height: 62)
+             
+                let view1 = UIView()
+                view1.frame = CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 44)
+                view1.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
+                view .addSubview(view1)
+                
+            }else{
+                navigationBar.frame = CGRect(x: 0, y: 20, width: UIScreen.cz_screenWidth(), height: 44)
+
+                let view1 = UIView()
+                view1.frame = CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 20)
+                view1.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
+              
+                view .addSubview(view1)
+                
+            }
+            
+    
+
+
+         }else{
+
+
+
+        }
     }
     
     
@@ -47,6 +71,7 @@ class WBBaseViewController: UIViewController {
         didSet{
 
             navItem.title = title
+            
 
         }
 
@@ -76,30 +101,25 @@ extension WBBaseViewController{
 //           automaticallyAdjustsScrollViewInsets = false;
 //
 //        }
-//      self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior
-//
-        if #available(iOS 11.0, *) {
-//            self.additionalSafeAreaInsets.top = (-20,0,0,0)
-//            additionalSafeAreaInsets.top = 20
-            
-//            additionalSafeAreaInsets.bottom =
-//             navigationBar.prefersLargeTitles = true
-//          view.contentInsetAdjustmentBehavior =  UIScrollViewContentInsetAdjustmentBehavior
-          navigationBar.frame = CGRect(x: 0,y:0,width:UIScreen.cz_screenWidth(),height: 64+20)
-            
-            
-        }
+
+
         
-  
-     automaticallyAdjustsScrollViewInsets = false
-     extendedLayoutIncludesOpaqueBars = true;
-      
+ 
         //添加导航条
         view.addSubview(navigationBar)
         
-        navigationBar.backgroundColor = UIColor.cyan
-        //将item设置给bar
-        navigationBar.items = [navItem]
-    }
 
+        
+//        navigationBar.backgroundColor = UIColor.cyan
+        //将item设置给bar
+        
+        navigationBar.items = [navItem]
+        
+        //设置navBar的渲染颜色
+        navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+
+        
+    }
 }
+
+
