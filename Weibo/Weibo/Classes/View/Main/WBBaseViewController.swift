@@ -10,6 +10,10 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
+    //可选的tableview
+    
+    var tableView:UITableView?
+    
     //自定义导航条
  
     lazy var navigationBar = UINavigationBar(frame:CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64))
@@ -86,39 +90,59 @@ extension WBBaseViewController{
     @objc  func setupUI(){
         
         view.backgroundColor = UIColor.cz_random()
+        setupTableView()
+        setupNavBar()
+    
+    }
+    
+    //表格
+    private func setupTableView() {
+        
+        tableView = UITableView(frame:view.bounds,style:.plain)
+        
+//        view.addSubview(tableView!)
+        view.insertSubview(tableView!, belowSubview: navigationBar)
+        
+        
+        
+    }
+    
+    private func setupNavBar() {
         
         //取消自动缩进 - 如果隐藏了导航栏，会缩进 20 个点
-//        if (@available(iOS 11.0, *)) {
-//
-//            contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-//
-//        }else {
-//
-//           automaticallyAdjustsScrollViewInsets = false;
-//
-//        }
-
-//        navigationBar.frame = CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64)
+        //        if (@available(iOS 11.0, *)) {
+        //
+        //            contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        //
+        //        }else {
+        //
+        //           automaticallyAdjustsScrollViewInsets = false;
+        //
+        //        }
+        
+        //        navigationBar.frame = CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64)
         
         //添加导航条
         view.addSubview(navigationBar)
         
         
-//        navigationBar.backgroundColor = UIColor.cyan
+        //        navigationBar.backgroundColor = UIColor.cyan
         //将item设置给bar
         navigationBar.items = [navItem]
-
-     
+        
+        
         
         //设置navBar的渲染颜色
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
-
+        
         //设置nav字体颜色
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
-//        navigationBar.tintColor = UIColor.red
+        //        navigationBar.tintColor = UIColor.red
         
-
+        
+        
     }
+    
 }
 
 

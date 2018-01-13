@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weibo/Classes/View/Main/WBBaseViewController.swift"
-            timestampString = "537543844.552357"
+            timestampString = "537544458.011095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "WBBaseViewController"
             landmarkType = "3">
             <Locations>
