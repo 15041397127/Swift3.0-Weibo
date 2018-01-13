@@ -48,7 +48,7 @@ class WBNavigationController: UINavigationController {
                 
                 
                 //取出自定义的 navItem
-                vc.navItem.leftBarButtonItem = UIBarButtonItem(title:title,target:self,action:#selector(popToParent))
+                vc.navItem.leftBarButtonItem = UIBarButtonItem(title:title,target:self,action:#selector(popToParent),isBackButton:true)
                 
             }
         }

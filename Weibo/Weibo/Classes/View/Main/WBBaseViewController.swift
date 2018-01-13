@@ -13,6 +13,7 @@ class WBBaseViewController: UIViewController {
     //自定义导航条
  
     lazy var navigationBar = UINavigationBar(frame:CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64))
+//
 
    //自定义的导航条目
     lazy var navItem = UINavigationItem()
@@ -25,12 +26,13 @@ class WBBaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    
+
+
     override func viewDidLayoutSubviews() {
         
        super.viewDidLayoutSubviews()
  
-
+      
          if #available(iOS 11.0, *) {
             navigationBar.isTranslucent = false
             if UIScreen.main.bounds.height == 812 {
@@ -53,17 +55,11 @@ class WBBaseViewController: UIViewController {
                 
             }
             
-    
-
-
          }else{
-
-
 
         }
     }
-    
-    
+ 
 
     
     override var title: String?{
@@ -102,24 +98,50 @@ extension WBBaseViewController{
 //
 //        }
 
-
+//        navigationBar.frame = CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64)
         
- 
         //添加导航条
         view.addSubview(navigationBar)
         
-
         
 //        navigationBar.backgroundColor = UIColor.cyan
         //将item设置给bar
-        
         navigationBar.items = [navItem]
+
+     
         
         //设置navBar的渲染颜色
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
 
+        //设置nav字体颜色
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
+//        navigationBar.tintColor = UIColor.red
         
+
     }
 }
+
+
+//extension UINavigationBar{
+//
+//
+//    override open func layoutSubviews() {
+//            super.layoutSubviews()
+////          self.frame = CGRect(x: 0, y: 0, width:UIScreen.cz_screenWidth(), height: 64)
+//  self.frame  = CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64)
+//            for aView in self.subviews {
+//                if NSStringFromClass(type(of: aView)) == "_UINavigationBarContentView" {
+//                    aView.frame = CGRect(x: 0, y: 20, width: aView.frame.width, height: aView.frame.height)
+//                }
+//                else if NSStringFromClass(type(of: aView)) == "_UIBarBackground" {
+//                    aView.frame = CGRect(x: 0, y: 0, width: aView.frame.width, height: self.frame.height)
+//                }
+//            }
+//        
+//
+//        }
+//}
+
+
 
 

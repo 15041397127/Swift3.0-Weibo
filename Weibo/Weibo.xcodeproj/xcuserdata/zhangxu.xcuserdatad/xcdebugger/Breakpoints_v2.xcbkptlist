@@ -13,5 +13,83 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weibo/Classes/View/Main/WBBaseViewController.swift"
+            timestampString = "537543844.552357"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "WBBaseViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weibo.WBBaseViewController.navigationBar.getter : __ObjC.UINavigationBar"
+                  moduleName = "Weibo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537537579.9558361"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "145">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weibo.WBBaseViewController.navigationBar.setter : __ObjC.UINavigationBar"
+                  moduleName = "Weibo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537537579.958902"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weibo.WBBaseViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Weibo.WBBaseViewController"
+                  moduleName = "Weibo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537537579.962105"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weibo.WBBaseViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Weibo.WBBaseViewController&gt;"
+                  moduleName = "Weibo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537537579.9650789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

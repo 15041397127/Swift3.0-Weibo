@@ -21,6 +21,13 @@ class WBMainViewController: UITabBarController {
         // Do any additional setup after loading the view.
     }
     
+    //播放视频 通常是用  modal展现的(present)
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        
+        return .portrait
+        
+    }
+    
     //MARK: - 监听方法
     //撰写微博
     //FIXME:没有实现
@@ -29,6 +36,13 @@ class WBMainViewController: UITabBarController {
     @objc private func composeStatues()  {
         
         print("撰写微博")
+        
+        let vc = UIViewController ()
+        vc.view.backgroundColor = UIColor.cz_random()
+        let nav = UINavigationController(rootViewController:vc)
+        
+        present(nav, animated: true, completion: nil)
+        
     }
     
 
