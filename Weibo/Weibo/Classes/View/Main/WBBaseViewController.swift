@@ -8,6 +8,16 @@
 
 import UIKit
 
+//面试题:OC中支持多继承吗(不支持), 如何替代:使用协议
+//swift的写法更类似于多继承
+//class WBBaseViewController:UITableViewDelegate,UITableViewDataSource
+
+
+// Swift中，利用 extension 可以把“函数”按照功能分类管理，便于阅读和维护
+//注意：
+//1.extension 中不能有属性
+//2.extension 中不能重写“父类”本类的方法；重写父类的方法是子类的职责，扩展是对类的扩展
+
 class WBBaseViewController: UIViewController {
 
     //可选的tableview
@@ -26,6 +36,7 @@ class WBBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        loadData()
         
         // Do any additional setup after loading the view.
     }
@@ -76,6 +87,13 @@ class WBBaseViewController: UIViewController {
         }
 
     }
+    
+    //加载数据 -具体的实现由子类负责
+    func loadData(){
+        
+        
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,6 +121,8 @@ extension WBBaseViewController{
 //        view.addSubview(tableView!)
         view.insertSubview(tableView!, belowSubview: navigationBar)
         
+        tableView?.delegate = self
+        tableView?.dataSource = self
         
         
     }
@@ -110,15 +130,15 @@ extension WBBaseViewController{
     private func setupNavBar() {
         
         //取消自动缩进 - 如果隐藏了导航栏，会缩进 20 个点
-        //        if (@available(iOS 11.0, *)) {
-        //
-        //            contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        //
-        //        }else {
-        //
-        //           automaticallyAdjustsScrollViewInsets = false;
-        //
-        //        }
+//                  if #available(iOS 11.0, *) {
+//
+//                tableView?.contentInsetAdjustmentBehavior = .never
+//
+//                }else {
+//
+//                   automaticallyAdjustsScrollViewInsets = false;
+//
+//                }
         
         //        navigationBar.frame = CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64)
         
@@ -144,6 +164,26 @@ extension WBBaseViewController{
     }
     
 }
+
+//MARK:tableview 数据源 代理方法
+extension WBBaseViewController :UITableViewDataSource,UITableViewDelegate{
+    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//
+//    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    //基类只是准备方法 子类负责具体的实现
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
+    }
+}
+
+
 
 
 //extension UINavigationBar{

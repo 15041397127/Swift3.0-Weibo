@@ -8,7 +8,14 @@
 
 import UIKit
 
+//定义全局常量,最好private修饰 否在其他也可以访问
+private let cellId = "cellId"
+
 class WBHomeViewController: WBBaseViewController {
+    
+    //微博数据数组
+    private lazy var statusList = [String]()
+    
     
     override func viewDidLoad(){
         
@@ -16,6 +23,19 @@ class WBHomeViewController: WBBaseViewController {
    
         
     }
+    
+    override func loadData() {
+         super .loadData()
+        
+        for i in 0..<10 {
+            
+            //将数据插入到数组的顶部
+            statusList.insert(i.description, at: 0)
+        }
+        
+        
+    }
+    
     @objc private func showFriends(){
         
         print(#function)
@@ -29,6 +49,33 @@ class WBHomeViewController: WBBaseViewController {
     }
 
 }
+
+//MARK:- 表格数据源方法
+extension WBHomeViewController{
+    
+  override  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+  
+  {
+     return statusList.count
+        
+  }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //1.取cell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        //2.设置cell
+        
+        cell.textLabel?.text = statusList[indexPath.row]
+        
+        return cell
+        
+    }
+    
+}
+
 
 //MARK:设置页面
 extension WBHomeViewController {
@@ -47,6 +94,9 @@ extension WBHomeViewController {
         
         
          navItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", target: self, action:  #selector(showFriends))
+        
+        //注册原型cell
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
    
 }
