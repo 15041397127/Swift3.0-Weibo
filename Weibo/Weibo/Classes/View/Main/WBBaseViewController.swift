@@ -189,6 +189,9 @@ extension WBBaseViewController :UITableViewDataSource,UITableViewDelegate{
         //如果是最后一行 ,同时没有开始上拉刷新
         if row == (count - 1) && !isPullUp {
             print("上啦刷新")
+            isPullUp = true
+            //开始刷新
+            loadData()
         }
         
     }
