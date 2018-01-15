@@ -20,6 +20,9 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
+    //设置登陆状态
+    var userLogon  = false
+    
     //可选的tableview
     var tableView:UITableView?
     
@@ -60,6 +63,8 @@ class WBBaseViewController: UIViewController {
     //加载数据 -具体的实现由子类负责
     @objc func loadData(){
         
+        //如果子类不实现任何方法,默认关闭刷新控件
+        refreshControl?.endRefreshing()
         
         
     }
@@ -77,10 +82,11 @@ extension WBBaseViewController{
     @objc  func setupUI(){
 
     
-        view.backgroundColor = UIColor.cz_random()
-        setupTableView()
-        setupNavBar()
+        view.backgroundColor = UIColor.white
         
+    
+        setupNavBar()
+        userLogon ? setupTableView() : visitorView()
         //取消自动缩进 - 如果隐藏了导航栏，会缩进 20 个点
         if #available(iOS 11.0, *) {
             
@@ -127,6 +133,15 @@ extension WBBaseViewController{
         //3.添加监听方法
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
+        
+    }
+    
+    private func visitorView(){
+        
+        let visitorView = UIView(frame:view.bounds)
+        visitorView.backgroundColor = UIColor.cz_random()
+        
+        view.insertSubview(visitorView, belowSubview: navigationBar)
         
     }
     
