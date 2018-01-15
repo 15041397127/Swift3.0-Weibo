@@ -20,6 +20,7 @@
 		3481AF932005DF96009F58BF /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF922005DF96009F58BF /* WeiboTests.swift */; };
 		3481AF9E2005DF96009F58BF /* WeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF9D2005DF96009F58BF /* WeiboUITests.swift */; };
 		3495713B200C473A00F77C55 /* WBNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495713A200C473A00F77C55 /* WBNavBar.swift */; };
+		3496BA3D200CE9F5008E60A2 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3496BA3C200CE9F5008E60A2 /* WBVisitorView.swift */; };
 		349DDE8F200700280078743F /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 349DDE76200700250078743F /* UIViewController+CZAddition.m */; };
 		349DDE90200700280078743F /* UILabel+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 349DDE77200700250078743F /* UILabel+CZAddition.m */; };
 		349DDE91200700280078743F /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 349DDE78200700250078743F /* NSArray+Log.m */; };
@@ -74,6 +75,7 @@
 		3481AF9D2005DF96009F58BF /* WeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboUITests.swift; sourceTree = "<group>"; };
 		3481AF9F2005DF96009F58BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3495713A200C473A00F77C55 /* WBNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavBar.swift; sourceTree = "<group>"; };
+		3496BA3C200CE9F5008E60A2 /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
 		349DDE76200700250078743F /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
 		349DDE77200700250078743F /* UILabel+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CZAddition.m"; sourceTree = "<group>"; };
 		349DDE78200700250078743F /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		3415EC6620060E830087B901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3496BA3B200CE95E008E60A2 /* VisitorView */,
 				346FEF7C2007A42B003EE3C8 /* 测试 */,
 				3415EC67200610210087B901 /* WBMainViewController.swift */,
 				3415EC69200610C00087B901 /* WBNavigationController.swift */,
@@ -265,6 +268,14 @@
 				3481AF9F2005DF96009F58BF /* Info.plist */,
 			);
 			path = WeiboUITests;
+			sourceTree = "<group>";
+		};
+		3496BA3B200CE95E008E60A2 /* VisitorView */ = {
+			isa = PBXGroup;
+			children = (
+				3496BA3C200CE9F5008E60A2 /* WBVisitorView.swift */,
+			);
+			path = VisitorView;
 			sourceTree = "<group>";
 		};
 		349DDE262006FDA10078743F /* Recovered References */ = {
@@ -507,6 +518,7 @@
 				349DDE97200700280078743F /* UIButton+CZAddition.m in Sources */,
 				3495713B200C473A00F77C55 /* WBNavBar.swift in Sources */,
 				349DDE92200700280078743F /* UIScreen+CZAddition.m in Sources */,
+				3496BA3D200CE9F5008E60A2 /* WBVisitorView.swift in Sources */,
 				349DDE93200700280078743F /* UIColor+CZAddition.m in Sources */,
 				3415EC70200612230087B901 /* WBMessageViewController.swift in Sources */,
 				349DDE9A200700280078743F /* UIView+CZAddition.m in Sources */,
