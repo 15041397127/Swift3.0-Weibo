@@ -26,7 +26,7 @@ class WBBaseViewController: UIViewController {
     
     //自定义导航条
  
-    lazy var navigationBar = UINavigationBar(frame:CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64))
+    lazy var navigationBar = WBNavBar(frame:CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64))
 //
 
    //自定义的导航条目
@@ -40,42 +40,6 @@ class WBBaseViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
-
-
-    override func viewDidLayoutSubviews() {
-        
-       super.viewDidLayoutSubviews()
- 
-      
-         if #available(iOS 11.0, *) {
-            navigationBar.isTranslucent = false
-            if UIScreen.main.bounds.height == 812 {
-                
-                navigationBar.frame = CGRect(x: 0, y: 44, width: UIScreen.cz_screenWidth(), height: 62)
-             
-                let view1 = UIView()
-                view1.frame = CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 44)
-                view1.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
-                view .addSubview(view1)
-                
-            }else{
-                navigationBar.frame = CGRect(x: 0, y: 20, width: UIScreen.cz_screenWidth(), height: 44)
-
-                let view1 = UIView()
-                view1.frame = CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 20)
-                view1.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
-              
-                view .addSubview(view1)
-                
-            }
-            
-         }else{
-
-        }
-    }
- 
-
     
     override var title: String?{
         //didSet重写set方法
@@ -106,10 +70,22 @@ class WBBaseViewController: UIViewController {
 extension WBBaseViewController{
     
     @objc  func setupUI(){
-        
+
+    
         view.backgroundColor = UIColor.cz_random()
         setupTableView()
         setupNavBar()
+        
+        //取消自动缩进 - 如果隐藏了导航栏，会缩进 20 个点
+        if #available(iOS 11.0, *) {
+            
+            tableView?.contentInsetAdjustmentBehavior = .never
+            
+        }else {
+            
+            automaticallyAdjustsScrollViewInsets = false;
+            
+        }
     
     }
     
@@ -124,22 +100,23 @@ extension WBBaseViewController{
         tableView?.delegate = self
         tableView?.dataSource = self
         
+        let navBarHeight:CGFloat?
+        if UIScreen.main.bounds.height == 812 {
+            
+            navBarHeight = 96
+            
+        }else{
+            navBarHeight = navigationBar.bounds.height
+            
+        }
+        //设置缩进内容
+        tableView?.contentInset  = UIEdgeInsetsMake(navBarHeight ?? 64 , 0,tabBarController?.tabBar.bounds.height ?? 49 , 0)
+        
         
     }
     
     private func setupNavBar() {
-        
-        //取消自动缩进 - 如果隐藏了导航栏，会缩进 20 个点
-//                  if #available(iOS 11.0, *) {
-//
-//                tableView?.contentInsetAdjustmentBehavior = .never
-//
-//                }else {
-//
-//                   automaticallyAdjustsScrollViewInsets = false;
-//
-//                }
-        
+
         //        navigationBar.frame = CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64)
         
         //添加导航条
@@ -168,10 +145,6 @@ extension WBBaseViewController{
 //MARK:tableview 数据源 代理方法
 extension WBBaseViewController :UITableViewDataSource,UITableViewDelegate{
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
@@ -185,27 +158,38 @@ extension WBBaseViewController :UITableViewDataSource,UITableViewDelegate{
 
 
 
-
-//extension UINavigationBar{
+//自己的方式适配ios11 自定义导航栏
+//    override func viewDidLayoutSubviews() {
+//
+//       super.viewDidLayoutSubviews()
 //
 //
-//    override open func layoutSubviews() {
-//            super.layoutSubviews()
-////          self.frame = CGRect(x: 0, y: 0, width:UIScreen.cz_screenWidth(), height: 64)
-//  self.frame  = CGRect(x: 0,y:  0,width:UIScreen.cz_screenWidth(),height: 64)
-//            for aView in self.subviews {
-//                if NSStringFromClass(type(of: aView)) == "_UINavigationBarContentView" {
-//                    aView.frame = CGRect(x: 0, y: 20, width: aView.frame.width, height: aView.frame.height)
-//                }
-//                else if NSStringFromClass(type(of: aView)) == "_UIBarBackground" {
-//                    aView.frame = CGRect(x: 0, y: 0, width: aView.frame.width, height: self.frame.height)
-//                }
+//         if #available(iOS 11.0, *) {
+//            navigationBar.isTranslucent = false
+//            if UIScreen.main.bounds.height == 812 {
+//
+//                navigationBar.frame = CGRect(x: 0, y: 44, width: UIScreen.cz_screenWidth(), height: 62)
+//
+//                let view1 = UIView()
+//                view1.frame = CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 44)
+//                view1.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
+//                view .addSubview(view1)
+//
+//            }else{
+//                navigationBar.frame = CGRect(x: 0, y: 20, width: UIScreen.cz_screenWidth(), height: 44)
+//
+//                let view1 = UIView()
+//                view1.frame = CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 20)
+//                view1.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
+//
+//                view .addSubview(view1)
+//
 //            }
-//        
+//
+//         }else{
 //
 //        }
-//}
-
+//    }
 
 
 

@@ -19,6 +19,7 @@
 		3481AF852005DF96009F58BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3481AF842005DF96009F58BF /* Assets.xcassets */; };
 		3481AF932005DF96009F58BF /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF922005DF96009F58BF /* WeiboTests.swift */; };
 		3481AF9E2005DF96009F58BF /* WeiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF9D2005DF96009F58BF /* WeiboUITests.swift */; };
+		3495713B200C473A00F77C55 /* WBNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495713A200C473A00F77C55 /* WBNavBar.swift */; };
 		349DDE8F200700280078743F /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 349DDE76200700250078743F /* UIViewController+CZAddition.m */; };
 		349DDE90200700280078743F /* UILabel+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 349DDE77200700250078743F /* UILabel+CZAddition.m */; };
 		349DDE91200700280078743F /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 349DDE78200700250078743F /* NSArray+Log.m */; };
@@ -72,6 +73,7 @@
 		3481AF992005DF96009F58BF /* WeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3481AF9D2005DF96009F58BF /* WeiboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboUITests.swift; sourceTree = "<group>"; };
 		3481AF9F2005DF96009F58BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3495713A200C473A00F77C55 /* WBNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavBar.swift; sourceTree = "<group>"; };
 		349DDE76200700250078743F /* UIViewController+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CZAddition.m"; sourceTree = "<group>"; };
 		349DDE77200700250078743F /* UILabel+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CZAddition.m"; sourceTree = "<group>"; };
 		349DDE78200700250078743F /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				349DDE9E200708BD0078743F /* Bundle+Extensions.swift */,
 				349DDEA82008898D0078743F /* UIBarButtonitem+Extensions.swift */,
 				349DDE9C200704550078743F /* Extension+Controller.swift */,
+				3495713A200C473A00F77C55 /* WBNavBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				349DDE90200700280078743F /* UILabel+CZAddition.m in Sources */,
 				3415EC6A200610C00087B901 /* WBNavigationController.swift in Sources */,
 				349DDE97200700280078743F /* UIButton+CZAddition.m in Sources */,
+				3495713B200C473A00F77C55 /* WBNavBar.swift in Sources */,
 				349DDE92200700280078743F /* UIScreen+CZAddition.m in Sources */,
 				349DDE93200700280078743F /* UIColor+CZAddition.m in Sources */,
 				3415EC70200612230087B901 /* WBMessageViewController.swift in Sources */,
