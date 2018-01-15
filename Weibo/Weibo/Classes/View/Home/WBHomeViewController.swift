@@ -42,8 +42,6 @@ class WBHomeViewController: WBBaseViewController {
             //刷新表格
             self.tableView?.reloadData()
         }
-
-        
     }
     
     @objc private func showFriends(){
