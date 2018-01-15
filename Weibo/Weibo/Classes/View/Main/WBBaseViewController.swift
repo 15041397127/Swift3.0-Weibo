@@ -116,7 +116,7 @@ extension WBBaseViewController{
         
         //设置刷新控件
         //1.实例化控件
-          refreshControl = UIRefreshControl()
+        refreshControl = UIRefreshControl()
         
         //2.添加到表格视图
         tableView?.addSubview(refreshControl!)
