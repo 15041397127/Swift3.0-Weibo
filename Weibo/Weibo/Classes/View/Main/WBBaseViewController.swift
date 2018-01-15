@@ -21,8 +21,10 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     //可选的tableview
-    
     var tableView:UITableView?
+    
+    //刷新控件
+    var refreshControl:UIRefreshControl?
     
     //自定义导航条
  
@@ -53,7 +55,7 @@ class WBBaseViewController: UIViewController {
     }
     
     //加载数据 -具体的实现由子类负责
-    func loadData(){
+    @objc func loadData(){
         
         
         
@@ -111,6 +113,16 @@ extension WBBaseViewController{
         }
         //设置缩进内容
         tableView?.contentInset  = UIEdgeInsetsMake(navBarHeight ?? 64 , 0,tabBarController?.tabBar.bounds.height ?? 49 , 0)
+        
+        //设置刷新控件
+        //1.实例化控件
+          refreshControl = UIRefreshControl()
+        
+        //2.添加到表格视图
+        tableView?.addSubview(refreshControl!)
+        
+        //3.添加监听方法
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
         
     }
