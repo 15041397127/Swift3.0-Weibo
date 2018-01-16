@@ -57,7 +57,6 @@ class WBBaseViewController: UIViewController {
             
 
         }
-
     }
     
     //加载数据 -具体的实现由子类负责
