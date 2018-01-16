@@ -24,6 +24,11 @@ class WBVisitorView: UIView {
     //懒加载属性只有调用 UIKit 控件的指定的构造函数,其他都需要使用类型
     //图像视图
     private lazy var iconView:UIImageView = UIImageView(image:UIImage(named:"visitordiscover_feed_image_smallicon"))
+    
+    //遮罩图片
+    private lazy var maskIconView:UIImageView = UIImageView(image:UIImage(named:"visitordiscover_feed_mask_smallicon"))
+    
+    
     //小房子
     private lazy var houseIconView:UIImageView = UIImageView(image:UIImage(named:"visitordiscover_feed_image_house"))
     
@@ -47,6 +52,7 @@ extension WBVisitorView {
         self.backgroundColor = UIColor.white
         //1.添加控件
         addSubview(iconView)
+        addSubview(maskIconView)
         addSubview(houseIconView)
         addSubview(tipLabel)
         addSubview(registerButton)
@@ -159,6 +165,20 @@ extension WBVisitorView {
                                               attribute: .width,
                                               multiplier: 1.0,
                                               constant: 0))
+        //遮罩图像
+        //views:定义VFL中控件名称和实际名称映射关系
+        let viewDict = ["maskIconView":maskIconView,
+                        "registerButton":registerButton] as [String : Any]
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[maskIconView]-0-|",
+            options: [],
+            metrics: nil,
+            views: viewDict))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[maskIconView]-(35)-[registerButton]",
+            options: [],
+            metrics: nil,
+            views: viewDict))
         
     }
 
