@@ -10,7 +10,31 @@ import UIKit
 
 //访客视图
 class WBVisitorView: UIView {
-
+   
+    //访客视图的信息字典  [imageName / message]
+    //提示:如果是首页 imageName == ""
+    var visitorInfo:[String:String]?{
+        
+        didSet{
+            //1.去字典信息
+            guard let imageName = visitorInfo?["imageName"],
+                let message = visitorInfo?["message"] else{
+                    return
+            }
+            
+            //2.设置消息
+            tipLabel.text = message
+            
+            //3.设置图像,首页不需要设置
+            if imageName == "" {
+                return
+            }
+            
+            iconView.image = UIImage(named:imageName)
+        }
+    }
+    
+    //MARK:构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -19,6 +43,19 @@ class WBVisitorView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK:-设置访客视图信息
+    /// 使用字典设置访客视图的信息
+    ///
+    /// - Parameter dict: [imageName / message]
+    //提示:如果是首页 imageName == ""
+    func  setupInfo(dict:[String:String]){
+        
+        //在上面已经优化
+        
+        
+    }
+    
     
     //MARK:添加私有控件
     //懒加载属性只有调用 UIKit 控件的指定的构造函数,其他都需要使用类型
