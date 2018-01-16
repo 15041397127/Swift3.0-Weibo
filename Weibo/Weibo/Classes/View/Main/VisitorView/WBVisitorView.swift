@@ -146,13 +146,13 @@ extension WBVisitorView {
                                               multiplier: 1.0,
                                               constant: margin))
         
-//        addConstraint(NSLayoutConstraint.init(item: tipLabel,
-//                                              attribute: .width,
-//                                              relatedBy: .equal,
-//                                              toItem: nil,
-//                                              attribute: .notAnAttribute,
-//                                              multiplier: 1.0,
-//                                              constant: 236))
+        addConstraint(NSLayoutConstraint.init(item: tipLabel,
+                                              attribute: .width,
+                                              relatedBy: .equal,
+                                              toItem: nil,
+                                              attribute: .notAnAttribute,
+                                              multiplier: 1.0,
+                                              constant: 236))
         
         //注册
         addConstraint(NSLayoutConstraint.init(item: registerButton,

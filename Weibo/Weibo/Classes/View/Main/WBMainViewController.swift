@@ -89,11 +89,11 @@ extension WBMainViewController{
     private func setupChildController(){
         
         let array: [[String:AnyObject]] = [
-            (["clsName":"WBHomeViewController","title":"首页","imageName":"home","visitorView":["imageName":"","message":"关注一些人，回到这里看看有什么惊喜"]] as AnyObject) as! Dictionary<String, AnyObject>,
-            (["clsName":"WBMessageViewController","title":"消息","imageName":"message_center","visitorView":["imageName":"visitordiscover_image_message","message":"登录后，别人评论你的微博,发给你的消息,这里可以收到通知"]] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBHomeViewController","title":"首页","imageName":"home","visitorInfo":["imageName":"","message":"关注一些人，回到这里看看有什么惊喜"]] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBMessageViewController","title":"消息","imageName":"message_center","visitorInfo":["imageName":"visitordiscover_image_message","message":"登录后，别人评论你的微博,发给你的消息,这里可以收到通知"]] as AnyObject) as! Dictionary<String, AnyObject>,
             (["clsName":"UIViewController"] as AnyObject) as! Dictionary<String, AnyObject>,//增加中间加号
-            (["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover","visitorView":["imageName":"visitordiscover_image_message","message":"登录后，最新、最热微博尽在账务,不再会与事实擦肩而过"]] as AnyObject) as! Dictionary<String, AnyObject>,
-            (["clsName":"WBProfileViewController","title":"我","imageName":"profile","visitorView":["imageName":"visitordiscover_image_profile","message":"登录后，你的微博、你的相册、个人资料会显示在这里,展示给别人"]] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover","visitorInfo":["imageName":"visitordiscover_image_message","message":"登录后，最新、最热微博尽在账务,不再会与事实擦肩而过"]] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBProfileViewController","title":"我","imageName":"profile","visitorInfo":["imageName":"visitordiscover_image_profile","message":"登录后，你的微博、你的相册、个人资料会显示在这里,展示给别人"]] as AnyObject) as! Dictionary<String, AnyObject>,
             ]
         
         //测试数据格式是否正确 转成plist数据更加直观
@@ -120,7 +120,8 @@ extension WBMainViewController{
         guard  let clsName = dict["clsName"] as? String ,
             let title = dict["title"] as? String,
             let imageName = dict["imageName"] as? String,
-            let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? UIViewController.Type
+            let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? WBBaseViewController.Type,
+            let visitorDic = dict["visitorInfo"] as? [String:String]
             else {
                 
                 return UIViewController()
@@ -131,6 +132,9 @@ extension WBMainViewController{
         let vc = cls.init()
         
         vc.title = title
+        
+        //设置控制器的访客视图信息字典
+        vc.visitorInfoDict = visitorDic
         
         //3设置图像
         
