@@ -89,12 +89,15 @@ extension WBMainViewController{
     private func setupChildController(){
         
         let array: [[String:AnyObject]] = [
-            (["clsName":"WBHomeViewController","title":"首页","imageName":"home","visitorView":["imageName":"","message":"哈哈哈"]] as AnyObject) as! Dictionary<String, AnyObject>,
-            (["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBHomeViewController","title":"首页","imageName":"home","visitorView":["imageName":"","message":"关注一些人，回到这里看看有什么惊喜"]] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBMessageViewController","title":"消息","imageName":"message_center","visitorView":["imageName":"visitordiscover_image_message","message":"登录后，别人评论你的微博,发给你的消息,这里可以收到通知"]] as AnyObject) as! Dictionary<String, AnyObject>,
             (["clsName":"UIViewController"] as AnyObject) as! Dictionary<String, AnyObject>,//增加中间加号
-            (["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"] as AnyObject) as! Dictionary<String, AnyObject>,
-            (["clsName":"WBProfileViewController","title":"我","imageName":"profile"] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover","visitorView":["imageName":"visitordiscover_image_message","message":"登录后，最新、最热微博尽在账务,不再会与事实擦肩而过"]] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBProfileViewController","title":"我","imageName":"profile","visitorView":["imageName":"visitordiscover_image_profile","message":"登录后，你的微博、你的相册、个人资料会显示在这里,展示给别人"]] as AnyObject) as! Dictionary<String, AnyObject>,
             ]
+        
+        //测试数据格式是否正确 转成plist数据更加直观
+       // (array as NSArray).write(toFile: "/Users/zhangxu/Desktop/demo.plist", atomically: true)
         
         var arrayM = [UIViewController]()
         for dict in array {
@@ -109,7 +112,7 @@ extension WBMainViewController{
     
     /// 使用一个字典创建一个子控制器
     ///
-    /// - Parameter dict: 信息字典[clsName ,title ,imageName]
+    /// - Parameter dict: 信息字典[clsName ,title ,imageName,visitorView]
     /// - Returns: 子控制器
     private func controller(dict:[String: AnyObject]) -> UIViewController{
         
