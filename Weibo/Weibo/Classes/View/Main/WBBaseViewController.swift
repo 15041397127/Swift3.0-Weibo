@@ -23,6 +23,9 @@ class WBBaseViewController: UIViewController {
     //设置登陆状态
     var userLogon  = false
     
+    //访客视图信息字典
+    var visitorInfoDict: [String:String]?
+    
     //可选的tableview
     var tableView:UITableView?
     
@@ -140,6 +143,9 @@ extension WBBaseViewController{
         let visitorView = WBVisitorView(frame:view.bounds)
         
         view.insertSubview(visitorView, belowSubview: navigationBar)
+        
+        //设置访客视图信息
+        visitorView.visitorInfo = visitorInfoDict
         
     }
     

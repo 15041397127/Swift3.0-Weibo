@@ -88,12 +88,12 @@ extension WBMainViewController{
     //设置所有子控制器
     private func setupChildController(){
         
-        let array = [
-            ["clsName":"WBHomeViewController","title":"首页","imageName":"home"],
-             ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
-             ["clsName":"UIViewController"],//增加中间加号
-              ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
-               ["clsName":"WBProfileViewController","title":"我","imageName":"profile"],
+        let array: [[String:AnyObject]] = [
+            (["clsName":"WBHomeViewController","title":"首页","imageName":"home","visitorView":["imageName":"","message":"哈哈哈"]] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"UIViewController"] as AnyObject) as! Dictionary<String, AnyObject>,//增加中间加号
+            (["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"] as AnyObject) as! Dictionary<String, AnyObject>,
+            (["clsName":"WBProfileViewController","title":"我","imageName":"profile"] as AnyObject) as! Dictionary<String, AnyObject>,
             ]
         
         var arrayM = [UIViewController]()
@@ -111,12 +111,12 @@ extension WBMainViewController{
     ///
     /// - Parameter dict: 信息字典[clsName ,title ,imageName]
     /// - Returns: 子控制器
-    private func controller(dict:[String: String]) -> UIViewController{
+    private func controller(dict:[String: AnyObject]) -> UIViewController{
         
         //1.取得字典内容
-        guard  let clsName = dict["clsName"],
-            let title = dict["title"],
-            let imageName = dict["imageName"],
+        guard  let clsName = dict["clsName"] as? String ,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
             let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? UIViewController.Type
             else {
                 
