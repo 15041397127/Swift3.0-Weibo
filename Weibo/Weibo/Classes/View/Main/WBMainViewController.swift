@@ -88,6 +88,7 @@ extension WBMainViewController{
     //设置所有子控制器
     private func setupChildController(){
         
+        /*
         let array: [[String:AnyObject]] = [
             (["clsName":"WBHomeViewController","title":"首页","imageName":"home","visitorInfo":["imageName":"","message":"关注一些人，回到这里看看有什么惊喜"]] as AnyObject) as! Dictionary<String, AnyObject>,
             (["clsName":"WBMessageViewController","title":"消息","imageName":"message_center","visitorInfo":["imageName":"visitordiscover_image_message","message":"登录后，别人评论你的微博,发给你的消息,这里可以收到通知"]] as AnyObject) as! Dictionary<String, AnyObject>,
@@ -103,15 +104,29 @@ extension WBMainViewController{
         let data = try!JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
         
         (data as NSData).write(toFile: "/Users/zhangxu/Desktop/main.json", atomically: true)
+ 
+   */
+        //从bundle加载配置的json
+        //1.路径 2.加载NSData 3.反序列化转换成数组
+        
+        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
+            let  data = NSData(contentsOfFile: path),
+            let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String:AnyObject]]
+        
+            else {
+                return
+            
+        }
         
         
-        
+        //遍历数组 循环创建控制器数组
         var arrayM = [UIViewController]()
-        for dict in array {
+        for dict in array! {
             
             arrayM.append(controller(dict: dict))
         }
         
+        //设置 tabBar的子控制器
         viewControllers = arrayM
         
     }
