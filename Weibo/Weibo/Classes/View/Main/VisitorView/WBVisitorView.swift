@@ -27,6 +27,7 @@ class WBVisitorView: UIView {
             
             //3.设置图像,首页不需要设置
             if imageName == "" {
+                startAnimation()
                 return
             }
             
@@ -47,6 +48,26 @@ class WBVisitorView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //旋转图标
+    private func startAnimation(){
+        
+        let anim = CABasicAnimation(keyPath:"transform.rotation")
+        
+        anim.toValue = 2 * M_PI
+        anim.duration = 15
+        anim.repeatCount = MAXFLOAT
+        
+        //动画完成不删除,如果iconView被释放 动画会一起销毁
+        //在设置连续播放的动画非常有用!
+        
+        anim.isRemovedOnCompletion = false
+        
+        //将动画添加到图层
+        iconView.layer.add(anim, forKey: nil)
+        
+    }
+    
     
     //MARK:-设置访客视图信息
     /// 使用字典设置访客视图的信息
