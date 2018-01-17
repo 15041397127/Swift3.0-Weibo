@@ -99,6 +99,13 @@ extension WBMainViewController{
         //测试数据格式是否正确 转成plist数据更加直观
        // (array as NSArray).write(toFile: "/Users/zhangxu/Desktop/demo.plist", atomically: true)
         
+        //数组 -> json序列化
+        let data = try!JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+        
+        (data as NSData).write(toFile: "/Users/zhangxu/Desktop/main.json", atomically: true)
+        
+        
+        
         var arrayM = [UIViewController]()
         for dict in array {
             
