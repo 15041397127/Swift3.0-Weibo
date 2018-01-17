@@ -55,9 +55,9 @@ class WBVisitorView: UIView {
         let anim = CABasicAnimation(keyPath:"transform.rotation")
         
         anim.toValue = 2 * M_PI
-        anim.duration = 15
         anim.repeatCount = MAXFLOAT
-        
+        anim.duration = 15
+       
         //动画完成不删除,如果iconView被释放 动画会一起销毁
         //在设置连续播放的动画非常有用!
         
