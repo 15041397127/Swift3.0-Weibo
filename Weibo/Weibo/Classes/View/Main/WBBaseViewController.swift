@@ -21,7 +21,7 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     //设置登陆状态
-    var userLogon  = true
+    var userLogon  = false
     
     //访客视图信息字典
     var visitorInfoDict: [String:String]?
