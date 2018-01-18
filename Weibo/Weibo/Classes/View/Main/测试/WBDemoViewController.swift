@@ -49,9 +49,10 @@ class WBDemoViewController: WBBaseViewController {
 
 extension WBDemoViewController {
     
-    override func setupUI() {
+    override func setupTableView() {
+  
         
-        super.setupUI()
+        super.setupTableView()
        // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个",style: .plain, target:self ,action:#selector(showNext))
         
 //        let btn:UIButton = UIButton.cz_textButton("下一个", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
