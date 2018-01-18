@@ -195,6 +195,10 @@ extension WBBaseViewController{
         //        navigationBar.tintColor = UIColor.red
         
         
+        //设置系统按钮的文字渲染颜色
+        navigationBar.tintColor = UIColor.orange
+        
+        
         
     }
     
