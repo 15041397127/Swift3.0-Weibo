@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weibo/Classes/View/Main/WBBaseViewController.swift"
-            timestampString = "537546396.614736"
+            timestampString = "537788106.084715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "WBBaseViewController"
             landmarkType = "3">
             <Locations>
@@ -32,30 +32,30 @@
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Weibo.WBBaseViewController.navigationBar.getter : __ObjC.UINavigationBar"
+                  symbolName = "Weibo.WBBaseViewController.navigationBar.getter : Weibo.WBNavBar"
                   moduleName = "Weibo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
-                  timestampString = "537537579.9558361"
+                  urlString = "file:///Users/zhangxu/Desktop/%E5%AD%A6%E4%B9%A0/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537677648.125038"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
                   offsetFromSymbolStart = "145">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Weibo.WBBaseViewController.navigationBar.setter : __ObjC.UINavigationBar"
+                  symbolName = "Weibo.WBBaseViewController.navigationBar.setter : Weibo.WBNavBar"
                   moduleName = "Weibo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
-                  timestampString = "537537579.958902"
+                  urlString = "file:///Users/zhangxu/Desktop/%E5%AD%A6%E4%B9%A0/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537677648.127243"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
                   offsetFromSymbolStart = "112">
                </Location>
                <Location
@@ -65,13 +65,13 @@
                   symbolName = "Weibo.WBBaseViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Weibo.WBBaseViewController"
                   moduleName = "Weibo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
-                  timestampString = "537537579.962105"
+                  urlString = "file:///Users/zhangxu/Desktop/%E5%AD%A6%E4%B9%A0/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537677648.129859"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "77">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "227">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -80,13 +80,13 @@
                   symbolName = "Weibo.WBBaseViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Weibo.WBBaseViewController&gt;"
                   moduleName = "Weibo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangxu/Desktop/Swift%E5%AD%A6%E4%B9%A0/Weibo/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
-                  timestampString = "537537579.9650789"
+                  urlString = "file:///Users/zhangxu/Desktop/%E5%AD%A6%E4%B9%A0/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A/Weibo/Weibo/Classes/View/Main/WBBaseViewController.swift"
+                  timestampString = "537677648.131343"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "46">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "156">
                </Location>
             </Locations>
          </BreakpointContent>
