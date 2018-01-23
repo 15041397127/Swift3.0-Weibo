@@ -17,9 +17,9 @@ extension WBNetWorkManager{
     func statusList(completion:@escaping(_ list:[[String:Any]]?,_ isSuccess:Bool) -> ()){
         
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token":"2.00zRg7yBI5bbwBda3940370fQ4ijnC"]
-        
-        request(method: .GET, URLString: urlString, parameters: params) { (json, isSuccess) in
+//        let params = ["access_token":"2.00zRg7yBI5bbwBda3940370fQ4ijnC"]
+    
+        tokenRequest(method: .GET, URLString: urlString, parameters: nil) { (json, isSuccess) in
             
             //从json中获取 statuses字典数组
             //如果as?失败 result = nil

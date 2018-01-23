@@ -23,6 +23,39 @@ class WBNetWorkManager: AFHTTPSessionManager {
     //静态区/ 常量 / 闭包
     //在第一次访问时 执行闭包 并且将结果保存在shared 常量中
     static let shared = WBNetWorkManager()
+    
+    //访问令牌 所有网络请求,都基于此令牌(登陆除外)
+    var accessToken:String? = "2.00zRg7yBI5bbwBda3940370fQ4ijnC"
+    
+    
+    //专门负责拼接token 的网路请求方法
+    func tokenRequest(method:WBHTTPMethod = .GET,URLString:String,parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool) ->()){
+        
+        //处理token字典
+        //0>判断token是否为nil  为nil直接返回
+        guard let token = accessToken else {
+            
+            print("没有token!需要登录")
+            completion(nil,false)
+            return
+        }
+        
+        //1> 判断 参数字典是否存在 如果为nil 应该新建一个字典
+        var parameters = parameters
+        
+        if parameters == nil {
+            parameters = [String:Any]()
+        }
+        
+        //2>设置参数字典,代码在此处字典一定有值 可以强行解包
+        parameters!["access_token"] = token
+        
+        
+        //调用request发起真正的网络请求方法
+        request(URLString: URLString, parameters: parameters!, completion: completion)
+        
+        
+    }
     //使用一个函数封装AFNde get 和post
   
     /// 封装AF get/post请求
