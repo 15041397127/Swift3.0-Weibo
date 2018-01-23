@@ -51,7 +51,6 @@ class WBNetWorkManager: AFHTTPSessionManager {
         if method == .GET {
             get(URLString, parameters: parameters, progress: nil, success: succsess, failure: failure)
             
-//            get(URLString, parameters: parameters, progress: nil , success: succsess, failure: failure)
         }else{
             
             post(URLString, parameters: parameters, progress: nil, success: succsess, failure: failure)
