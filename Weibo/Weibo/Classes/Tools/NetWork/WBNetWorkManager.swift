@@ -25,6 +25,8 @@ class WBNetWorkManager: AFHTTPSessionManager {
     static let shared = WBNetWorkManager()
     
     //访问令牌 所有网络请求,都基于此令牌(登陆除外)
+    //访问令牌有时限,默认3天
+    //token过期 返回403
     var accessToken:String? = "2.00zRg7yBI5bbwBda3940370fQ4ijnC"
     
     
@@ -34,7 +36,7 @@ class WBNetWorkManager: AFHTTPSessionManager {
         //处理token字典
         //0>判断token是否为nil  为nil直接返回
         guard let token = accessToken else {
-            
+            //FIXME:发送通知
             print("没有token!需要登录")
             completion(nil,false)
             return
@@ -76,6 +78,16 @@ class WBNetWorkManager: AFHTTPSessionManager {
         
         //失败回调
         let failure = {(task:URLSessionDataTask?,error:Error) -> () in
+            
+            //针对返回403 token过期
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                
+                print("Token过期")
+                //FIXME:发送通知
+                
+            }
+            
+            
             //error 通常比较吓人 例如编号 XXXX 错误原因一堆英文
             print("网络请求错误\(error)")
             completion(nil,false)
