@@ -23,11 +23,11 @@ extension WBNetWorkManager{
             
             //从json中获取 statuses字典数组
             //如果as?失败 result = nil
-            let result =  (json as? NSDictionary)?["statuses"] as? [[String:Any]]
+            let result =  (json as AnyObject)["statuses"] as? [[String:AnyObject]]
             
             completion(result,isSuccess)
             
-//            print(json)
+            print(json)
         }
     }
 }

@@ -33,10 +33,13 @@ class WBSatuesListViewModel {
             
             //1.字典转模型
             guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
-                
+
                 completion(isSuccess)
                 return
             }
+          
+            
+            
             //2.拼接数据
             self.statuesLsit += array
             //3.完成回调

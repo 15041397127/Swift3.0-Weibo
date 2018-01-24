@@ -16,6 +16,7 @@ class WBSatues: NSObject {
     //微博信息内容
     var text:String?
     
+    var pic_urls:String?
     //重写description的计算型属性
     override var description: String{
         

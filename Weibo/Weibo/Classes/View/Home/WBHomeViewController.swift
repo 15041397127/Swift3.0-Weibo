@@ -13,8 +13,11 @@ private let cellId = "cellId"
 
 class WBHomeViewController: WBBaseViewController {
     
-    //微博数据数组
-    private lazy var statusList = [String]()
+    //微博数据数组 原始假数据
+//    private lazy var statusList = [String]()
+    
+    //列表视图模型
+    private lazy var listViewModel = WBSatuesListViewModel()
     
     
     override func viewDidLoad(){
@@ -29,12 +32,27 @@ class WBHomeViewController: WBBaseViewController {
         
         //用网络工具 加载微博数据
        
-        WBNetWorkManager.shared.statusList { (list, isSuccess) in
+//        WBNetWorkManager.shared.statusList { (list, isSuccess) in
+//
+//            print(list)
+//        }
         
-            print(list)
+        listViewModel.loadStatues { (isSuccess) in
+            
+            print("刷新表格")
+            //结束刷新控件
+            self.refreshControl?.endRefreshing()
+            //回复上拉刷新标记
+            self.isPullUp = false
+            //刷新表格
+            self.tableView?.reloadData()
+            
         }
         
+        
         print("开始")
+        
+        /*
         //模拟延时加载 -> dispatch_after
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
 
@@ -60,7 +78,9 @@ class WBHomeViewController: WBBaseViewController {
             self.isPullUp = false
             //刷新表格
             self.tableView?.reloadData()
+
         }
+  */
     }
     
     @objc private func showFriends(){
@@ -83,8 +103,9 @@ extension WBHomeViewController{
   override  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   
   {
-     return statusList.count
-        
+//     return statusList.count
+     return listViewModel.statuesLsit.count
+    
   }
     
     
@@ -95,7 +116,8 @@ extension WBHomeViewController{
         
         //2.设置cell
         
-        cell.textLabel?.text = statusList[indexPath.row]
+//        cell.textLabel?.text = statusList[indexPath.row]
+         cell.textLabel?.text = listViewModel.statuesLsit[indexPath.row].text
         
         return cell
         
