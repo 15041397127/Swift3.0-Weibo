@@ -17,17 +17,19 @@ extension WBNetWorkManager{
     func statusList(completion:@escaping(_ list:[[String:Any]]?,_ isSuccess:Bool) -> ()){
         
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
+//        let urlString = "https://api.weibo.com/2/statuses/user_timeline.json"
+        
 //        let params = ["access_token":"2.00zRg7yBI5bbwBda3940370fQ4ijnC"]
     
         tokenRequest(method: .GET, URLString: urlString, parameters: nil) { (json, isSuccess) in
             
             //从json中获取 statuses字典数组
             //如果as?失败 result = nil
-            let result =  (json as AnyObject)["statuses"] as? [[String:AnyObject]]
-            
+            let result =  (json as AnyObject)["statuses"] as? [[String:Any]]
+          
             completion(result,isSuccess)
             
-            print(json)
+//            print(json)
         }
     }
 }
