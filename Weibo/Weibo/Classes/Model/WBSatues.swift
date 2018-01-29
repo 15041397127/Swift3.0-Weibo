@@ -15,12 +15,27 @@ class WBSatues: NSObject {
     var id:Int64 = 0
     //微博信息内容
     var text:String?
-    
+
     var pic_urls:String?
+
+
+    
+    init(_ dict : [String: Any]){
+        super.init()
+        setValuesForKeys(dict)
+    }
+    
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
+    }
+    
     //重写description的计算型属性
     override var description: String{
         
         return yy_modelDescription()
         
+        
     }
+
+    
+    
 }

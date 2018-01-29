@@ -119,8 +119,8 @@ extension WBHomeViewController{
         //2.设置cell
         
 //        cell.textLabel?.text = statusList[indexPath.row]
-//         cell.textLabel?.text = listViewModel.statuesLsit[indexPath.row].status.text
-        cell.textLabel?.text = "aaaaa"
+         cell.textLabel?.text = listViewModel.statuesLsit[indexPath.row].text
+//        cell.textLabel?.text = "aaaaa"
         return cell
         
     }
