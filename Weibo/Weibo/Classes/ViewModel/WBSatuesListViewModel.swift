@@ -40,132 +40,34 @@ class WBSatuesListViewModel {
             let str = String(data:data!, encoding: String.Encoding.utf8)
             
             guard let allResulrDict = self.getDictionaryFromJSONString(jsonString:str!) as? [[String : Any]] else {return}
-            
-//           self.ljArray.append(WBSatues(allResulrDict))
-            
-            var aaaaaa : [WBSatues] = [WBSatues]()
-          
+
             for dict in allResulrDict{
-//                self.ljArray.append(WBSatues(dict))
-            
-                
-                
+          
 //                aaaaaa.append(WBSatues(dict))
 //               self.statuesLsit.append(WBSatues(dict))
-                var status = WBSatues(dict)
+                let status = WBSatues(dict)
        
-                status.text = (dict["text"] as! String)
+//                status.text = (dict["text"] as! String)
                 
-                
-     
+//                let aaaa  = Statuse.init(fromDictionary: dict)
+           
 //                 self.statuesLsit += status
                 
                
 //                self.ljArray.append(status)
              self.statuesLsit.append(status)
-            
-           
-    
-//            guard  let model = HQStatus.yy_model(with: dict)else{
-//
-//                    completion(isSuccess)
-//                return
-//            }
 
-//                guard  let array = NSDictionary.yy_modelDictionary(with:HQStatus.self, json: dict) as? [HQStatus] else{
-//
-//                completion(isSuccess)
-//                return
-//            }
-//            print(array)
-//
-        
                 
             }
-            
-        
-            
-//            print(self.ljArray)
-//         print(self.ljArray[0])
-            
-//               self.statuesLsit += self.ljArray
-            
-//            print(self.statuesLsit[1])
-            
-            
-//            var arrayM = [HQStatusViewModel]()
-//
-//            for dict in list ?? [] {
-//
-//                print((dict as AnyObject)["text"])
-//
-//                let wwww = dict["text"] as? String
-//
-//                print(wwww)
-                //                for aaa in dict {
-                //
-                //
-                //                    print(aaa)
-                //
-                //                }
 
-                               // 创建微博模型
-//                              let status = HQStatus()
-//                let aa = NSDictionary.yy_modelDictionary(with:HQStatus.self, json: dict)
-//                print(aa)
-            
-                
-//                let aaa = NSArray.yy
-                
-               
-                
-                
-                        //1.字典转模型
-//                           guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
-//
-//                                    // 字典转模型
-//                                        status.yy_modelSet(with: dict)
-//                                         print(status.text)
-//
-//                                    let vvvv = status.text as? String
-//
-//
-//                                      print(HQStatus.yy_model(with: dict))
-//
-//                                    // 使用`HQStatus`创建`HQStatusViewModel`
-//                                    let viewModel = HQStatusViewModel(model: status)
-//                                   print(viewModel.status.text)
-//                                   // 添加到数组
-//                            return
-//
-//                }
-//            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             //1.字典转模型
-//            guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
+//            guard  let array = NSArray.yy_modelArray(with: HQStatus.self, json: list ?? []) as? [HQStatus] else{
 //
 //                completion(isSuccess)
 //                return
 //            }
-//
-//            for dict in list ?? []{
-//                //创建微博模型--如果创建失败，则继续遍历
-//            let model = WBSatues.yy_model(with: dict)
-//            print(model)
-////                else{
-////                    continue
-////                }
-////
-////                array.append(MJStatusViewModel(model: model))
-//            }
+
             
             //2.拼接数据
 //            self.statuesLsit += array

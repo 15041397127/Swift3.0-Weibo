@@ -22,7 +22,10 @@ class WBSatues: NSObject {
     
     init(_ dict : [String: Any]){
         super.init()
-        setValuesForKeys(dict)
+       text = dict["text"] as? String
+       id = (dict["id"] as? Int64)!
+       pic_urls = dict["pic_urls"] as? String
+      setValuesForKeys(dict)
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
