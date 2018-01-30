@@ -104,7 +104,7 @@ extension WBHomeViewController{
   
   {
 //     return statusList.count
-    print("*********\(listViewModel.statuesLsit.count)")
+//    print("*********\(listViewModel.statuesLsit.count)")
      return listViewModel.statuesLsit.count
     
     

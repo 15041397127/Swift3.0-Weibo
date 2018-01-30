@@ -31,7 +31,12 @@ class WBSatuesListViewModel {
     /// - Parameter completion: 完成回调 
     func loadStatues(completion:@escaping(_ isSuccess:Bool) -> ()){
         
-        WBNetWorkManager.shared.statusList { (list, isSuccess) in
+        //since_id 取出数组中第一条微博的id
+        let since_id = statuesLsit.first?.id ?? 0
+        
+        let max_id = statuesLsit.last?.id ?? 0
+        
+        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
             
             
           
@@ -40,25 +45,30 @@ class WBSatuesListViewModel {
             let str = String(data:data!, encoding: String.Encoding.utf8)
             
             guard let allResulrDict = self.getDictionaryFromJSONString(jsonString:str!) as? [[String : Any]] else {return}
-
+            
+         
             for dict in allResulrDict{
           
-//                aaaaaa.append(WBSatues(dict))
-//               self.statuesLsit.append(WBSatues(dict))
                 let status = WBSatues(dict)
        
+                
 //                status.text = (dict["text"] as! String)
                 
 //                let aaaa  = Statuse.init(fromDictionary: dict)
            
 //                 self.statuesLsit += status
                 
+             //下拉刷新,应该讲结果拼接在数组的前面
+                
+                
+//                self.statuesLsit = [status] + self.statuesLsit
+                self.statuesLsit.insert(status, at: 0)
                
-//                self.ljArray.append(status)
-             self.statuesLsit.append(status)
+//             self.statuesLsit.append(status)
 
                 
             }
+            
 
 
             //1.字典转模型
