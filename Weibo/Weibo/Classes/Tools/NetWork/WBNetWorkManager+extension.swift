@@ -23,7 +23,7 @@ extension WBNetWorkManager{
         
         //Swift中int可以转换成AnyObject /但int64不想
         let params = ["since_id":"\(since_id)",
-                      "max_id":"\(max_id)"]
+            "max_id":"\(max_id > 0 ? max_id-1 : 0)"]
 //        let urlString = "https://api.weibo.com/2/statuses/user_timeline.json"
         
 //        let params = ["access_token":"2.00zRg7yBI5bbwBda3940370fQ4ijnC"]

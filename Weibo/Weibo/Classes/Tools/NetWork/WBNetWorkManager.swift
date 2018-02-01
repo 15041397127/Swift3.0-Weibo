@@ -80,6 +80,8 @@ class WBNetWorkManager: AFHTTPSessionManager {
         let failure = {(task:URLSessionDataTask?,error:Error) -> () in
             
             //针对返回403 token过期
+            //测试用户每天的刷新量有限
+            //超出上限 就被token锁定 就要换token
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 
                 print("Token过期")

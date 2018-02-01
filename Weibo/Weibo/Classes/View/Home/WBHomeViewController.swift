@@ -36,8 +36,8 @@ class WBHomeViewController: WBBaseViewController {
 //
 //            print(list)
 //        }
-        
-        listViewModel.loadStatues { (isSuccess) in
+        print("准备刷新,最后一条\(self.listViewModel.statuesLsit.last?.text)")
+        listViewModel.loadStatues(pullUp:self.isPullUp) { (isSuccess) in
             
             print("刷新表格")
             //结束刷新控件

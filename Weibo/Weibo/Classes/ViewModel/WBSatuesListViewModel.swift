@@ -28,15 +28,17 @@ class WBSatuesListViewModel {
     lazy var ljArray : [WBSatues] = [WBSatues]()
     /// 加载微博列表
     ///
+    ///- Parameter pullUp: 是否上啦刷新标记
     /// - Parameter completion: 完成回调 
-    func loadStatues(completion:@escaping(_ isSuccess:Bool) -> ()){
+    func loadStatues(pullUp:Bool, completion:@escaping(_ isSuccess:Bool) -> ()){
         
         //since_id 取出数组中第一条微博的id
-        let since_id = statuesLsit.first?.id ?? 0
+        let since_id = pullUp ?0:statuesLsit.first?.id ?? 0
         
-        let max_id = statuesLsit.last?.id ?? 0
+         //max_id 取出数组中最后一条微博的id
+        let max_id = !pullUp ?0:statuesLsit.last?.id ?? 0
         
-        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: 0){ (list, isSuccess) in
+        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
             
         
             //原生解析
@@ -80,9 +82,16 @@ class WBSatuesListViewModel {
             }
             print("刷新到\(array.count)条数")
             
-            //2.拼接数据
-            self.statuesLsit = array + self.statuesLsit
-          
+                 //2.拼接数据
+            if pullUp {
+                
+                //上拉刷新结束后将数据拼接在数组的末尾
+                self.statuesLsit += array
+            }else{
+                //下拉刷新 应该将结果数组拼接在数组前面
+                 self.statuesLsit = array + self.statuesLsit
+            }
+
             //3.完成回调
             completion(isSuccess)
             
