@@ -224,6 +224,9 @@ extension WBMainViewController{
              print("监测到\(count)")
             
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+            //设置app bageNumber 要做授权
+            UIApplication.shared.applicationIconBadgeNumber = count
         }
         
     }

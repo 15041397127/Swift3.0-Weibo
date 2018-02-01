@@ -11,12 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+   
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-     
+      //取得用户授权显示通知(上方通知提示  声音  badgeNumber) swift4  UNUserNotificationCenter不管用
+        let notifySettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+        //Application 为
+        UIApplication.shared.registerUserNotificationSettings(notifySettings)
+       
+      
         
       window = UIWindow()
       window?.backgroundColor = UIColor.white
@@ -49,6 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+
 
 
 }
