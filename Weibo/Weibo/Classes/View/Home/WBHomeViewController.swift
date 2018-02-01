@@ -37,7 +37,7 @@ class WBHomeViewController: WBBaseViewController {
 //            print(list)
 //        }
         print("准备刷新,最后一条\(self.listViewModel.statuesLsit.last?.text)")
-        listViewModel.loadStatues(pullUp:self.isPullUp) { (isSuccess) in
+        listViewModel.loadStatues(pullUp:self.isPullUp) { (isSuccess,shouldRefresh) in
             
             print("刷新表格")
             //结束刷新控件
@@ -45,8 +45,10 @@ class WBHomeViewController: WBBaseViewController {
             //回复上拉刷新标记
             self.isPullUp = false
             //刷新表格
-            self.tableView?.reloadData()
             
+            if shouldRefresh{
+                self.tableView?.reloadData()
+            }
         }
         
         

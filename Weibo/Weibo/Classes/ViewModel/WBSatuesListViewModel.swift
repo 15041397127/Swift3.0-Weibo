@@ -21,16 +21,31 @@ import Foundation
 //1.字典转模型
 //2.下来/上拉刷新数据处理
 
+//上拉刷新量最大尝试次数
+private let  maxPullupTryTimes = 3
+
 
 class WBSatuesListViewModel {
     //微博模型数组懒加载
     lazy var statuesLsit = [WBSatues]()
+    
+    //上拉刷新错误次数
+    private var maxPullupErrorTimes = 0
+    
     lazy var ljArray : [WBSatues] = [WBSatues]()
     /// 加载微博列表
     ///
     ///- Parameter pullUp: 是否上啦刷新标记
-    /// - Parameter completion: 完成回调 
-    func loadStatues(pullUp:Bool, completion:@escaping(_ isSuccess:Bool) -> ()){
+    /// - Parameter completion: 完成回调 是否刷新表格
+    func loadStatues(pullUp:Bool, completion:@escaping(_ isSuccess:Bool,_ shouldRefresh:Bool) -> ()){
+        
+        //判断是否是上拉刷新,同时检查刷新错误
+        if pullUp && maxPullupErrorTimes > maxPullupErrorTimes {
+            completion(true,false)
+            
+            return
+        }
+        
         
         //since_id 取出数组中第一条微博的id
         let since_id = pullUp ?0:statuesLsit.first?.id ?? 0
@@ -77,7 +92,7 @@ class WBSatuesListViewModel {
             //1.字典转模型
             guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
 
-                completion(isSuccess)
+                completion(isSuccess,false)
                 return
             }
             print("刷新到\(array.count)条数")
@@ -93,7 +108,17 @@ class WBSatuesListViewModel {
             }
 
             //3.完成回调
-            completion(isSuccess)
+            //判断上拉刷新的数据量
+            if pullUp && array.count == 0{
+                
+                self.maxPullupErrorTimes += 1
+                completion(isSuccess,false)
+            }else{
+         
+                completion(isSuccess,true)
+            }
+            
+         
             
         }
     }
