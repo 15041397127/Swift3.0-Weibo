@@ -38,8 +38,9 @@ class WBSatuesListViewModel {
         
         WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
             
-            
-          
+        
+            //原生解析
+            /*
             let data = try? JSONSerialization.data(withJSONObject: list as Any, options: [])
   
             let str = String(data:data!, encoding: String.Encoding.utf8)
@@ -52,35 +53,35 @@ class WBSatuesListViewModel {
                 let status = WBSatues(dict)
        
                 
-//                status.text = (dict["text"] as! String)
+                status.text = (dict["text"] as! String)
                 
-//                let aaaa  = Statuse.init(fromDictionary: dict)
+                let aaaa  = Statuse.init(fromDictionary: dict)
            
-//                 self.statuesLsit += status
+                 self.statuesLsit += status
                 
-             //下拉刷新,应该讲结果拼接在数组的前面
+           //  下拉刷新,应该讲结果拼接在数组的前面
                 
                 
-//                self.statuesLsit = [status] + self.statuesLsit
+                self.statuesLsit = [status] + self.statuesLsit
                 self.statuesLsit.insert(status, at: 0)
                
-//             self.statuesLsit.append(status)
+             self.statuesLsit.append(status)
 
                 
             }
-            
+            */
 
 
             //1.字典转模型
-//            guard  let array = NSArray.yy_modelArray(with: HQStatus.self, json: list ?? []) as? [HQStatus] else{
-//
-//                completion(isSuccess)
-//                return
-//            }
+            guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
+
+                completion(isSuccess)
+                return
+            }
 
             
             //2.拼接数据
-//            self.statuesLsit += array
+            self.statuesLsit += array
             //3.完成回调
             completion(isSuccess)
             
