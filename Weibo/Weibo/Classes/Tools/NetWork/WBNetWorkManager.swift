@@ -29,6 +29,9 @@ class WBNetWorkManager: AFHTTPSessionManager {
     //token过期 返回403
     var accessToken:String? = "2.00zRg7yBtpiWGBad81c181aa4uAMxC"
     
+    //用户的微博id
+    var uid:String? = "1809072083"
+    
     
     //专门负责拼接token 的网路请求方法
     func tokenRequest(method:WBHTTPMethod = .GET,URLString:String,parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool) ->()){
