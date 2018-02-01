@@ -36,7 +36,7 @@ class WBSatuesListViewModel {
         
         let max_id = statuesLsit.last?.id ?? 0
         
-        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
+        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: 0){ (list, isSuccess) in
             
         
             //原生解析
@@ -78,10 +78,11 @@ class WBSatuesListViewModel {
                 completion(isSuccess)
                 return
             }
-
+            print("刷新到\(array.count)条数")
             
             //2.拼接数据
-            self.statuesLsit += array
+            self.statuesLsit = array + self.statuesLsit
+          
             //3.完成回调
             completion(isSuccess)
             

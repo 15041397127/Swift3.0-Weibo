@@ -27,7 +27,7 @@ class WBNetWorkManager: AFHTTPSessionManager {
     //访问令牌 所有网络请求,都基于此令牌(登陆除外)
     //访问令牌有时限,默认3天
     //token过期 返回403
-    var accessToken:String? = "2.00zRg7yBCWajiB6fbef06e13cnGYwC"
+    var accessToken:String? = "2.00zRg7yBtpiWGBad81c181aa4uAMxC"
     
     
     //专门负责拼接token 的网路请求方法
