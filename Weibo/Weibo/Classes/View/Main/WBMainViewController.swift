@@ -12,18 +12,24 @@ import UIKit
 /// 主控制器
 class WBMainViewController: UITabBarController {
 
+    //定时器
+    private var timer:Timer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupChildController()
         setupComposeButton()
-        
-        //测试未读数量
-        WBNetWorkManager.shared.unreadCount { (count) in
-            print("有\(count)新微博")
-        }
+        setupTimer()
+
         
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        //销毁时钟
+        timer?.invalidate()
     }
     
     //播放视频 通常是用  modal展现的(present)
@@ -87,6 +93,7 @@ extension WBMainViewController{
         composeButton.addTarget(self, action: #selector(composeStatues), for: .touchUpInside)
         
     }
+    
     
     
     
@@ -195,5 +202,34 @@ extension WBMainViewController{
     }
 
 }
+
+//MARK:--时钟相关方法
+extension WBMainViewController{
+    
+    //定义时钟
+    private func  setupTimer(){
+        
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
+ 
+    }
+    
+    //时钟触发方法
+    @objc private func updateTimer(){
+       
+        
+        //测试未读数量
+        WBNetWorkManager.shared.unreadCount { (count) in
+            //设置首页 tabBarItem的 badgeNumber
+            
+             print("监测到\(count)")
+            
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+        }
+        
+    }
+    
+    
+}
+
 
 
