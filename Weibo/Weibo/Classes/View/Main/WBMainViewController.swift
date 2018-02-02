@@ -246,10 +246,44 @@ extension WBMainViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
         print("将要切换到 \(viewController)")
+        //1 获取控制器在数组中的索引
+        let index = (childViewControllers as NSArray).index(of: viewController)
         
+        //2.判断当前索引是首页 同时index 也是首页 重复点击首页按钮
+        if selectedIndex == 0 && index == selectedIndex {
+            
+            print("点击首页")
+            
+            //3 让表格滚动到顶部
+            // a)获取到控制器
+            let nav = childViewControllers[0] as! UINavigationController
+            let vc = nav.childViewControllers[0] as! WBHomeViewController
+            
+            // b)滚动到顶部
+            let barHeight:CGFloat?
+            
+            if UIScreen.main.bounds.height == 812 {
+                barHeight = 96
+               
+            }else{
+                barHeight = 64
+            }
+            
+            vc.tableView?.setContentOffset(CGPoint(x:0,y:-barHeight!), animated: true)
+            
+            //4刷新数据 增加延迟是保证表格先滚动到顶部再刷新
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                  vc.loadData()
+            })
+            
+         
+        }
+ 
         //判断目标控制器是否是UIViewcontroller
         //修复tab按钮穿帮问题
         return !viewController.isMember(of: UIViewController.self)
+        
+   
     
     }
 }
