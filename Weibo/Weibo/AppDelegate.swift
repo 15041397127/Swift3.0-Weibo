@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Application 为
         UIApplication.shared.registerUserNotificationSettings(notifySettings)
        
-      
         
       window = UIWindow()
       window?.backgroundColor = UIColor.white

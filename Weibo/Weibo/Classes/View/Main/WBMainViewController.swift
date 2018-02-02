@@ -23,6 +23,7 @@ class WBMainViewController: UITabBarController {
         setupComposeButton()
         setupTimer()
 
+        delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -81,8 +82,8 @@ extension WBMainViewController{
         //计算按钮的宽度
         let count = CGFloat(childViewControllers.count)
         //容错点:tabBar两个按钮之间会有一个点的位置会漏出去 因此-1  将向内的宽度减少,能够让按钮的宽度变大,盖住容错点,防止穿帮
-        let width = tabBar.bounds.width / count - 1
-
+        // let width = tabBar.bounds.width / count - 1  已经用tabbarcontroller delegate修复
+        let width = tabBar.bounds.width / count
         //CGRectInset 正数向内缩进,负数向外扩展
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
         tabBar.addSubview(composeButton)
@@ -230,8 +231,27 @@ extension WBMainViewController{
         }
         
     }
+}
+
+//MARK:UITabBarControllerDelegate
+extension WBMainViewController:UITabBarControllerDelegate{
     
+
+    /// 将要选择 tabbarItem
+    ///
+    /// - Parameters:
+    ///   - tabBarController: tabBarController
+    ///   - viewController: 目标控制器
+    /// - Returns: 是否切换到目标控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        print("将要切换到 \(viewController)")
+        
+        //判断目标控制器是否是UIViewcontroller
+        //修复tab按钮穿帮问题
+        return !viewController.isMember(of: UIViewController.self)
     
+    }
 }
 
 
