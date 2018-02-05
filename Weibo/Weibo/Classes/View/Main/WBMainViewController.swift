@@ -25,12 +25,17 @@ class WBMainViewController: UITabBarController {
 
         delegate = self
         
+        //注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
+        
         // Do any additional setup after loading the view.
     }
     
     deinit {
         //销毁时钟
         timer?.invalidate()
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     //播放视频 通常是用  modal展现的(present)
@@ -39,6 +44,17 @@ class WBMainViewController: UITabBarController {
         return .portrait
         
     }
+    
+    
+    //MARK:通知监听方法
+    @objc private func userLogin(n:Notification){
+        
+        
+        print("用户登录通知\(n)")
+        
+    }
+    
+    
     
     //MARK: - 监听方法
     //撰写微博

@@ -84,6 +84,8 @@ extension WBBaseViewController{
     @objc private func login(){
         
         print("登陆")
+        //发送通知
+        NotificationCenter.default.post(name:NSNotification.Name(rawValue:WBUserShouldLoginNotification),object:nil)
     }
     
     @objc private func register(){
