@@ -210,14 +210,16 @@ extension WBMainViewController{
     //定义时钟
     private func  setupTimer(){
         
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
  
     }
     
     //时钟触发方法
     @objc private func updateTimer(){
        
-        
+        if  !WBNetWorkManager.shared.userLogon {
+            return
+        }
         //测试未读数量
         WBNetWorkManager.shared.unreadCount { (count) in
             //设置首页 tabBarItem的 badgeNumber

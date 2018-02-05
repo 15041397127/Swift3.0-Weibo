@@ -21,7 +21,7 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     //设置登陆状态
-    var userLogon  = true
+//    var userLogon  = true
     
     //访客视图信息字典
     var visitorInfoDict: [String:String]?
@@ -47,7 +47,7 @@ class WBBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+        WBNetWorkManager.shared.userLogon ? loadData() :()
         
         // Do any additional setup after loading the view.
     }
@@ -104,7 +104,7 @@ extension WBBaseViewController{
         
     
         setupNavBar()
-        userLogon ? setupTableView() : visitorView()
+        WBNetWorkManager.shared.userLogon ? setupTableView() : visitorView()
         //取消自动缩进 - 如果隐藏了导航栏，会缩进 20 个点
         if #available(iOS 11.0, *) {
             
