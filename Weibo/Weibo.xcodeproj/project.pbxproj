@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3403743E201766320004A833 /* WBNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403743D201766320004A833 /* WBNetWorkManager.swift */; };
 		34127FD020287AFC000FF9DB /* WeiboCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34127FCF20287AFC000FF9DB /* WeiboCommon.swift */; };
+		34127FD320287E63000FF9DB /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34127FD220287E63000FF9DB /* WBOAuthViewController.swift */; };
 		3415EC68200610210087B901 /* WBMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC67200610210087B901 /* WBMainViewController.swift */; };
 		3415EC6A200610C00087B901 /* WBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC69200610C00087B901 /* WBNavigationController.swift */; };
 		3415EC6C200610F30087B901 /* WBBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC6B200610F30087B901 /* WBBaseViewController.swift */; };
@@ -80,6 +81,7 @@
 		25B2985AB68DADC6A58B4B9E /* Pods-WeiboUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboUITests/Pods-WeiboUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3403743D201766320004A833 /* WBNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetWorkManager.swift; sourceTree = "<group>"; };
 		34127FCF20287AFC000FF9DB /* WeiboCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboCommon.swift; sourceTree = "<group>"; };
+		34127FD220287E63000FF9DB /* WBOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		3415EC67200610210087B901 /* WBMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBMainViewController.swift; sourceTree = "<group>"; };
 		3415EC69200610C00087B901 /* WBNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavigationController.swift; sourceTree = "<group>"; };
 		3415EC6B200610F30087B901 /* WBBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBBaseViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,14 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		34127FD120287E12000FF9DB /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				34127FD220287E63000FF9DB /* WBOAuthViewController.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
 		3415EC5D20060E830087B901 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +270,7 @@
 		3415EC6620060E830087B901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				34127FD120287E12000FF9DB /* OAuth */,
 				3444C64C200F79CC00A0F154 /* main.json */,
 				3496BA3B200CE95E008E60A2 /* VisitorView */,
 				346FEF7C2007A42B003EE3C8 /* 测试 */,
@@ -774,6 +785,7 @@
 				349DDE94200700280078743F /* NSAttributedString+CZAdditon.m in Sources */,
 				349DDE98200700280078743F /* NSString+CZBase64.m in Sources */,
 				345C9F27202030BE001BA70C /* Visible.swift in Sources */,
+				34127FD320287E63000FF9DB /* WBOAuthViewController.swift in Sources */,
 				3415EC74200612620087B901 /* WBProfileViewController.swift in Sources */,
 				345C9F28202030BE001BA70C /* WeiboCamera.swift in Sources */,
 				3415EC72200612470087B901 /* WBDiscoverViewController.swift in Sources */,

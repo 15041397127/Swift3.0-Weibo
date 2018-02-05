@@ -52,6 +52,12 @@ class WBMainViewController: UITabBarController {
         
         print("用户登录通知\(n)")
         
+        //展现登录控制器  通常与navagtion连用
+        
+        let nav  = UINavigationController(rootViewController:WBOAuthViewController())
+ 
+        present(nav, animated: true, completion: nil)
+        
     }
     
     
