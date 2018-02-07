@@ -16,6 +16,7 @@ class WBOAuthViewController: UIViewController {
         
         super.loadView()
 //        view = webView
+        webView.delegate = self
         let h:CGFloat? = (navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height
         webView.frame = (CGRect.init(x: 0, y:h ?? 0, width: UIScreen.cz_screenWidth(), height:  UIScreen.cz_screenHeight()))
         
@@ -90,4 +91,45 @@ class WBOAuthViewController: UIViewController {
     }
     
 
+}
+
+extension WBOAuthViewController:UIWebViewDelegate{
+    
+    
+    /// webview 将要加载请求
+    ///
+    /// - Parameters:
+    ///   - webView: webview
+    ///   - request: 要加载的请求
+    ///   - navigationType: 导航类型
+    /// - Returns: 是否加载request
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        //若请求地址包含WBRedirectURI 不加载页面 /否则加载页面
+        //request.url?.absoluteString.hasSuffix(WBRedirectURI)返回的是可选项 bool /nil
+        if request.url?.absoluteString.hasPrefix(WBRedirectURI) == false {
+            
+            return true
+            
+        }
+        
+
+        print("加载请求----\(request.url?.absoluteString)")
+        
+        //query 就是url中 ? 后面的所有部分
+        print("加载请求----\(request.url?.query)")
+        //从WBRedirectURI 回调地址的查询字符串中查找 "code= "
+        if request.url?.query?.hasPrefix("code=") == false {
+            
+            print("取消授权")
+            close()
+            return false
+        }
+        
+         print("获取授权码")
+        //如果有,授权成功,否则,授权失败
+        
+        return true
+    }
+   
 }
