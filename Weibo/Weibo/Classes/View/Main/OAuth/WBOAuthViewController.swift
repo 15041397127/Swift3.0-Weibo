@@ -114,10 +114,10 @@ extension WBOAuthViewController:UIWebViewDelegate{
         }
         
 
-        print("加载请求----\(request.url?.absoluteString)")
+//        print("加载请求----\(request.url?.absoluteString)")
         
         //query 就是url中 ? 后面的所有部分
-        print("加载请求----\(request.url?.query)")
+//        print("加载请求----\(request.url?.query)")
         //从WBRedirectURI 回调地址的查询字符串中查找 "code= "
         if request.url?.query?.hasPrefix("code=") == false {
             
@@ -126,10 +126,17 @@ extension WBOAuthViewController:UIWebViewDelegate{
             return false
         }
         
-         print("获取授权码")
+        //从query字符串中取出授权码
+        //代码走到此处,url中一定有查询字符串,并且包含code
+//          let code = request.url?.query?.substring(from: "code=".endIndex)//swift4已废弃substring
+       let code = request.url?.query?.suffix(from:"code=".endIndex) ?? ""
+        
+       print("授权码:\(code)")
+        
+       print("获取授权码")
         //如果有,授权成功,否则,授权失败
         
-        return true
+        return false
     }
    
 }
