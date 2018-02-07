@@ -14,7 +14,10 @@ class WBOAuthViewController: UIViewController {
     
     override func loadView() {
         
-        view = webView
+        super.loadView()
+//        view = webView
+        let h:CGFloat? = (navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height
+        webView.frame = (CGRect.init(x: 0, y:h ?? 0, width: UIScreen.cz_screenWidth(), height:  UIScreen.cz_screenHeight()))
         
         view.backgroundColor = UIColor.white
         
@@ -33,10 +36,33 @@ class WBOAuthViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", fontSize: 16, target: self, action: #selector(close), isBackButton: true)
         
         
-
+         view.addSubview(webView)
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidLoad() {
+        
+        //加载授权页面
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(WBAppKey)&redirect_uri=\(WBRedirectURI)"
+        
+        //确定要访问的资源
+    
+        guard let url = URL(string: urlString)else {
+            return
+        }
+        
+        //建立请求
+        let request = URLRequest(url:url)
+        
+        //加载请求
+        
+        webView.loadRequest(request)
+        
+        
+    }
+    
+    
+    
     
     @objc private func close()  {
         
