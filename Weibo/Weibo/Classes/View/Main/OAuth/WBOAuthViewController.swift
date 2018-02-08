@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 // 通过webview加载新浪微博授权页面控制器
 class WBOAuthViewController: UIViewController {
 
@@ -19,7 +20,7 @@ class WBOAuthViewController: UIViewController {
         webView.delegate = self
         let h:CGFloat? = (navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height
         webView.frame = (CGRect.init(x: 0, y:h ?? 0, width: UIScreen.cz_screenWidth(), height:  UIScreen.cz_screenHeight()))
-        
+        webView.scrollView.isScrollEnabled = false //取消滚动
         view.backgroundColor = UIColor.white
         
         if #available(iOS 11.0, *) {
@@ -68,6 +69,7 @@ class WBOAuthViewController: UIViewController {
     
     @objc private func close()  {
         
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
     
@@ -137,6 +139,14 @@ extension WBOAuthViewController:UIWebViewDelegate{
         //如果有,授权成功,否则,授权失败
         
         return false
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
    
 }
