@@ -22,12 +22,22 @@ class WBNetWorkManager: AFHTTPSessionManager {
     //创建单例
     //静态区/ 常量 / 闭包
     //在第一次访问时 执行闭包 并且将结果保存在shared 常量中
-    static let shared = WBNetWorkManager()
+//    static let shared = WBNetWorkManager()
+    
+    static let shared:WBNetWorkManager = {
+        //实例化对象
+        let instance = WBNetWorkManager()
+        
+        //设置响应的反序列化支持的数据类型
+    
+        instance.responseSerializer.acceptableContentTypes?.insert("text/plain")        //返回对象
+        return instance
+        }()
     
     //访问令牌 所有网络请求,都基于此令牌(登陆除外)
     //访问令牌有时限,默认3天
     //token过期 返回403
-    var accessToken:String? //= "2.00zRg7yBtpiWGBad81c181aa4uAMxC"
+    var accessToken:String?// = "2.00zRg7yBtpiWGBe514f633acby_t4E"
     
     //用户的微博id
     var uid:String? = "1809072083"
