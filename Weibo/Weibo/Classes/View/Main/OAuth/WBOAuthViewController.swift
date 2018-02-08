@@ -138,6 +138,10 @@ extension WBOAuthViewController:UIWebViewDelegate{
        print("获取授权码")
         //如果有,授权成功,否则,授权失败
         
+        
+        //使用授权码获取AccessToken
+        WBNetWorkManager.shared.loadAccessToken(code: String(code))
+        
         return false
     }
     
