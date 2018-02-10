@@ -81,6 +81,7 @@ extension WBNetWorkManager{
             //直接用字典设置usrAccount 的属性
             self.userAccount.yy_modelSet(with: (json as? [String:AnyObject]) ?? [:])
              print(self.userAccount)
+            self.userAccount.saveAccount()
             
         }
         

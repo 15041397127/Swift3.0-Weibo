@@ -33,4 +33,36 @@ class WBUserAccount: NSObject {
         
         return yy_modelDescription()
     }
+    /*
+     1.偏好设置
+     2.沙盒 -归档 / plist/json
+     3.数据库(FMDB /CoreData)
+     4.钥匙串访问(自动加密  -需要使用框架 SSKeyChain)
+     */
+    func saveAccount(){
+        
+        //模型转字典
+        var dict = (self.yy_modelToJSONObject() as? [String:AnyObject]) ?? [:]
+        
+        //删除expires_in
+        dict.removeValue(forKey: "expires_in")
+        
+        //字典序列化data
+        
+        guard let  data = try?JSONSerialization.data(withJSONObject: dict, options: []),
+              let filePath = ("useraccount.json" as NSString).cz_appendDocumentDir()
+        else{
+            
+            return
+        }
+        
+        //写入磁盘
+       
+        (data as NSData).write(toFile: filePath, atomically: true)
+        
+//        print(dict)
+        print("用户账户保存成功\(filePath)")
+        
+    }
+    
 }
