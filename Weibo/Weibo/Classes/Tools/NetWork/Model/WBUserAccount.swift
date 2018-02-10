@@ -18,7 +18,15 @@ class WBUserAccount: NSObject {
     //access_token的生命周期，单位是秒
     //开发者5年
     //测试使用者3天
-    @objc var expires_in:TimeInterval = 0
+    @objc var expires_in:TimeInterval = 0 {
+        
+        didSet{
+            expiresDate = Date(timeIntervalSinceNow:expires_in)
+        }
+    }
+    
+    //过期日期
+   @objc var expiresDate:Date?
     
     override var description: String{
         
