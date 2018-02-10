@@ -42,7 +42,7 @@ extension WBNetWorkManager{
     
     //返回微博的未读数量
     func unreadCount(completion:@escaping(_ count: Int)->()){
-        guard let uid = uid else { return  }
+        guard let uid = userAccount.uid else { return  }
         
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
         
@@ -78,6 +78,9 @@ extension WBNetWorkManager{
             
             print(json)
             
+            //直接用字典设置usrAccount 的属性
+            self.userAccount.yy_modelSet(with: (json as? [String:AnyObject]) ?? [:])
+             print(self.userAccount)
             
         }
         

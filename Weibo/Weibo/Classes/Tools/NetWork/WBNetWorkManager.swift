@@ -34,6 +34,9 @@ class WBNetWorkManager: AFHTTPSessionManager {
         return instance
         }()
     
+    lazy var userAccount = WBUserAccount()
+    
+    /*
     //访问令牌 所有网络请求,都基于此令牌(登陆除外)
     //访问令牌有时限,默认3天
     //token过期 返回403
@@ -41,11 +44,12 @@ class WBNetWorkManager: AFHTTPSessionManager {
     
     //用户的微博id
     var uid:String? = "1809072083"
-    
+    */
     //用户登录标记[计算型属性]
     var userLogon:Bool{
         
-        return accessToken != nil
+//        return accessToken != nil
+        return userAccount.access_token != nil
     }
     
     
@@ -54,7 +58,7 @@ class WBNetWorkManager: AFHTTPSessionManager {
         
         //处理token字典
         //0>判断token是否为nil  为nil直接返回
-        guard let token = accessToken else {
+        guard let token = userAccount.access_token else {
             //FIXME:发送通知
             print("没有token!需要登录")
             completion(nil,false)

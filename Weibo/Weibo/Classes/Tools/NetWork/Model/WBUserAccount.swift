@@ -11,14 +11,14 @@ import UIKit
 class WBUserAccount: NSObject {
     
     //访问令牌
-    @objc var access_token:String?
+    @objc var access_token:String? 
     //用户代号
     @objc var uid:String?
 
     //access_token的生命周期，单位是秒
     //开发者5年
     //测试使用者3天
-    var expires_in:TimeInterval = 0
+    @objc var expires_in:TimeInterval = 0
     
     override var description: String{
         
