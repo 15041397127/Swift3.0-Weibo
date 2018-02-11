@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import SVProgressHUD
+import AFNetworking
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,11 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-      //取得用户授权显示通知(上方通知提示  声音  badgeNumber) swift4  UNUserNotificationCenter不管用
-        let notifySettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
-        //Application 为
-        UIApplication.shared.registerUserNotificationSettings(notifySettings)
-       
+ 
+      setupAdditions()
         
       window = UIWindow()
       window?.backgroundColor = UIColor.white
@@ -58,6 +56,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
+}
+//MARK:
+extension AppDelegate{
+  
+    private func setupAdditions(){
+
+        //1.设置 SVProgressHUD 最小解除时间
+        
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        
+        //2.设置网络加载指示器
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+        
+        
+        //取得用户授权显示通知(上方通知提示  声音  badgeNumber) swift4  UNUserNotificationCenter不管用
+        let notifySettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+        //Application 为
+        UIApplication.shared.registerUserNotificationSettings(notifySettings)
+    }
 }
 
 //MARK: - 从服务器加载应用程序信息
