@@ -51,6 +51,24 @@ class WBUserAccount: NSObject {
         //使用字典设置属性值
         yy_modelSet(with: dict ?? [:])
         
+        //3.判断token是否过期
+        
+        //测试过期日期
+        //expiresDate = Date(timeIntervalSinceNow:-3600 * 24)
+        
+        if expiresDate?.compare(Date()) != .orderedDescending {
+            print("账户过期")
+            
+            //清空token
+            access_token = nil
+            uid = nil
+            
+            //删除账户文件
+          _ = try? FileManager.default.removeItem(atPath: path)
+            
+        }
+      
+        
     }
     
     /*
@@ -83,6 +101,7 @@ class WBUserAccount: NSObject {
 //        print(dict)
         print("用户账户保存成功\(filePath)")
         
+  
     }
     
 }
