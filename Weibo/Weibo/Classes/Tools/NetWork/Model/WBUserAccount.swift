@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+private let accountFile:NSString = "useraccount.json"
 class WBUserAccount: NSObject {
     
     //访问令牌
@@ -33,6 +33,26 @@ class WBUserAccount: NSObject {
         
         return yy_modelDescription()
     }
+    
+    override init() {
+        
+        super.init()
+        //从磁盘加载保存的文件 ->字典
+        //加载磁盘文件到二进制数据,如果失败直接返回
+        guard  let path = accountFile.cz_appendDocumentDir(),
+               let data = NSData(contentsOfFile:path),
+               let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String:AnyObject]
+        else {
+            
+                    return
+        }
+        
+        
+        //使用字典设置属性值
+        yy_modelSet(with: dict ?? [:])
+        
+    }
+    
     /*
      1.偏好设置
      2.沙盒 -归档 / plist/json
@@ -50,7 +70,7 @@ class WBUserAccount: NSObject {
         //字典序列化data
         
         guard let  data = try?JSONSerialization.data(withJSONObject: dict, options: []),
-              let filePath = ("useraccount.json" as NSString).cz_appendDocumentDir()
+              let filePath = accountFile.cz_appendDocumentDir()
         else{
             
             return
