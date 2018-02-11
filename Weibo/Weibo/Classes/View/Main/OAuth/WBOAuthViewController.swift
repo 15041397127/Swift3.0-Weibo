@@ -149,6 +149,14 @@ extension WBOAuthViewController:UIWebViewDelegate{
             }else{
                 
                 SVProgressHUD.showInfo(withStatus: "登录成功")
+                //通过通知发送登录成功消息
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(rawValue: WBUserLoginSuccessNotification),
+                    object: nil)
+                
+                
+                //关闭窗口
+                self.close()
                 
             }
             

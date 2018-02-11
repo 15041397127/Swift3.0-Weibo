@@ -49,7 +49,16 @@ class WBBaseViewController: UIViewController {
         setupUI()
         WBNetWorkManager.shared.userLogon ? loadData() :()
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(loginSuccess),
+            name: NSNotification.Name(rawValue: WBUserLoginSuccessNotification),
+            object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override var title: String?{
@@ -80,6 +89,18 @@ class WBBaseViewController: UIViewController {
 
 //MARK:-访客视图监听方法
 extension WBBaseViewController{
+    
+    //登录成功处理
+    @objc private func loginSuccess(n:NotificationCenter){
+        
+        //更新UI 将访客视图替换成表格
+        //需要重新设置view
+        //当访问view  的getter时 如果view == nil loadview -> viewDidLoad
+        view = nil
+        
+        //注销通知 ->重新执行 viewDidLoad会再次注册 避免通知被重复注册
+        NotificationCenter.default.removeObserver(self)
+    }
     
     @objc private func login(){
         

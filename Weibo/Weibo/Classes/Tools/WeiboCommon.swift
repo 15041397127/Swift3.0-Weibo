@@ -18,3 +18,6 @@ let WBRedirectURI =   "https://www.baidu.com" //回调地址
 //MARK:全局通知定义
 
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
+
+//用户登录成功通知
+let WBUserLoginSuccessNotification = "WBUserLoginSuccessNotification"
