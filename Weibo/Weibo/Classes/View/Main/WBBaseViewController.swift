@@ -93,6 +93,11 @@ extension WBBaseViewController{
     //登录成功处理
     @objc private func loginSuccess(n:NotificationCenter){
         
+        //登录前左边是注册 右边是登录
+        navItem.leftBarButtonItem = nil
+        navItem.rightBarButtonItem = nil
+        
+        
         //更新UI 将访客视图替换成表格
         //需要重新设置view
         //当访问view  的getter时 如果view == nil loadview -> viewDidLoad
@@ -164,6 +169,9 @@ extension WBBaseViewController{
         }
         //设置缩进内容
         tableView?.contentInset  = UIEdgeInsetsMake(navBarHeight ?? 64 , 0,tabBarController?.tabBar.bounds.height ?? 49 , 0)
+        
+        //修改指示器的缩进 - 强行解包是为了拿到一个必有的inset
+        tableView?.scrollIndicatorInsets = (tableView?.contentInset)!
         
         //设置刷新控件
         //1.实例化控件
