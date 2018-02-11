@@ -140,7 +140,20 @@ extension WBOAuthViewController:UIWebViewDelegate{
         
         
         //使用授权码获取AccessToken
-        WBNetWorkManager.shared.loadAccessToken(code: String(code))
+        WBNetWorkManager.shared.loadAccessToken(code: String(code)) { (isSuccess) in
+            
+            if !isSuccess {
+                
+                SVProgressHUD.showInfo(withStatus: "网络请求失败")
+                
+            }else{
+                
+                SVProgressHUD.showInfo(withStatus: "登录成功")
+                
+            }
+            
+            
+        }
         
         return false
     }
