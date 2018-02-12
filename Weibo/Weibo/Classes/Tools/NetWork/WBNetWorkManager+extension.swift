@@ -60,6 +60,32 @@ extension WBNetWorkManager{
     
 }
 
+//MARK:-用户信息
+extension WBNetWorkManager{
+    
+    //加载用户信息 用户登录之后执行
+    func loadUserInfo(completion:@escaping (_ dict:[String:AnyObject]) -> ()){
+        
+        guard let uid = userAccount.uid else {
+           return
+        }
+        
+        let usrlString = "https://api.weibo.com/2/users/show.json"
+        
+        let params = ["uid":uid]
+        
+        tokenRequest(URLString: usrlString, parameters: params) { (json, isSuccess) in
+            
+            print(json)
+            
+            completion((json as? [String:AnyObject]) ?? [:] )
+            
+        }
+        
+    }
+    
+}
+
 //MARK:OAuth 相关方法
 extension WBNetWorkManager{
 
@@ -88,10 +114,19 @@ extension WBNetWorkManager{
             //直接用字典设置usrAccount 的属性
             self.userAccount.yy_modelSet(with: (json as? [String:AnyObject]) ?? [:])
              print(self.userAccount)
-            self.userAccount.saveAccount()
             
-            //完成回调
-            completion(isSuccess)
+            //加载当前用户信息
+            self.loadUserInfo(completion: { (dict) in
+                
+                //使用用户信息字典设置用户账户信息(昵称 头像)
+                
+                self.userAccount.yy_modelSet(with: dict)
+                
+                self.userAccount.saveAccount()
+                //用户信息加载完成  完成回调
+                completion(isSuccess)
+            })
+        
             
         }
         

@@ -28,6 +28,12 @@ class WBUserAccount: NSObject {
     //过期日期
    @objc var expiresDate:Date?
     
+    //用户昵称
+    @objc var screen_name:String?
+    
+    //用户头像大图
+    @objc var avatar_large:String?
+    
     override var description: String{
         
         
