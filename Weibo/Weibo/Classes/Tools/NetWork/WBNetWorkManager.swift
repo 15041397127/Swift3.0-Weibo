@@ -59,8 +59,10 @@ class WBNetWorkManager: AFHTTPSessionManager {
         //处理token字典
         //0>判断token是否为nil  为nil直接返回
         guard let token = userAccount.access_token else {
-            //FIXME:发送通知
+        
             print("没有token!需要登录")
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
             completion(nil,false)
             return
         }
@@ -108,8 +110,8 @@ class WBNetWorkManager: AFHTTPSessionManager {
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 
                 print("Token过期")
-                //FIXME:发送通知
-                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: "bad token")
+    
             }
             
             

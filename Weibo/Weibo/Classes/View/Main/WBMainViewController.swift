@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 
 /// 主控制器
 class WBMainViewController: UITabBarController {
@@ -52,11 +52,28 @@ class WBMainViewController: UITabBarController {
         
         print("用户登录通知\(n)")
         
-        //展现登录控制器  通常与navagtion连用
+        var time = DispatchTime.now()
         
-        let nav  = UINavigationController(rootViewController:WBOAuthViewController())
- 
-        present(nav, animated: true, completion: nil)
+        //判断n.onject是否有值 token过期 如果有值 提示用户重新登录
+        if n.object != nil {
+            //设置指示器渐变样式
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "用户登录已经超时,需要重新登录")
+            
+            time = DispatchTime.now() + 2
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            
+            //展现登录控制器  通常与navagtion连用
+            
+            SVProgressHUD.setDefaultMaskType(.clear)
+            
+            let nav  = UINavigationController(rootViewController:WBOAuthViewController())
+            
+            self.present(nav, animated: true, completion: nil)
+        }
+
         
     }
     
