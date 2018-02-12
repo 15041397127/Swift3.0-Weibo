@@ -55,6 +55,7 @@ class WBUserAccount: NSObject {
         
         
         //使用字典设置属性值
+        //****用户是否登录的关键代码
         yy_modelSet(with: dict ?? [:])
         
         //3.判断token是否过期
