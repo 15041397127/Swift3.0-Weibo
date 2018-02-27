@@ -158,14 +158,18 @@ extension WBHomeViewController {
     //设置导航栏标题
     private func setupNavTitle(){
         
-        let button = UIButton.cz_textButton(WBNetWorkManager.shared.userAccount.screen_name, fontSize: 17, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
+        let title = WBNetWorkManager.shared.userAccount.screen_name
+//        let button = UIButton.cz_textButton(WBNetWorkManager.shared.userAccount.screen_name, fontSize: 17, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
+//
+//        button?.setImage(UIImage(named:"navigation_down"), for: .normal)
+//        button?.setImage(UIImage(named:"navigation_up"), for: .selected)
         
-        button?.setImage(UIImage(named:"navigation_down"), for: .normal)
-        button?.setImage(UIImage(named:"navigation_up"), for: .selected)
+        //抽取button
+        let button = WBTitleButton(title: title)
         
         navItem.titleView = button
         
-        button?.addTarget(self, action: #selector(clickTileButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(clickTileButton), for: .touchUpInside)
         
     }
    
