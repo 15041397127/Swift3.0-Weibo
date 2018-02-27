@@ -22,7 +22,7 @@ class WBTitleButton: UIButton {
             setTitle("首页", for: .normal)
         }else{
             
-            setTitle(title!, for: .normal)
+            setTitle(title! + " ", for: .normal)
             setImage(UIImage(named:"navigation_down"), for: .normal)
             setImage(UIImage(named:"navigation_up"), for: .selected)
         }
@@ -39,6 +39,27 @@ class WBTitleButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
     
       fatalError("init(coder:) has not been implemented")
+    }
+    
+    //重新布局子视图
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        
+        //判断label 和 imageView
+        guard let titleLabel = titleLabel, let imageView = imageView else { return  }
+        
+        titleLabel.frame.origin.x = 0;
+        imageView.frame.origin.x = titleLabel.bounds.width;
+//        //将label的x 向左移动 imageview宽度
+//
+//        titleLabel.frame = titleLabel.frame.offsetBy(dx: -imageView.bounds.width, dy: 0)
+//
+//        //imageview 的 x 向右移动lable宽度
+//
+//        imageView.frame = imageView.frame.offsetBy(dx: titleLabel.bounds.width, dy: 0)
+        
+
     }
     
     
