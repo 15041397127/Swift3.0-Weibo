@@ -306,6 +306,17 @@ extension WBMainViewController{
     
     //extension中可以有计算型属性 不会占用存储空间
     //构造函数:给属性分配空间
+    
+    /**
+       版本号
+       - 主版本号 . 次版本号 . 修订版本号
+     - 主版本号:意味着大的修改,使用者也需要做大的适应
+     
+     - 此版本号:意味着小的修改,某些函数和方法的使用或者参数有变化
+     
+     - 修订版本号:框架或者程序内部bug的修订
+     
+     */
     private var isNewVersion:Bool{
         
         return false
