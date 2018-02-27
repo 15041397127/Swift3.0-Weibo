@@ -54,6 +54,8 @@
 		34AAD03F2018ADF00023BF39 /* WBSatues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AAD03E2018ADF00023BF39 /* WBSatues.swift */; };
 		34AAD0412018B1030023BF39 /* WBSatuesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AAD0402018B1030023BF39 /* WBSatuesListViewModel.swift */; };
 		34AC7FFF2045803300B1BEBC /* WBTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC7FFE2045803300B1BEBC /* WBTitleButton.swift */; };
+		34AC800220458C8700B1BEBC /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC800120458C8700B1BEBC /* WBWelcomeView.swift */; };
+		34AC800420458CF500B1BEBC /* WBNewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC800320458CF500B1BEBC /* WBNewFeature.swift */; };
 		34BE6AA9202D9D2100DCCA21 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6AA8202D9D2100DCCA21 /* WBUserAccount.swift */; };
 		34BE8585201775DB00B268F7 /* WBNetWorkManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE8584201775DB00B268F7 /* WBNetWorkManager+extension.swift */; };
 		392DC95AB4EABD108D6B49C5 /* Pods_WeiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8D4DB571E88859224BE522 /* Pods_WeiboUITests.framework */; };
@@ -147,6 +149,8 @@
 		34AAD03E2018ADF00023BF39 /* WBSatues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBSatues.swift; sourceTree = "<group>"; };
 		34AAD0402018B1030023BF39 /* WBSatuesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBSatuesListViewModel.swift; sourceTree = "<group>"; };
 		34AC7FFE2045803300B1BEBC /* WBTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTitleButton.swift; sourceTree = "<group>"; };
+		34AC800120458C8700B1BEBC /* WBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
+		34AC800320458CF500B1BEBC /* WBNewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewFeature.swift; sourceTree = "<group>"; };
 		34BE6AA8202D9D2100DCCA21 /* WBUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
 		34BE8584201775DB00B268F7 /* WBNetWorkManager+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+extension.swift"; sourceTree = "<group>"; };
 		34C7CDB4200650230000C6C6 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
@@ -468,6 +472,8 @@
 		34AC800020458A8C00B1BEBC /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
+				34AC800120458C8700B1BEBC /* WBWelcomeView.swift */,
+				34AC800320458CF500B1BEBC /* WBNewFeature.swift */,
 			);
 			path = NewFeature;
 			sourceTree = "<group>";
@@ -826,6 +832,7 @@
 				3415EC6E200611E30087B901 /* WBHomeViewController.swift in Sources */,
 				345C9F29202030BE001BA70C /* Annotation.swift in Sources */,
 				34BE8585201775DB00B268F7 /* WBNetWorkManager+extension.swift in Sources */,
+				34AC800420458CF500B1BEBC /* WBNewFeature.swift in Sources */,
 				349DDE95200700280078743F /* NSString+CZHash.m in Sources */,
 				345C9F2C202030BE001BA70C /* User.swift in Sources */,
 				349DDE91200700280078743F /* NSArray+Log.m in Sources */,
@@ -848,6 +855,7 @@
 				349DDE92200700280078743F /* UIScreen+CZAddition.m in Sources */,
 				3496BA3D200CE9F5008E60A2 /* WBVisitorView.swift in Sources */,
 				34AAD0412018B1030023BF39 /* WBSatuesListViewModel.swift in Sources */,
+				34AC800220458C8700B1BEBC /* WBWelcomeView.swift in Sources */,
 				349DDE93200700280078743F /* UIColor+CZAddition.m in Sources */,
 				3415EC70200612230087B901 /* WBMessageViewController.swift in Sources */,
 				349DDE9A200700280078743F /* UIView+CZAddition.m in Sources */,
