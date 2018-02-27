@@ -22,6 +22,9 @@ class WBMainViewController: UITabBarController {
         setupChildController()
         setupComposeButton()
         setupTimer()
+        
+        //设置新特性视图
+        setupNewFeatureViews()
 
         delegate = self
         
@@ -273,6 +276,46 @@ extension WBMainViewController{
         
     }
 }
+
+//MARK:新特性视图处理
+extension WBMainViewController{
+    
+    //设置新特性视图
+    private func setupNewFeatureViews(){
+        //判断是否登录
+        
+        if !WBNetWorkManager.shared.userLogon {
+            return
+        }
+        
+        
+        //1.检查版本是否更新
+        
+        
+        
+        //2.如果更新,显示新特性 否则显示欢迎
+        
+        let v = isNewVersion ? WBNewFeature() : WBWelcomeView()
+        
+        //3.添加视图
+        
+        v.frame = view.frame
+        view.addSubview(v)
+        
+    }
+    
+    //extension中可以有计算型属性 不会占用存储空间
+    //构造函数:给属性分配空间
+    private var isNewVersion:Bool{
+        
+        return false
+    }
+    
+    
+}
+
+
+
 
 //MARK:UITabBarControllerDelegate
 extension WBMainViewController:UITabBarControllerDelegate{
