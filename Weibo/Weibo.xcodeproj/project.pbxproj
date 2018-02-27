@@ -276,6 +276,7 @@
 		3415EC6620060E830087B901 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				34AC800020458A8C00B1BEBC /* NewFeature */,
 				34127FD120287E12000FF9DB /* OAuth */,
 				3444C64C200F79CC00A0F154 /* main.json */,
 				3496BA3B200CE95E008E60A2 /* VisitorView */,
@@ -462,6 +463,13 @@
 				34AC7FFE2045803300B1BEBC /* WBTitleButton.swift */,
 			);
 			path = TitleButton;
+			sourceTree = "<group>";
+		};
+		34AC800020458A8C00B1BEBC /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewFeature;
 			sourceTree = "<group>";
 		};
 		34BE6AA7202D9CDB00DCCA21 /* Model */ = {

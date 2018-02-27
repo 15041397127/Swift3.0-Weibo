@@ -51,15 +51,16 @@ class WBTitleButton: UIButton {
         
         titleLabel.frame.origin.x = 0;
         imageView.frame.origin.x = titleLabel.bounds.width;
-//        //将label的x 向左移动 imageview宽度
-//
+        //将label的x 向左移动 imageview宽度
+
 //        titleLabel.frame = titleLabel.frame.offsetBy(dx: -imageView.bounds.width, dy: 0)
-//
-//        //imageview 的 x 向右移动lable宽度
-//
+
+       //imageview 的 x 向右移动lable宽度
+
 //        imageView.frame = imageView.frame.offsetBy(dx: titleLabel.bounds.width, dy: 0)
         
-
+        print(titleLabel.frame)
+        print(imageView.frame)
     }
     
     
