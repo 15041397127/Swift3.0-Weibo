@@ -59,8 +59,8 @@ class WBTitleButton: UIButton {
 
 //        imageView.frame = imageView.frame.offsetBy(dx: titleLabel.bounds.width, dy: 0)
         
-        print(titleLabel.frame)
-        print(imageView.frame)
+//        print(titleLabel.frame)
+//        print(imageView.frame)
     }
     
     

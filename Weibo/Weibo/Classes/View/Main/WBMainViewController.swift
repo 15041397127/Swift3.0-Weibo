@@ -295,7 +295,7 @@ extension WBMainViewController{
         
         //2.如果更新,显示新特性 否则显示欢迎
         
-        let v = isNewVersion ? WBNewFeature() : WBWelcomeView.welcomeView()
+        let v = isNewVersion ? WBNewFeature.newFeature() : WBWelcomeView.welcomeView()
         
         //3.添加视图
         
@@ -335,7 +335,9 @@ extension WBMainViewController{
         //4.返回两个版本号是否一致
         
         
-        return currentVersion != sandBoxVersion
+//        return currentVersion != sandBoxVersion
+        
+         return currentVersion == sandBoxVersion
     }
     
     
