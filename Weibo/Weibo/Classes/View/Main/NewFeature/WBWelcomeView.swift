@@ -81,6 +81,8 @@ class WBWelcomeView: UIView {
                 self.tipLabel.alpha = 1
             }, completion: { (_) in
                 
+                //回到首页
+                self.removeFromSuperview()
             })
         }
         

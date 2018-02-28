@@ -10,6 +10,13 @@ import UIKit
 
 //新特性视图
 class WBNewFeature: UIView {
+    @IBOutlet weak var scorllView: UIScrollView!
+    @IBOutlet weak var enterBtn: UIButton!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    //进入微博
+    @IBAction func enterAction() {
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         

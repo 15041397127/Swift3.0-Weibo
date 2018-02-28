@@ -57,6 +57,7 @@
 		34AC800220458C8700B1BEBC /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC800120458C8700B1BEBC /* WBWelcomeView.swift */; };
 		34AC800420458CF500B1BEBC /* WBNewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC800320458CF500B1BEBC /* WBNewFeature.swift */; };
 		34AC80082046D10900B1BEBC /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC80072046D10900B1BEBC /* WBWelcomeView.xib */; };
+		34AC800A2046E00A00B1BEBC /* WBNewFeature.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC80092046E00A00B1BEBC /* WBNewFeature.xib */; };
 		34BE6AA9202D9D2100DCCA21 /* WBUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6AA8202D9D2100DCCA21 /* WBUserAccount.swift */; };
 		34BE8585201775DB00B268F7 /* WBNetWorkManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE8584201775DB00B268F7 /* WBNetWorkManager+extension.swift */; };
 		392DC95AB4EABD108D6B49C5 /* Pods_WeiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8D4DB571E88859224BE522 /* Pods_WeiboUITests.framework */; };
@@ -153,6 +154,7 @@
 		34AC800120458C8700B1BEBC /* WBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		34AC800320458CF500B1BEBC /* WBNewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewFeature.swift; sourceTree = "<group>"; };
 		34AC80072046D10900B1BEBC /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
+		34AC80092046E00A00B1BEBC /* WBNewFeature.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewFeature.xib; sourceTree = "<group>"; };
 		34BE6AA8202D9D2100DCCA21 /* WBUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUserAccount.swift; sourceTree = "<group>"; };
 		34BE8584201775DB00B268F7 /* WBNetWorkManager+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+extension.swift"; sourceTree = "<group>"; };
 		34C7CDB4200650230000C6C6 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				34AC800120458C8700B1BEBC /* WBWelcomeView.swift */,
 				34AC80072046D10900B1BEBC /* WBWelcomeView.xib */,
 				34AC800320458CF500B1BEBC /* WBNewFeature.swift */,
+				34AC80092046E00A00B1BEBC /* WBNewFeature.xib */,
 			);
 			path = NewFeature;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AC800A2046E00A00B1BEBC /* WBNewFeature.xib in Resources */,
 				3444C64D200F79CC00A0F154 /* main.json in Resources */,
 				3481AF852005DF96009F58BF /* Assets.xcassets in Resources */,
 				34AC80082046D10900B1BEBC /* WBWelcomeView.xib in Resources */,
