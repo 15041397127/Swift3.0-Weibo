@@ -16,6 +16,8 @@ class WBNewFeature: UIView {
     
     //进入微博
     @IBAction func enterAction() {
+        
+        removeFromSuperview()
     }
 
     
@@ -56,6 +58,7 @@ class WBNewFeature: UIView {
         scorllView.showsVerticalScrollIndicator = false
         scorllView.showsHorizontalScrollIndicator = false
         
+        scorllView.delegate = self
         //隐藏按钮
         enterBtn.isHidden  = true
         
@@ -67,5 +70,41 @@ class WBNewFeature: UIView {
         // Drawing code
     }
     */
+
+}
+
+extension WBNewFeature:UIScrollViewDelegate{
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        //滚动到最后一屏 让视图删除
+        
+        let page = Int(scorllView.contentOffset.x / scorllView.bounds.width)
+        
+        //判断是否是最后一页
+        if page == scorllView.subviews.count {
+            
+            removeFromSuperview()
+        }
+        
+        //倒数第二页显示按钮
+        
+        enterBtn.isHidden = (page != scrollView.subviews.count - 1)
+     
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        //一旦滚动隐藏按钮
+        enterBtn.isHidden = true
+        
+        //计算当前偏移量
+        
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width + 0.5)
+        
+        pageControl.currentPage = page
+        
+        pageControl.isHidden = (page == scrollView.subviews.count )
+    }
 
 }
