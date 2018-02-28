@@ -295,11 +295,11 @@ extension WBMainViewController{
         
         //2.如果更新,显示新特性 否则显示欢迎
         
-        let v = isNewVersion ? WBNewFeature() : WBWelcomeView()
+        let v = isNewVersion ? WBNewFeature() : WBWelcomeView.welcomeView()
         
         //3.添加视图
         
-        v.frame = view.frame
+//        v.frame = view.frame
         view.addSubview(v)
         
     }
