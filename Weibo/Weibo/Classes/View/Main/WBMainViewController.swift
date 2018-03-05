@@ -389,6 +389,12 @@ extension WBMainViewController:UITabBarControllerDelegate{
                   vc.loadData()
             })
             
+            
+            //清楚tabbar上的数字
+            
+            vc.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0;
+            
          
         }
  
