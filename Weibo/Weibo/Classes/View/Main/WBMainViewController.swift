@@ -335,9 +335,9 @@ extension WBMainViewController{
         //4.返回两个版本号是否一致
         
         
-//        return currentVersion != sandBoxVersion
+        return currentVersion != sandBoxVersion
         
-         return currentVersion == sandBoxVersion
+//         return currentVersion == sandBoxVersion
     }
     
     

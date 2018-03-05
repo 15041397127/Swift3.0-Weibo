@@ -12,9 +12,9 @@ import YYModel
 class WBSatues: NSObject {
     
     //Int类型在64位机型是64的 32位是32位 若不写64 在老旧机型上都无法正常运行
-   @objc var id:Int64 = 0
+    @objc var id:Int64 = 0
     //微博信息内容
-   @objc var text:String?
+    @objc var text:String?
 
     @objc var pic_urls:String?
 
