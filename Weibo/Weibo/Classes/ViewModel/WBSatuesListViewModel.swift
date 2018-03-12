@@ -26,8 +26,8 @@ private let  maxPullupTryTimes = 3
 
 
 class WBSatuesListViewModel {
-    //微博模型数组懒加载
-    lazy var statuesLsit = [WBSatues]()
+    //微博视图模型数组懒加载
+    lazy var statuesLsit = [WBSatuesViewModel]()
     
     //上拉刷新错误次数
     private var maxPullupErrorTimes = 0
@@ -48,10 +48,10 @@ class WBSatuesListViewModel {
         
         
         //since_id 取出数组中第一条微博的id
-        let since_id = pullUp ?0:statuesLsit.first?.id ?? 0
+        let since_id = pullUp ?0:statuesLsit.first?.status.id ?? 0
         
          //max_id 取出数组中最后一条微博的id
-        let max_id = !pullUp ?0:statuesLsit.last?.id ?? 0
+        let max_id = !pullUp ?0:statuesLsit.last?.status.id ?? 0
         
         WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
             
@@ -89,12 +89,44 @@ class WBSatuesListViewModel {
             */
 
 
-            //1.字典转模型(所有第三方框架都支持嵌套的字典转模型)
-            guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
-
+            //判断网络请求是否成功
+            
+            if !isSuccess {
+                
                 completion(isSuccess,false)
+                
                 return
             }
+            
+            
+            
+            //1.字典转模型(所有第三方框架都支持嵌套的字典转模型)
+            
+            //1> 定义结果可变数组
+            
+            var array = [WBSatuesViewModel]()
+        
+            //2> 遍历服务器返回的字典数组 字典转模型
+            
+            for dict  in list ?? [] {
+                
+                //a)创建微博模型 -如果创建模型失败 继续后续的遍历
+                guard  let model = WBSatues.yy_model(with: dict) else{
+                    
+                    continue
+                }
+                
+                //b) 将视图 model 添加到数组
+                
+                array.append(WBSatuesViewModel(model:model))
+            }
+            
+            
+//            guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
+//
+//                completion(isSuccess,false)
+//                return
+//            }
             print("刷新到\(array.count)条数\(array)")
             
                  //2.拼接数据
