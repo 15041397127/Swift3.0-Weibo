@@ -89,13 +89,13 @@ class WBSatuesListViewModel {
             */
 
 
-            //1.字典转模型
+            //1.字典转模型(所有第三方框架都支持嵌套的字典转模型)
             guard  let array = NSArray.yy_modelArray(with: WBSatues.self, json: list ?? []) as? [WBSatues] else{
 
                 completion(isSuccess,false)
                 return
             }
-            print("刷新到\(array.count)条数")
+            print("刷新到\(array.count)条数\(array)")
             
                  //2.拼接数据
             if pullUp {

@@ -17,6 +17,9 @@ class WBSatues: NSObject {
     @objc var text:String?
 
     @objc var pic_urls:String?
+    
+    //微博用户  主要要和服务器返回的key要一样
+    @objc var user:WBUser?
 
 
 //
