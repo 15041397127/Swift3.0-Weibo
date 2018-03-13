@@ -122,9 +122,10 @@ extension WBHomeViewController{
         
 //        cell.textLabel?.text = statusList[indexPath.row]
         
-         let viewModel = listViewModel.statuesLsit[indexPath.row]
-         cell.statusLabel?.text = viewModel.status.text
-         cell.nameLabel.text = viewModel.status.user?.screen_name
+         let vm = listViewModel.statuesLsit[indexPath.row]
+        
+         cell.viewModel = vm
+      
 //        cell.textLabel?.text = "aaaaa"
         return cell
         
