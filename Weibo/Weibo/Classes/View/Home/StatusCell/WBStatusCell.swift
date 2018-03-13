@@ -25,7 +25,7 @@ class WBStatusCell: UITableViewCell {
             vipIconView.image = viewModel?.vipIcon
             
             //用户头像
-            iconView.cz_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named: "avatar_default"))
+            iconView.cz_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named: "avatar_default"),isAvatar:true)
         
         }
     }
