@@ -33,6 +33,13 @@ class WBSatuesViewModel:CustomStringConvertible {
     
     ///认证类型 -1：没有认证  0：认证用户 2，3，5：企业认证 220：达人
     var vipIcon:UIImage?
+    
+    //转发文字
+    var reteetedStr:String?
+    //评论文字
+    var commentStr:String?
+    //点赞文字
+    var likeStr:String?
 
     /// 构造函数
     ///
@@ -61,7 +68,14 @@ class WBSatuesViewModel:CustomStringConvertible {
         default:
             break
         }
+        //设置底部计数字符串
         
+        //测试超过10000的数字
+//        model.reposts_count = Int(arc4random_uniform(100000))
+        
+        reteetedStr = countString(count: status.reposts_count, defautStr: "转发")
+        commentStr = countString(count: status.comments_count, defautStr: "评论")
+        likeStr = countString(count: status.attitudes_count, defautStr: "赞")
         
     }
     
@@ -69,6 +83,28 @@ class WBSatuesViewModel:CustomStringConvertible {
         
         return status.description
         
+    }
+    
+    
+
+    
+    /// 给定一个数字 返回对应的描述结果
+    ///
+    /// - Parameters:
+    ///   - count: 数字
+    ///   - defautStr: 默认标题
+    /// - Returns:  描述结果
+    private func countString(count:Int,defautStr:String) -> String{
+        
+        if count == 0 {
+            return defautStr
+        }
+        
+        if count < 10000 {
+            return count.description
+        }
+        
+        return String(format:"%0.2f万",Double(count/10000))
     }
     
 }

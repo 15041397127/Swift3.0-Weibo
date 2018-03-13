@@ -14,9 +14,9 @@ class WBStatusToolBar: UIView {
     
         didSet{
             
-            retweetedButton.setTitle("\(viewModel?.status.reposts_count)", for: .normal)
-            commenButton.setTitle("\(viewModel?.status.comments_count)", for: .normal)
-            commenButton.setTitle("\(viewModel?.status.attitudes_count)", for: .normal)
+            retweetedButton.setTitle(viewModel?.reteetedStr, for: .normal)
+            commenButton.setTitle(viewModel?.commentStr, for: .normal)
+            commenButton.setTitle(viewModel?.likeStr, for: .normal)
         }
     }
     
