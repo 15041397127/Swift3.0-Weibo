@@ -45,7 +45,7 @@ extension UIImage{
         //0>. 绘制内切的圆形
         let ovalPath = UIBezierPath(ovalIn: rect)
         
-        ovalPath.lineWidth = 2
+        ovalPath.lineWidth = 1
         lineColor.setStroke()
         ovalPath.stroke()
         
