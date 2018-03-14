@@ -10,6 +10,34 @@ import UIKit
 
 class WBStatusPictureView: UIView {
 
+    //配图视图的数组
+    var urls:[WBStatusPicture]?{
+        didSet{
+            //1.隐藏所有的imageView
+            
+            for v  in subviews {
+                v.isHidden = true
+            }
+            
+            //2.遍历urls数组 顺序设置图像
+            var index = 0
+            for  url  in urls ?? [] {
+                //获得对象索引的 imageView
+                let iv = subviews[index] as! UIImageView
+                //设置图像
+               iv.cz_setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
+                
+               //显示图像
+                iv.isHidden = false
+                
+                index += 1
+                
+            }
+            
+            
+        }
+    }
+    
     @IBOutlet weak var heightCons: NSLayoutConstraint!
     
     override func awakeFromNib() {
@@ -38,7 +66,10 @@ extension WBStatusPictureView{
         for i in 0..<count * count {
             
             let iv = UIImageView()
-            iv.backgroundColor = UIColor.red
+            
+            iv.contentMode = .scaleAspectFill
+            iv.clipsToBounds = true
+
             //行
             let row = CGFloat (i/count)
             //列
