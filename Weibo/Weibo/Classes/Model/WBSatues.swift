@@ -30,7 +30,7 @@ class WBSatues: NSObject {
     @objc var user:WBUser?
 
     
-   @objc var pic_urls: [WBStatusPicture]?
+   @objc var pic_urls:[WBStatusPicture]?
 
 //
 //    init(_ dict : [String: Any]){

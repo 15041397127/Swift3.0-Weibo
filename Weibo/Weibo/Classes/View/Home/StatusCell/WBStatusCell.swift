@@ -35,6 +35,21 @@ class WBStatusCell: UITableViewCell {
             //修改配图视图的高度
             pictureView.heightCons.constant =  viewModel?.pictureViewSize.height ?? 0
             //设置url数据
+            
+  
+//            let cout = viewModel?.status.pic_urls?.count
+            //测试四张图像
+//            if CGFloat(cout!) > 4  {
+//
+//                var picUrl = self.viewModel!.status.pic_urls!
+//
+//                picUrl.removeSubrange((picUrl.startIndex + 4) ..< picUrl.endIndex)
+//                pictureView.urls = picUrl
+//
+//            }else{
+//                pictureView.urls = viewModel?.status.pic_urls
+//            }
+//
             pictureView.urls = viewModel?.status.pic_urls
           
         
