@@ -125,12 +125,15 @@
                             <outlet property="retweetedButton" destination="vUq-Jy-2eZ" id="QIS-3c-h6L"/>
                         </connections>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRN-rs-FE5">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRN-rs-FE5" userLabel="配图视图" customClass="WBStatusPictureView" customModule="Weibo" customModuleProvider="target">
                         <rect key="frame" x="11" y="93" width="409" height="89.666666666666686"/>
                         <color key="backgroundColor" red="0.99682036569999999" green="1" blue="0.1049802775" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="89.670000000000002" id="3cV-V9-uWq"/>
                         </constraints>
+                        <connections>
+                            <outlet property="heightCons" destination="3cV-V9-uWq" id="vCy-9Z-9Ob"/>
+                        </connections>
                     </view>
                 </subviews>
                 <constraints>
@@ -165,6 +168,8 @@
                 <outlet property="iconView" destination="EBb-AR-dBp" id="zFu-76-C6Q"/>
                 <outlet property="memberIconView" destination="6UX-om-pqU" id="ZGy-gs-PgE"/>
                 <outlet property="nameLabel" destination="vLf-Pd-3ja" id="8dR-Dp-0gv"/>
+                <outlet property="pictureTopCons" destination="f4t-eX-dMI" id="yKX-fu-vz3"/>
+                <outlet property="pictureView" destination="iRN-rs-FE5" id="ufh-DK-hbW"/>
                 <outlet property="sourceLabel" destination="vZ2-RV-qkI" id="ij3-tO-dcf"/>
                 <outlet property="statusLabel" destination="9UH-jb-xdD" id="xlW-o4-emm"/>
                 <outlet property="timeLabel" destination="pue-84-qd3" id="GHQ-UF-Xmu"/>

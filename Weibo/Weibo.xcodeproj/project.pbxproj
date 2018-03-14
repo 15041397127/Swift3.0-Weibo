@@ -67,6 +67,7 @@
 		34D6DCB62058007100F6E691 /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6DCB52058007100F6E691 /* UIImageView+WebImage.swift */; };
 		34D6DCB8205804A400F6E691 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6DCB7205804A400F6E691 /* UIImageView+Extensions.swift */; };
 		34D6DCBA205819AA00F6E691 /* WBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6DCB9205819AA00F6E691 /* WBStatusToolBar.swift */; };
+		34DCF7D020594EFD00A9FA23 /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DCF7CF20594EFD00A9FA23 /* WBStatusPictureView.swift */; };
 		392DC95AB4EABD108D6B49C5 /* Pods_WeiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8D4DB571E88859224BE522 /* Pods_WeiboUITests.framework */; };
 		539BF32FD6D3B80CAD9CC8FE /* Pods_WeiboTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B556227FCB1A2694AC0FF4 /* Pods_WeiboTests.framework */; };
 		5D2C825BFABE55FE932641D8 /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF918B26D8611DDC43B865C /* Pods_Weibo.framework */; };
@@ -184,6 +185,7 @@
 		34D6DCB52058007100F6E691 /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
 		34D6DCB7205804A400F6E691 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		34D6DCB9205819AA00F6E691 /* WBStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusToolBar.swift; sourceTree = "<group>"; };
+		34DCF7CF20594EFD00A9FA23 /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		3D8D4DB571E88859224BE522 /* Pods_WeiboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF918B26D8611DDC43B865C /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		696EB16F50A127B2E73E61A9 /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 			children = (
 				34D6DCAD205159AC00F6E691 /* WBStatusCell.swift */,
 				34D6DCB9205819AA00F6E691 /* WBStatusToolBar.swift */,
+				34DCF7CF20594EFD00A9FA23 /* WBStatusPictureView.swift */,
 				34D6DCAF205159E900F6E691 /* WBStatusNormalCell.xib */,
 			);
 			path = StatusCell;
@@ -856,6 +859,7 @@
 				345C9F24202030BE001BA70C /* Insecurity.swift in Sources */,
 				34BE6AA9202D9D2100DCCA21 /* WBUserAccount.swift in Sources */,
 				345C9F26202030BE001BA70C /* RootClass.swift in Sources */,
+				34DCF7D020594EFD00A9FA23 /* WBStatusPictureView.swift in Sources */,
 				349DDE99200700280078743F /* NSObject+CZRuntime.m in Sources */,
 				3415EC6C200610F30087B901 /* WBBaseViewController.swift in Sources */,
 				349DDE94200700280078743F /* NSAttributedString+CZAdditon.m in Sources */,
