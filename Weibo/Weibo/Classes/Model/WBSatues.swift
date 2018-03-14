@@ -24,11 +24,13 @@ class WBSatues: NSObject {
       @objc var attitudes_count: Int = 0
     
 
-    @objc var pic_urls:String?
+//    @objc var pic_urls:String?
     
     //微博用户  主要要和服务器返回的key要一样
     @objc var user:WBUser?
 
+    
+   @objc var pic_urls: [WBStatusPicture]?
 
 //
 //    init(_ dict : [String: Any]){
@@ -49,7 +51,17 @@ class WBSatues: NSObject {
         
         
     }
+    
+    /*
+     告诉第三方框架`YYModel`,如果遇到数组类型的属性,数组中存放的对象是什么类
+     NSArray 中保存对象的类型通常是`id`类型
+     OC 中的泛型是 Swift 推出后,苹果为了兼容给 OC 增加的
+     从运行时的角度,仍然不知道数组中应该存放什么类型的对象
+     */
+    //类函数
+    @objc class  func  modelContainerPropertyGenericClass() -> [String : AnyClass] {
+        return ["pic_urls" : WBStatusPicture.self]
+    }
+ 
 
-    
-    
 }
