@@ -21,3 +21,14 @@ let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 
 //用户登录成功通知
 let WBUserLoginSuccessNotification = "WBUserLoginSuccessNotification"
+
+
+//MARK:微博视图常量
+//微博视图外侧间距
+let WBStatusPictureViewOutterMargin = CGFloat(12)
+//内部视图的间距
+let WBStatusPictureViewInnerMargin = CGFloat(3)
+//屏幕宽度
+let WBStatusPictureViewWidth = UIScreen.cz_screenWidth() - 2 * WBStatusPictureViewOutterMargin
+//每个item默认宽度
+let WBStatusPictureItemWidth = (WBStatusPictureViewWidth - 2 * WBStatusPictureViewInnerMargin)/3

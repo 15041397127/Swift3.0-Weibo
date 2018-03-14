@@ -102,21 +102,12 @@ class WBSatuesViewModel:CustomStringConvertible {
     /// - Returns: 图片的大小
     private func calcPictureViewSize(count:Int?) -> CGSize{
         
-        if count == 0 {
+        if count == 0 && count == nil {
             return CGSize()
         }
         
         //1.计算宽度
-        //微博视图外侧间距
-        let WBStatusPictureViewOutterMargin = CGFloat(12)
-        //内部视图的间距
-        let WBStatusPictureViewInnerMargin = CGFloat(3)
-        //屏幕宽度
-        let WBStatusPictureViewWidth = UIScreen.cz_screenWidth() - 2 * WBStatusPictureViewOutterMargin
-        //每个item默认宽度
-        let WBStatusPictureItemWidth = (WBStatusPictureViewWidth - 2 * WBStatusPictureViewInnerMargin)/3
-        
-    
+
         //计算高度
         //计算行数 根据conut 1 ~ 9
         /*
