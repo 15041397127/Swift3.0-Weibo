@@ -30,7 +30,11 @@ class WBSatues: NSObject {
     @objc var user:WBUser?
 
     
-   @objc var pic_urls:[WBStatusPicture]?
+    @objc var pic_urls:[WBStatusPicture]?
+    
+    //被转发的原创微博
+    @objc var retweeted_status:WBSatues?
+    
 
 //
 //    init(_ dict : [String: Any]){

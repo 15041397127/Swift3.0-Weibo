@@ -50,7 +50,9 @@ class WBStatusCell: UITableViewCell {
 //                pictureView.urls = viewModel?.status.pic_urls
 //            }
 //
-            pictureView.urls = viewModel?.status.pic_urls
+            
+            //设置配图
+            pictureView.urls = viewModel?.picURLs
           
         
         }

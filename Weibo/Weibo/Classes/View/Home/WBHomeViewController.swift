@@ -10,7 +10,7 @@ import UIKit
 
 //定义全局常量,最好private修饰 否在其他也可以访问
 //原创微博
-private let cellId = "cellId"
+private let originalCellId = "cellId"
 
 //转发的
 private let retweetedCellId = "retweetedCellId"
@@ -118,16 +118,21 @@ extension WBHomeViewController{
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //1.取cell
         
+        //0.取出视图模型 根据视图模型判断可重用celL
+        let vm = listViewModel.statuesLsit[indexPath.row]
+        
+        let cellID = (vm.status.retweeted_status != nil) ? retweetedCellId : originalCellId
+        
+        //1.取cell
         //FIXME:-修改ID
-        let cell = tableView.dequeueReusableCell(withIdentifier: retweetedCellId, for: indexPath) as! WBStatusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! WBStatusCell
         
         //2.设置cell
         
 //        cell.textLabel?.text = statusList[indexPath.row]
         
-         let vm = listViewModel.statuesLsit[indexPath.row]
+
         
          cell.viewModel = vm
       
@@ -161,7 +166,7 @@ extension WBHomeViewController {
         //注册原型cell
 //        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
-        tableView?.register(UINib.init(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView?.register(UINib.init(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
         
         tableView?.register(UINib.init(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
         //设置行高
