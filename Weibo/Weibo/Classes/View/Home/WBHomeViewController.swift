@@ -9,7 +9,11 @@
 import UIKit
 
 //定义全局常量,最好private修饰 否在其他也可以访问
+//原创微博
 private let cellId = "cellId"
+
+//转发的
+private let retweetedCellId = "retweetedCellId"
 
 class WBHomeViewController: WBBaseViewController {
     
@@ -116,7 +120,8 @@ extension WBHomeViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //1.取cell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
+        //FIXME:-修改ID
+        let cell = tableView.dequeueReusableCell(withIdentifier: retweetedCellId, for: indexPath) as! WBStatusCell
         
         //2.设置cell
         
@@ -158,6 +163,7 @@ extension WBHomeViewController {
         
         tableView?.register(UINib.init(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
         
+        tableView?.register(UINib.init(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
         //设置行高
         tableView?.rowHeight = UITableViewAutomaticDimension
         

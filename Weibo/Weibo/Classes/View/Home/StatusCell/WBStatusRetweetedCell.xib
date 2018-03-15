@@ -192,7 +192,7 @@
                 <outlet property="toolBar" destination="eei-lH-pP7" id="M0v-Cl-eQo"/>
                 <outlet property="vipIconView" destination="fAq-4J-Pbg" id="qGl-WD-6gP"/>
             </connections>
-            <point key="canvasLocation" x="-740" y="-265.5"/>
+            <point key="canvasLocation" x="-747" y="-246"/>
         </tableViewCell>
     </objects>
     <resources>
