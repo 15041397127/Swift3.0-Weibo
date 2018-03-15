@@ -54,6 +54,7 @@ class WBStatusCell: UITableViewCell {
             //设置配图
             pictureView.urls = viewModel?.picURLs
           
+            retweetedLabel?.text = viewModel?.retweetedText
         
         }
     }
@@ -79,6 +80,8 @@ class WBStatusCell: UITableViewCell {
     //配图视图
     @IBOutlet weak var pictureView: WBStatusPictureView!
     
+    //原创微博的控件 nomalCellXib没有 这个label控件 因此用可选的  否则会崩溃
+    @IBOutlet weak var retweetedLabel: UILabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()

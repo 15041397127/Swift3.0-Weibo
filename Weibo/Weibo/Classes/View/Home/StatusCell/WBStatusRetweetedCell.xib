@@ -67,7 +67,7 @@
                         <rect key="frame" x="0.0" y="99.999999999999986" width="440" height="143.66666666666663"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZh-KI-R8e" userLabel="被转发微博的正文">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZh-KI-R8e" userLabel="被转发微博的正文">
                         <rect key="frame" x="12" y="112" width="35.333333333333336" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -186,6 +186,7 @@
                 <outlet property="memberIconView" destination="6UX-om-pqU" id="ZGy-gs-PgE"/>
                 <outlet property="nameLabel" destination="vLf-Pd-3ja" id="8dR-Dp-0gv"/>
                 <outlet property="pictureView" destination="iRN-rs-FE5" id="ufh-DK-hbW"/>
+                <outlet property="retweetedLabel" destination="kZh-KI-R8e" id="wwV-sn-dk8"/>
                 <outlet property="sourceLabel" destination="vZ2-RV-qkI" id="ij3-tO-dcf"/>
                 <outlet property="statusLabel" destination="9UH-jb-xdD" id="xlW-o4-emm"/>
                 <outlet property="timeLabel" destination="pue-84-qd3" id="GHQ-UF-Xmu"/>
