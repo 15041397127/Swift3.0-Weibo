@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 //微博数据列表视图模型
 /*
  父类选择
@@ -162,8 +163,45 @@ class WBSatuesListViewModel {
     /// - Parameter list: 本次下载的视图模型数组
     private func cacheSingleImage(list:[WBSatuesViewModel]){
         
-        
-        
+        //记录数据长度
+        var length = 0
+        //遍历数组 查找微博数据中有单张图像的 进行缓存
+        for vm  in list {
+            
+            //1.判断图像数量
+            if vm.picURLs?.count != 1{
+                continue
+            }
+            //2.获取图像模型
+            guard let pic = vm.picURLs?[0].thumbnail_pic,
+                  let url =  URL(string:pic)   else{
+                
+                continue
+                
+            }
+           
+            //3下载图片
+            //downloadImage 是sdwebImage 核心方法
+            //图像下载完成之后 会自动保存在沙盒中 文件路径是url的md5
+            //如果沙盒中已经存在的缓存图像 后续使用SD 通过url加载图像 都会加载本地沙盒图像
+            //不会发起网络请求 同时回调方法会调用
+            //方法一样 调用一样 不过内部不会再发起网络请求
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _ ) in
+                
+                
+                //将图片转成二进制数据
+                if let image = image,
+                    let data = UIImagePNGRepresentation(image){
+                    
+                    //NSData 是length属性
+                    length += data.count
+                }
+                print("缓存的图像是\(image)长度\(length)")
+                
+            })
+            
+        }
+
     }
     
     
