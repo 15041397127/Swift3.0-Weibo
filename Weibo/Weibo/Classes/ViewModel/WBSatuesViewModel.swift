@@ -56,6 +56,7 @@ class WBSatuesViewModel:CustomStringConvertible {
     var retweetedText:String?
     
     
+    
     /// 构造函数
     ///
     /// - Parameter model: 微博模型

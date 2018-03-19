@@ -147,12 +147,23 @@ class WBSatuesListViewModel {
                 completion(isSuccess,false)
             }else{
          
+                self.cacheSingleImage(list: array)
+                
                 completion(isSuccess,true)
             }
-            
-         
-            
+
         }
+    }
+    
+    
+    
+    /// 缓存本次下载微博数据组中的单张图像
+    ///
+    /// - Parameter list: 本次下载的视图模型数组
+    private func cacheSingleImage(list:[WBSatuesViewModel]){
+        
+        
+        
     }
     
     
