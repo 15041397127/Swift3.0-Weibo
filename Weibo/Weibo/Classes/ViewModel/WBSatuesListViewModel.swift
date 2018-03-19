@@ -162,10 +162,13 @@ class WBSatuesListViewModel {
     ///
     /// - Parameter list: 本次下载的视图模型数组
     private func cacheSingleImage(list:[WBSatuesViewModel]){
-        
+        //调度组
+        let group = DispatchGroup()
+
         //记录数据长度
         var length = 0
         //遍历数组 查找微博数据中有单张图像的 进行缓存
+        //option cmd  左折叠代码
         for vm  in list {
             
             //1.判断图像数量
@@ -186,6 +189,11 @@ class WBSatuesListViewModel {
             //如果沙盒中已经存在的缓存图像 后续使用SD 通过url加载图像 都会加载本地沙盒图像
             //不会发起网络请求 同时回调方法会调用
             //方法一样 调用一样 不过内部不会再发起网络请求
+            
+            
+            //入组
+            group.enter()
+            
             SDWebImageManager.shared().imageDownloader?.downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _ ) in
                 
                 
@@ -196,11 +204,18 @@ class WBSatuesListViewModel {
                     //NSData 是length属性
                     length += data.count
                 }
-                print("缓存的图像是\(image)长度\(length)")
+                print("缓存的图像是\(String(describing: image))长度\(length)")
                 
+                //出组 放在回调的最后一句
+                group.leave()
             })
             
         }
+        group.notify(queue: DispatchQueue.main) {
+            
+            print("图片缓存完成\(length/1024)k")
+        }
+        
 
     }
     
