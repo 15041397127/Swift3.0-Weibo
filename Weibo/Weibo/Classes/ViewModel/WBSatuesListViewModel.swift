@@ -204,6 +204,11 @@ class WBSatuesListViewModel {
                     
                     //NSData 是length属性
                     length += data.count
+                    
+                    //图像缓存成功更新配图视图的大小
+                    vm.updateSingleImageSize(image: image)
+                    
+                    
                 }
                 print("缓存的图像是\(String(describing: image))长度\(length)")
                 

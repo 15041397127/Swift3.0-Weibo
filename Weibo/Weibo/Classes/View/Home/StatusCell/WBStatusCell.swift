@@ -9,7 +9,7 @@
 import UIKit
 
 class WBStatusCell: UITableViewCell {
-    
+
     //微博视图模型
     var viewModel:WBSatuesViewModel?{
         
@@ -30,10 +30,11 @@ class WBStatusCell: UITableViewCell {
             //底部工具栏
             toolBar.viewModel = viewModel
             
+            //配图视图模型
+            pictureView.viewModel = viewModel
             
            
-            //修改配图视图的高度
-            pictureView.heightCons.constant =  viewModel?.pictureViewSize.height ?? 0
+
             //设置url数据
             
   
