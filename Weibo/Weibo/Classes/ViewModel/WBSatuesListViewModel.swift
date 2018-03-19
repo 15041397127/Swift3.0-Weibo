@@ -148,9 +148,9 @@ class WBSatuesListViewModel {
                 completion(isSuccess,false)
             }else{
          
-                self.cacheSingleImage(list: array)
+                self.cacheSingleImage(list: array, finished: completion)
                 
-                completion(isSuccess,true)
+//                completion(isSuccess,true)
             }
 
         }
@@ -160,8 +160,9 @@ class WBSatuesListViewModel {
     
     /// 缓存本次下载微博数据组中的单张图像
     ///
+    /// - 应该缓存单张图片并且修改配图大小之后再回调 才能保证表格等比例显示单张图像
     /// - Parameter list: 本次下载的视图模型数组
-    private func cacheSingleImage(list:[WBSatuesViewModel]){
+    private func cacheSingleImage(list:[WBSatuesViewModel], finished:@escaping(_ isSuccess:Bool,_ shouldRefresh:Bool) -> ()){
         //调度组
         let group = DispatchGroup()
 
@@ -214,6 +215,8 @@ class WBSatuesListViewModel {
         group.notify(queue: DispatchQueue.main) {
             
             print("图片缓存完成\(length/1024)k")
+            //执行闭包回调
+            finished(true,true)
         }
         
 
