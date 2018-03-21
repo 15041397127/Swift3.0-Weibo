@@ -124,7 +124,7 @@ extension WBHomeViewController{
         
         let cellID = (vm.status.retweeted_status != nil) ? retweetedCellId : originalCellId
         
-        //1.取cell
+        //1.取cell 本身会调用代理方法(如果有)/如果没有,找到cell,按照自动布局规则 从上向下计算 找到向下的约束,从而计算动态行高
         //FIXME:-修改ID
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! WBStatusCell
         
@@ -140,6 +140,15 @@ extension WBHomeViewController{
         return cell
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let viewModel = listViewModel.statuesLsit[indexPath.row]
+        
+        return viewModel.rowHeight
+        
+    }
+    
     
 }
 
@@ -170,9 +179,9 @@ extension WBHomeViewController {
         
         tableView?.register(UINib.init(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
         //设置行高
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        
-        tableView?.estimatedRowHeight  = 300
+//        tableView?.rowHeight = UITableViewAutomaticDimension
+//
+//        tableView?.estimatedRowHeight  = 300
         
         //取消分割线
         tableView?.separatorStyle = .none
