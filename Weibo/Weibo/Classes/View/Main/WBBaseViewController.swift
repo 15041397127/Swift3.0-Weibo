@@ -30,7 +30,7 @@ class WBBaseViewController: UIViewController {
     var tableView:UITableView?
     
     //刷新控件
-    var refreshControl:UIRefreshControl?
+    var refreshControl:ZXRefreshControl?
     
     //自定义导航条
  
@@ -175,7 +175,7 @@ extension WBBaseViewController{
         
         //设置刷新控件
         //1.实例化控件
-        refreshControl = UIRefreshControl()
+        refreshControl = ZXRefreshControl()
         
         //2.添加到表格视图
         tableView?.addSubview(refreshControl!)
