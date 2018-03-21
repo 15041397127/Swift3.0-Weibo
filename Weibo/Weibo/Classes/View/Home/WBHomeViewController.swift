@@ -178,7 +178,7 @@ extension WBHomeViewController {
         tableView?.register(UINib.init(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
         
         tableView?.register(UINib.init(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
-        //设置行高
+        //设置行高 计算行高之后可注释掉
 //        tableView?.rowHeight = UITableViewAutomaticDimension
 //
 //        tableView?.estimatedRowHeight  = 300

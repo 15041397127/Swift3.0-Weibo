@@ -86,6 +86,20 @@ class WBStatusCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        //离屏渲染 -异步绘制
+        self.layer.drawsAsynchronously = true
+        
+        //栅格化 -异步绘制后 会生成一张独立的图像 cell在屏幕上滚动的时候 本质上滚动的事这张图片
+        //cell优化 要尽量减少图层的数量,相当于一层
+        //停止滚动之后可以接受监听
+        self.layer.shouldRasterize = true
+        
+        //使用栅格化 必须注意指定分辨率
+        
+        self.layer.rasterizationScale = UIScreen.main.scale
+        
         // Initialization code
     }
 

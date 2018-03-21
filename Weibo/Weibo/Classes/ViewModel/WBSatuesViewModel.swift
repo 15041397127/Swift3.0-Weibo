@@ -130,9 +130,9 @@ class WBSatuesViewModel:CustomStringConvertible {
         var height:CGFloat = 0
         let viewSize = CGSize(width: UIScreen.cz_screenWidth() - 2*margin, height: CGFloat(MAXFLOAT))
         
-        let originalFont = UIFont.systemFont(ofSize: 15)
-        
-        let reteetedFont = UIFont.systemFont(ofSize: 14)
+//        let originalFont = UIFont.systemFont(ofSize: 15)
+//
+//        let reteetedFont = UIFont.systemFont(ofSize: 14)
         //1计算顶部位置
         height = 2 * margin + iconHeight + margin
         
@@ -177,6 +177,27 @@ class WBSatuesViewModel:CustomStringConvertible {
     func updateSingleImageSize(image:UIImage){
         
         var  size = image.size
+        
+        //过宽图像处理
+        let maxWidth:CGFloat = 300
+        let minWidth:CGFloat = 40
+        if size.width > maxWidth {
+    
+            size.width = maxWidth
+            //等比例调整高度
+            size.height = size.width * image.size.height/image.size.width
+            
+        }
+        
+        //过窄图像处理
+        if size.width < minWidth {
+            
+            size.width = minWidth
+            //要特殊处理高度 否则高度太大 会影响用户
+            size.height = size.width * image.size.height/image.size.width/4
+            
+        }
+        
         //尺寸增加顶部的12个点
         size.height += WBStatusPictureViewOutterMargin
         
