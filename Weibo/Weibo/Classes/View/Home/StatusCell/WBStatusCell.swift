@@ -53,7 +53,7 @@ class WBStatusCell: UITableViewCell {
 //
             
             //设置配图
-            pictureView.urls = viewModel?.picURLs
+//            pictureView.urls = viewModel?.picURLs
           
             retweetedLabel?.text = viewModel?.retweetedText
         
