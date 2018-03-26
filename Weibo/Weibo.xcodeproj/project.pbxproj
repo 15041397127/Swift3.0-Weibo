@@ -17,6 +17,8 @@
 		3415EC70200612230087B901 /* WBMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC6F200612230087B901 /* WBMessageViewController.swift */; };
 		3415EC72200612470087B901 /* WBDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC71200612470087B901 /* WBDiscoverViewController.swift */; };
 		3415EC74200612620087B901 /* WBProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC73200612620087B901 /* WBProfileViewController.swift */; };
+		3434C7462069217500577C27 /* CZRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3434C7452069217500577C27 /* CZRefreshView.xib */; };
+		3434C74B2069259200577C27 /* CZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434C74A2069259200577C27 /* CZRefreshView.swift */; };
 		3444C64D200F79CC00A0F154 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 3444C64C200F79CC00A0F154 /* main.json */; };
 		345C9F182020308F001BA70C /* Statuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F172020308E001BA70C /* Statuse.swift */; };
 		345C9F24202030BE001BA70C /* Insecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F19202030BB001BA70C /* Insecurity.swift */; };
@@ -106,6 +108,8 @@
 		3415EC6F200612230087B901 /* WBMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBMessageViewController.swift; sourceTree = "<group>"; };
 		3415EC71200612470087B901 /* WBDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDiscoverViewController.swift; sourceTree = "<group>"; };
 		3415EC73200612620087B901 /* WBProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBProfileViewController.swift; sourceTree = "<group>"; };
+		3434C7452069217500577C27 /* CZRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CZRefreshView.xib; sourceTree = "<group>"; };
+		3434C74A2069259200577C27 /* CZRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZRefreshView.swift; sourceTree = "<group>"; };
 		3444C64C200F79CC00A0F154 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		345C9F172020308E001BA70C /* Statuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statuse.swift; sourceTree = "<group>"; };
 		345C9F19202030BB001BA70C /* Insecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insecurity.swift; sourceTree = "<group>"; };
@@ -537,6 +541,8 @@
 			isa = PBXGroup;
 			children = (
 				34E039882062A5A800EF9DC2 /* ZXRefreshControl.swift */,
+				3434C74A2069259200577C27 /* CZRefreshView.swift */,
+				3434C7452069217500577C27 /* CZRefreshView.xib */,
 			);
 			path = ZXRefreshControl;
 			sourceTree = "<group>";
@@ -682,6 +688,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34D6DCB0205159E900F6E691 /* WBStatusNormalCell.xib in Resources */,
+				3434C7462069217500577C27 /* CZRefreshView.xib in Resources */,
 				34AC800A2046E00A00B1BEBC /* WBNewFeature.xib in Resources */,
 				34DCF7D6205AA94200A9FA23 /* WBStatusRetweetedCell.xib in Resources */,
 				3444C64D200F79CC00A0F154 /* main.json in Resources */,
@@ -888,6 +895,7 @@
 				34D6DCB62058007100F6E691 /* UIImageView+WebImage.swift in Sources */,
 				345C9F28202030BE001BA70C /* WeiboCamera.swift in Sources */,
 				3415EC72200612470087B901 /* WBDiscoverViewController.swift in Sources */,
+				3434C74B2069259200577C27 /* CZRefreshView.swift in Sources */,
 				34D6DCBA205819AA00F6E691 /* WBStatusToolBar.swift in Sources */,
 				3415EC68200610210087B901 /* WBMainViewController.swift in Sources */,
 				34E039892062A5A800EF9DC2 /* ZXRefreshControl.swift in Sources */,

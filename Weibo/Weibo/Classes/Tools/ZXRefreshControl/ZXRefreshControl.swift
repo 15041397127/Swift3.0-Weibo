@@ -8,13 +8,30 @@
 
 import UIKit
 
-//刷新控件
+//刷新控件临界点
+private let ZXRefreshOffSet:CGFloat = 60
+
+
+/// 刷新状态
+///
+/// - Normal: 普通状态
+/// - Pulling: 超过临界点 如果放手开始刷新
+/// - willRefresh: 用户超过临界点 并且放手
+enum ZXRefreshState {
+    case Normal
+    case Pulling
+    case willRefresh
+}
+
+//刷新控件 - 专门负责刷新相关的"逻辑"处理
 class ZXRefreshControl: UIControl {
 
     //MARK:属性
     //刷新控件视图的父视图 下拉刷新控件应该试用与 Uitableview  uicollctionview
     private weak var scrollView:UIScrollView?
     
+    //刷新视图
+    private lazy var refreshView = CZRefreshView.refreshView()
     
     //MARK:构造函数
     init() {
@@ -83,12 +100,44 @@ class ZXRefreshControl: UIControl {
         //初始化高度为0
         let height = -(sv.contentInset.top + sv.contentOffset.y)
         
+        if height < 0 {
+            return
+        }
+        
         //可以根据高度设置刷新控件的frame
         
         self.frame = CGRect(x: 0, y: -height, width: sv.bounds.width, height: height)
         
-        print(sv.contentInset.top)
-          print(sv.contentOffset.y)
+        //判断临界点 -只需要判断一次
+        if sv.isDragging {
+            
+            if height > ZXRefreshOffSet && (refreshView.refreshState == .Normal) {
+                
+                print("放手刷新")
+                refreshView.refreshState = .Pulling
+                
+            }else if height <= ZXRefreshOffSet  && (refreshView.refreshState == .Pulling) {
+                
+                print("再使劲")
+                
+                refreshView.refreshState = .Normal
+            }
+  
+        }else{
+
+            //放手
+            if refreshView.refreshState == .Pulling {
+                
+                //准备开始刷新
+                //刷新结束之后 将状态修改为.nomal 才能继续相应刷新
+                refreshView.refreshState = .willRefresh
+                
+            }
+            
+        }
+        
+//        print(sv.contentInset.top)
+//          print(sv.contentOffset.y)
         print(height)
     }
     
@@ -108,8 +157,24 @@ extension ZXRefreshControl{
     
     
     private func setupUI(){
+    
+        backgroundColor =  superview?.backgroundColor
         
-        backgroundColor =  UIColor.orange
+        //设置超出边界不显示
+        
+        clipsToBounds = true
+        
+        addSubview(refreshView)
+        
+        //自动布局 -设置xib控件的布局 需要制定宽高约束
+        refreshView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
+        
+        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
+        
+        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: refreshView.bounds.width))
+        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: refreshView.bounds.height))
     }
     
     
