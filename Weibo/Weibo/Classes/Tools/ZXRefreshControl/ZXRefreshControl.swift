@@ -132,6 +132,12 @@ class ZXRefreshControl: UIControl {
                 //刷新结束之后 将状态修改为.nomal 才能继续相应刷新
                 refreshView.refreshState = .willRefresh
                 
+                //让整个刷新视图能够显示出来
+                //解决方法:修改表格的contentOffset
+                var inset = sv.contentInset
+                inset.top += ZXRefreshOffSet
+                sv.contentInset = inset
+                
             }
             
         }
@@ -161,8 +167,7 @@ extension ZXRefreshControl{
         backgroundColor =  superview?.backgroundColor
         
         //设置超出边界不显示
-        
-        clipsToBounds = true
+//        clipsToBounds = true
         
         addSubview(refreshView)
         
