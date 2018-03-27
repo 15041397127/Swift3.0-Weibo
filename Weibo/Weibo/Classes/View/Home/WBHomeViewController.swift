@@ -40,6 +40,7 @@ class WBHomeViewController: WBBaseViewController {
 //
 //            print(list)
 //        }
+        self.refreshControl?.beginRefreshing()
         print("准备刷新,最后一条\(self.listViewModel.statuesLsit.last?.status.text)")
         listViewModel.loadStatues(pullUp:self.isPullUp) { (isSuccess,shouldRefresh) in
             
