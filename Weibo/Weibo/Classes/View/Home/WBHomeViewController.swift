@@ -46,14 +46,17 @@ class WBHomeViewController: WBBaseViewController {
             
             print("刷新表格")
             //结束刷新控件
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.refreshControl?.endRefreshing()
+                
             //回复上拉刷新标记
             self.isPullUp = false
             //刷新表格
-            
+          
             if shouldRefresh{
                 self.tableView?.reloadData()
             }
+//    }
         }
         
         

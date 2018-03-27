@@ -129,14 +129,19 @@ class ZXRefreshControl: UIControl {
             if refreshView.refreshState == .Pulling {
                 
                 //准备开始刷新
-                //刷新结束之后 将状态修改为.nomal 才能继续相应刷新
-                refreshView.refreshState = .willRefresh
+//                //刷新结束之后 将状态修改为.nomal 才能继续相应刷新
+//                refreshView.refreshState = .willRefresh
+//
+//                //让整个刷新视图能够显示出来
+//                //解决方法:修改表格的contentOffset
+//                var inset = sv.contentInset
+//                inset.top += ZXRefreshOffSet
+//                sv.contentInset = inset
                 
-                //让整个刷新视图能够显示出来
-                //解决方法:修改表格的contentOffset
-                var inset = sv.contentInset
-                inset.top += ZXRefreshOffSet
-                sv.contentInset = inset
+                beginRefreshing()
+                
+                //发送刷新数据的事件 解决拖拽后不调用loadData方法
+                sendActions(for: .valueChanged)
                 
             }
             
@@ -154,6 +159,12 @@ class ZXRefreshControl: UIControl {
         guard let sv = scrollView else {
             return
         }
+        
+        //判断是否正在刷新 如果正在刷新 直接返回
+        if refreshView.refreshState == .willRefresh {
+            return
+        }
+        
         //设置刷新视图状态
         refreshView.refreshState = .willRefresh
         
@@ -166,6 +177,23 @@ class ZXRefreshControl: UIControl {
     
     func endRefreshing() {
         print("结束刷新")
+        //恢复刷新视图的状态
+        //恢复表格视图的contentInset
+        guard let sv = scrollView else { return  }
+        
+        //判断状态 是否正在刷新 如果不是 直接返回
+        
+        if refreshView.refreshState != .willRefresh {
+            return
+        }
+        
+        refreshView.refreshState = .Normal
+        var inset = sv.contentInset
+
+        inset.top -= ZXRefreshOffSet
+
+        sv.contentInset = inset
+        
     }
 
 
