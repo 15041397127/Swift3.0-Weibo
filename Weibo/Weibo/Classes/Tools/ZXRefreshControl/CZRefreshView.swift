@@ -12,6 +12,13 @@ import UIKit
 class CZRefreshView: UIView {
 
     //刷新状态
+    /*
+     iOS系统中 uiview 封装的旋转动画
+     - 默认顺时针旋转
+     - 就近原则
+     - 要想实现同方向旋转 需要调整一个非常小的数字(近)
+     - 如果想实现 360旋转 需要核心动画 CABaseAnimation
+    */
     var refreshState:ZXRefreshState = .Normal {
         
         didSet{
@@ -19,10 +26,25 @@ class CZRefreshView: UIView {
             switch refreshState {
             case .Normal:
                 tipLable.text = "继续使劲拉..."
+                UIView.animate(withDuration: 0.25){
+                   self.tipIcon.transform = CGAffineTransform.identity
+                }
             case .Pulling:
                 tipLable.text = "放手继续刷新...."
+                
+                UIView.animate(withDuration: 0.25){
+                    //尾随闭包
+                    self.tipIcon.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI - 0.001))
+                }
+            
             case .willRefresh:
                 tipLable.text = "正在刷新ing...."
+                
+                //隐藏提示图标
+                tipIcon.isHidden = true
+                
+                //显示菊花
+                indicator.startAnimating()
             }
         }
     }
