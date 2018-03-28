@@ -9,8 +9,8 @@
 import Foundation
 
 //MARK: - 应用程序信息
-let WBAppKey =   "1012589697"
-let WBAppSecret =   "4f08aa9a4beff9338d27d365e8c63af0"
+let WBAppKey =   "4010704658"
+let WBAppSecret =   "91deb8b8259f94aab35b930290714754"
 let WBRedirectURI =   "https://www.baidu.com" //回调地址
 
 //https://api.weibo.com/oauth2/authorize?client_id=1012589697&redirect_uri=https://www.baidu.com
