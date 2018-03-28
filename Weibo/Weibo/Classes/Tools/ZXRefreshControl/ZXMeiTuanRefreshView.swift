@@ -32,6 +32,18 @@ class ZXMeiTuanRefreshView: CZRefreshView {
         
         refresh_earthIconView.layer.add(anim, forKey: nil)
         
+        //3.袋鼠
+        
+        //缩小
+        loadingIconView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        
+        //设置锚点
+        loadingIconView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
+        
+        //设置frame 或者center
+        let x = self.bounds.width * 0.5
+        let y = self.bounds.height - 35
+        loadingIconView.center = CGPoint(x: x, y: y)
         
     }
     /*
