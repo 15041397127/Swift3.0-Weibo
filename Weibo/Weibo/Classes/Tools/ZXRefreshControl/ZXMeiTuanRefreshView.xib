@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="yTx-wK-Q8u" customClass="ZXMeiTuanRefreshView" customModule="Weibo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="212" height="133"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="takeout_img_refresh_building_1" translatesAutoresizingMaskIntoConstraints="NO" id="1Oa-vQ-vfh">
+                    <rect key="frame" x="0.0" y="0.0" width="197" height="133"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="takeout_img_refresh_earth" translatesAutoresizingMaskIntoConstraints="NO" id="twb-fO-l74">
+                    <rect key="frame" x="0.0" y="98" width="212" height="212"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="takeout_img_list_loading_pic1" translatesAutoresizingMaskIntoConstraints="NO" id="KA6-Gv-Rs1">
+                    <rect key="frame" x="86" y="49" width="41" height="48"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="buildingIconView" destination="1Oa-vQ-vfh" id="FLX-F1-gR6"/>
+                <outlet property="loadingIconView" destination="KA6-Gv-Rs1" id="hrO-mo-1qJ"/>
+                <outlet property="refresh_earthIconView" destination="twb-fO-l74" id="Wrg-ZN-wzC"/>
+            </connections>
+            <point key="canvasLocation" x="31" y="34.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="takeout_img_list_loading_pic1" width="41" height="48"/>
+        <image name="takeout_img_refresh_building_1" width="197" height="133"/>
+        <image name="takeout_img_refresh_earth" width="212" height="212"/>
+    </resources>
+</document>

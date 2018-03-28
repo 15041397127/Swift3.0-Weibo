@@ -26,41 +26,41 @@ class CZRefreshView: UIView {
             switch refreshState {
             case .Normal:
                 //恢复状态
-                tipIcon.isHidden = false
-                indicator.stopAnimating()
+                tipIcon?.isHidden = false
+                indicator?.stopAnimating()
                 
                 
-                tipLable.text = "继续使劲拉..."
+                tipLable?.text = "继续使劲拉..."
                 UIView.animate(withDuration: 0.25){
-                   self.tipIcon.transform = CGAffineTransform.identity
+                    self.tipIcon?.transform = CGAffineTransform.identity
                 }
             case .Pulling:
-                tipLable.text = "放手继续刷新...."
+                tipLable?.text = "放手继续刷新...."
                 
                 UIView.animate(withDuration: 0.25){
                     //尾随闭包
-                    self.tipIcon.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI - 0.001))
+                    self.tipIcon?.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI - 0.001))
                 }
             
             case .willRefresh:
-                tipLable.text = "正在刷新ing...."
+                tipLable?.text = "正在刷新ing...."
                 
                 //隐藏提示图标
-                tipIcon.isHidden = true
+                tipIcon?.isHidden = true
                 
                 //显示菊花
-                indicator.startAnimating()
+                indicator?.startAnimating()
             }
         }
     }
     
-    @IBOutlet weak var tipIcon: UIImageView!//提示图标
-    @IBOutlet weak var tipLable: UILabel!//提示标签
-    @IBOutlet weak var indicator: UIActivityIndicatorView!//指示器
+    @IBOutlet weak var tipIcon: UIImageView?//提示图标
+    @IBOutlet weak var tipLable: UILabel?//提示标签
+    @IBOutlet weak var indicator: UIActivityIndicatorView?//指示器
     
     class func refreshView() -> CZRefreshView {
         
-        let nib = UINib(nibName: "CZRefreshView", bundle: nil)
+        let nib = UINib(nibName: "ZXMeiTuanRefreshView", bundle: nil)
         
         return nib.instantiate(withOwner: nib, options: nil)[0] as! CZRefreshView
     }

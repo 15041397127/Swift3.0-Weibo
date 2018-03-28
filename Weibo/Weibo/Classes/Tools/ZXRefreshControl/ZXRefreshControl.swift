@@ -9,7 +9,7 @@
 import UIKit
 
 //刷新控件临界点
-private let ZXRefreshOffSet:CGFloat = 60
+private let ZXRefreshOffSet:CGFloat = 133
 
 
 /// 刷新状态

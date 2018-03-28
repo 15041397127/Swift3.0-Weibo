@@ -20,6 +20,9 @@
 		3434C7462069217500577C27 /* CZRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3434C7452069217500577C27 /* CZRefreshView.xib */; };
 		3434C74B2069259200577C27 /* CZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434C74A2069259200577C27 /* CZRefreshView.swift */; };
 		3444C64D200F79CC00A0F154 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 3444C64C200F79CC00A0F154 /* main.json */; };
+		3448058B206BBBDD00E54A07 /* ZXRefreshHumanView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448058A206BBBDD00E54A07 /* ZXRefreshHumanView.xib */; };
+		3448058D206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448058C206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib */; };
+		34480591206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34480590206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift */; };
 		345C9F182020308F001BA70C /* Statuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F172020308E001BA70C /* Statuse.swift */; };
 		345C9F24202030BE001BA70C /* Insecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F19202030BB001BA70C /* Insecurity.swift */; };
 		345C9F25202030BE001BA70C /* CommentManageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F1A202030BB001BA70C /* CommentManageInfo.swift */; };
@@ -111,6 +114,9 @@
 		3434C7452069217500577C27 /* CZRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CZRefreshView.xib; sourceTree = "<group>"; };
 		3434C74A2069259200577C27 /* CZRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZRefreshView.swift; sourceTree = "<group>"; };
 		3444C64C200F79CC00A0F154 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		3448058A206BBBDD00E54A07 /* ZXRefreshHumanView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZXRefreshHumanView.xib; sourceTree = "<group>"; };
+		3448058C206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZXMeiTuanRefreshView.xib; sourceTree = "<group>"; };
+		34480590206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXMeiTuanRefreshView.swift; sourceTree = "<group>"; };
 		345C9F172020308E001BA70C /* Statuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statuse.swift; sourceTree = "<group>"; };
 		345C9F19202030BB001BA70C /* Insecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insecurity.swift; sourceTree = "<group>"; };
 		345C9F1A202030BB001BA70C /* CommentManageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentManageInfo.swift; sourceTree = "<group>"; };
@@ -542,7 +548,10 @@
 			children = (
 				34E039882062A5A800EF9DC2 /* ZXRefreshControl.swift */,
 				3434C74A2069259200577C27 /* CZRefreshView.swift */,
+				34480590206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift */,
 				3434C7452069217500577C27 /* CZRefreshView.xib */,
+				3448058A206BBBDD00E54A07 /* ZXRefreshHumanView.xib */,
+				3448058C206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib */,
 			);
 			path = ZXRefreshControl;
 			sourceTree = "<group>";
@@ -691,8 +700,10 @@
 				3434C7462069217500577C27 /* CZRefreshView.xib in Resources */,
 				34AC800A2046E00A00B1BEBC /* WBNewFeature.xib in Resources */,
 				34DCF7D6205AA94200A9FA23 /* WBStatusRetweetedCell.xib in Resources */,
+				3448058B206BBBDD00E54A07 /* ZXRefreshHumanView.xib in Resources */,
 				3444C64D200F79CC00A0F154 /* main.json in Resources */,
 				3481AF852005DF96009F58BF /* Assets.xcassets in Resources */,
+				3448058D206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib in Resources */,
 				34AC80082046D10900B1BEBC /* WBWelcomeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -880,6 +891,7 @@
 			files = (
 				349DDE8F200700280078743F /* UIViewController+CZAddition.m in Sources */,
 				34AC7FFF2045803300B1BEBC /* WBTitleButton.swift in Sources */,
+				34480591206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift in Sources */,
 				346FEF7E2007A463003EE3C8 /* WBDemoViewController.swift in Sources */,
 				345C9F24202030BE001BA70C /* Insecurity.swift in Sources */,
 				34BE6AA9202D9D2100DCCA21 /* WBUserAccount.swift in Sources */,
