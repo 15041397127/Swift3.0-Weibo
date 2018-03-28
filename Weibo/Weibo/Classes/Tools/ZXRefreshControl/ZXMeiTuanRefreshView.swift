@@ -18,6 +18,24 @@ class ZXMeiTuanRefreshView: CZRefreshView {
     override var parentViewHeight :CGFloat{
         didSet{
             
+            //35- 133
+            //0.2 - 1
+            if parentViewHeight < 35 {
+                return
+            }
+            
+            //高度差 / 最大高度差
+            // 35 == 0.2
+            //133 == 1
+            var scale:CGFloat
+            if parentViewHeight >  133 {
+                scale = 1
+            }else{
+                
+                scale = 1 - ((133 - parentViewHeight) / (133 - 35))
+            }
+
+             loadingIconView.transform = CGAffineTransform(scaleX: scale, y: scale)
             
         }
     }
@@ -42,8 +60,12 @@ class ZXMeiTuanRefreshView: CZRefreshView {
         
         //3.袋鼠
         
-        //缩小
-        loadingIconView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        let kImage1 = #imageLiteral(resourceName: "takeout_img_list_loading_pic1")
+        let kImage2 = #imageLiteral(resourceName: "takeout_img_list_loading_pic2")
+        
+        loadingIconView.image = UIImage.animatedImage(with: [kImage1,kImage2], duration: 0.5)
+        
+        
         
         //设置锚点
         loadingIconView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
@@ -52,6 +74,8 @@ class ZXMeiTuanRefreshView: CZRefreshView {
         let x = self.bounds.width * 0.5
         let y = self.bounds.height - 35
         loadingIconView.center = CGPoint(x: x, y: y)
+        
+        loadingIconView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
         
     }
     /*

@@ -176,6 +176,9 @@ class ZXRefreshControl: UIControl {
         inset.top += ZXRefreshOffSet
         sv.contentInset = inset
         
+        //设置刷新视图的父视图高度
+        refreshView.parentViewHeight = ZXRefreshOffSet
+        
     }
     
     func endRefreshing() {
