@@ -54,6 +54,9 @@ class CZRefreshView: UIView {
         }
     }
     
+    //父视图高度 -为了刷新控件不需要关系当前具体的刷新视图是谁
+    var parentViewHeight:CGFloat = 0
+    
     @IBOutlet weak var tipIcon: UIImageView?//提示图标
     @IBOutlet weak var tipLable: UILabel?//提示标签
     @IBOutlet weak var indicator: UIActivityIndicatorView?//指示器

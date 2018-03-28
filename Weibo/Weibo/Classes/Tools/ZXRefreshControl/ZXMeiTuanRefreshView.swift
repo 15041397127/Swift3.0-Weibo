@@ -14,6 +14,14 @@ class ZXMeiTuanRefreshView: CZRefreshView {
     @IBOutlet weak var refresh_earthIconView: UIImageView!//提示图标
     @IBOutlet weak var loadingIconView: UIImageView!//提示图标
     
+    //俯视图高度
+    override var parentViewHeight :CGFloat{
+        didSet{
+            
+            
+        }
+    }
+    
     override func awakeFromNib() {
         
         //1.房子
