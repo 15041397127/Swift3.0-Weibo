@@ -87,22 +87,49 @@ private extension WBComposeTypeView{
         
         //0.强行更新布局
         layoutIfNeeded()
-        
-        
+
         //1.向scrollView添加视图
-        let v = UIView()
+        let rect = scrollView.bounds
+        let v = UIView(frame:rect)
         
+        //2.向视图添加按钮
+        addButtons(v: v, idx: 0)
         
+        //3将视图添加到scrollView
+        scrollView.addSubview(v)
+    
+    }
+    
+    //向v中添加按钮 按钮的数组索引从idx开始
+    func addButtons(v:UIView,idx:Int){
         
-        
-        
-        //1.创建类型按钮
-        let btn = WBComposeTypeButton.composeTypeButton(imageName: "tabbar_compose_music", title: "试一试")
-//        btn.center = center
-        btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        addSubview(btn)
-        
-        //2.添加监听方法
-        btn.addTarget(self, action: #selector(clickButton), for: .touchUpInside)
+        //idx开始 添加6个按钮
+        let count = 6
+        for i in idx..<(idx + count) {
+            
+            //从数组字典中获取名称和title
+           
+            if idx > buttonsInfo.count{
+                
+                break
+            }
+            
+            let dict = buttonsInfo[i]
+            
+          guard  let imageName = dict["imageName"],
+            let title = dict["title"] else{
+                continue
+            }
+            
+            
+            //1.创建按钮
+            let bt = WBComposeTypeButton.composeTypeButton(imageName: imageName, title: title)
+            
+            //将btn添加大视图
+            
+            v.addSubview(bt)
+            
+        }
+  
     }
 }
