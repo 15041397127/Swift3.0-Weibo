@@ -14,7 +14,64 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WBComposeTypeView" customModule="Weibo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn4-Va-V7q">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Dk3-EH-LHH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="compose_slogan" translatesAutoresizingMaskIntoConstraints="NO" id="PXi-Zv-T3M">
+                                <rect key="frame" x="110.5" y="100" width="154" height="48"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAH-CR-SIi">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diy-Xd-53D">
+                                        <rect key="frame" x="174.5" y="9.5" width="25" height="25"/>
+                                        <state key="normal" image="tabbar_compose_background_icon_close"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="diy-Xd-53D" firstAttribute="centerY" secondItem="JAH-CR-SIi" secondAttribute="centerY" id="Glm-pN-40X"/>
+                                    <constraint firstItem="diy-Xd-53D" firstAttribute="centerX" secondItem="JAH-CR-SIi" secondAttribute="centerX" id="NHk-XO-haZ"/>
+                                    <constraint firstAttribute="height" constant="44" id="pnH-bt-KDP"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGd-1J-TPL">
+                                <rect key="frame" x="0.0" y="343" width="375" height="224"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="rAY-dK-S37"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="JAH-CR-SIi" firstAttribute="top" secondItem="AGd-1J-TPL" secondAttribute="bottom" constant="56" id="Fab-5q-hnw"/>
+                            <constraint firstAttribute="trailing" secondItem="JAH-CR-SIi" secondAttribute="trailing" id="Gpn-Wg-vYi"/>
+                            <constraint firstAttribute="bottom" secondItem="JAH-CR-SIi" secondAttribute="bottom" id="YZi-lg-8mf"/>
+                            <constraint firstItem="AGd-1J-TPL" firstAttribute="leading" secondItem="Dk3-EH-LHH" secondAttribute="leading" id="dNs-jb-exj"/>
+                            <constraint firstAttribute="trailing" secondItem="AGd-1J-TPL" secondAttribute="trailing" id="uJH-YZ-0Yq"/>
+                            <constraint firstItem="PXi-Zv-T3M" firstAttribute="top" secondItem="Dk3-EH-LHH" secondAttribute="top" constant="100" id="vsE-46-Tt3"/>
+                            <constraint firstItem="PXi-Zv-T3M" firstAttribute="centerX" secondItem="Dk3-EH-LHH" secondAttribute="centerX" id="wl5-UR-dmP"/>
+                            <constraint firstItem="JAH-CR-SIi" firstAttribute="leading" secondItem="Dk3-EH-LHH" secondAttribute="leading" id="xpl-RJ-GIU"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vn4-Va-V7q" secondAttribute="trailing" id="Ucp-CX-b2F"/>
+                <constraint firstAttribute="bottom" secondItem="vn4-Va-V7q" secondAttribute="bottom" id="V3E-Oy-2u6"/>
+                <constraint firstItem="vn4-Va-V7q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nak-Jh-ylq"/>
+                <constraint firstItem="vn4-Va-V7q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rnG-Qv-Rkc"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="compose_slogan" width="154" height="48"/>
+        <image name="tabbar_compose_background_icon_close" width="25" height="25"/>
+    </resources>
 </document>
