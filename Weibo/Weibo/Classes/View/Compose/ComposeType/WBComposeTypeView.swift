@@ -89,15 +89,26 @@ private extension WBComposeTypeView{
         layoutIfNeeded()
 
         //1.向scrollView添加视图
+        
+        let width = scrollView.bounds.width
         let rect = scrollView.bounds
-        let v = UIView(frame:rect)
         
-        //2.向视图添加按钮
-        addButtons(v: v, idx: 0)
+        for i  in 0..<2 {
+             let v = UIView(frame:rect.offsetBy(dx: CGFloat(i) * width, dy: 0))
+            //        //2.向视图添加按钮
+             addButtons(v: v, idx: i * 6)
+            //        //3将视图添加到scrollView
+             scrollView.addSubview(v)
+        }
+
+        //4. 设置scorllView
+        scrollView.contentSize = CGSize(width: 2 * width, height: 0)
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.bounces = false
         
-        //3将视图添加到scrollView
-        scrollView.addSubview(v)
-    
+        //禁用滚动
+        scrollView.isScrollEnabled = false
     }
     
     //向v中添加按钮 按钮的数组索引从idx开始
@@ -109,7 +120,7 @@ private extension WBComposeTypeView{
             
             //从数组字典中获取名称和title
            
-            if idx > buttonsInfo.count{
+            if i >= buttonsInfo.count{
                 
                 break
             }
