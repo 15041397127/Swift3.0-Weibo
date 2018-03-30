@@ -91,6 +91,23 @@ class WBComposeTypeView: UIView {
         
     }
     
+    //返回按钮
+    @IBAction func clickReturn() {
+       
+        scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+        
+        closeButtonCenterXCons.constant = 0
+        returnButtonCenterXCons.constant = 0
+    
+        UIView.animate(withDuration: 0.25, animations: {
+            self.layoutIfNeeded()
+            self.returnBtn.alpha = 0
+        }) { (_) in
+            self.returnBtn.isHidden = true
+            self.returnBtn.alpha = 1
+        }
+        
+    }
     //关闭视图
     @IBAction func close() {
         
