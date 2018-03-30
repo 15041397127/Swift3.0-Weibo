@@ -63,6 +63,13 @@ class WBComposeTypeView: UIView {
         
     }
     
+    //点击更多按钮
+    @objc private func clickMore(){
+        
+        
+        
+    }
+    
     //关闭视图
     @IBAction func close() {
         
@@ -139,6 +146,13 @@ private extension WBComposeTypeView{
             //将btn添加大视图
             
             v.addSubview(bt)
+            
+            //添加监听方法
+            if let actionName = dict["actionName"]{
+                //OC中 NSSelectorFromString(@"")
+                bt.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+                
+            }
             
         }
         
