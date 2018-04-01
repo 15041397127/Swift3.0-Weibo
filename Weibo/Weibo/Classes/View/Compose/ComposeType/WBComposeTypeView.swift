@@ -114,7 +114,8 @@ class WBComposeTypeView: UIView {
     //关闭视图
     @IBAction func close() {
         
-        removeFromSuperview()
+//        removeFromSuperview()
+        hideButtons()
     }
     
     
@@ -150,6 +151,7 @@ private extension WBComposeTypeView{
     //弹力显示所有的按钮
     private func showButtons(){
         
+        //MARK:显示部分的动画
         //1.获取scorllview子视图的第0个视图
         let v = scrollView.subviews[0]
         
@@ -160,7 +162,7 @@ private extension WBComposeTypeView{
             let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
             
             //设置动画属性
-            anim.fromValue = btn.center.y + 300
+            anim.fromValue = btn.center.y + 350
             anim.toValue = btn.center.y
             anim.springBounciness = 8//弹力系数 默认4 数值越大 速度越快 0-20
             anim.springSpeed = 8//弹力系数 默认12 数值越大 速度越快 0-20
@@ -173,6 +175,32 @@ private extension WBComposeTypeView{
             
         }
     }
+    
+    //MARK:隐藏动画
+    private func hideButtons(){
+        
+        //1.根据contentOffset 判断当前的子视图
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        let v = scrollView.subviews[page]
+        
+        //遍历v中的所有按钮
+        for (i,btn)  in v.subviews.enumerated().reversed() {
+            
+            //1.创建
+            let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            
+            //动画属性
+            anim.fromValue = btn.center.y
+            anim.toValue = btn.center.y + 350
+            
+            anim.beginTime = CACurrentMediaTime() + CFTimeInterval(v.subviews.count - i) * 0.025
+            
+            btn.layer.pop_add(anim, forKey: nil)
+            
+        }
+        
+    }
+    
     
 }
 //private 让extension都是私有
