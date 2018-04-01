@@ -139,14 +139,41 @@ private extension WBComposeTypeView{
         let anim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
         anim.fromValue = 0
         anim.toValue = 1
-        anim.duration = 0.5
+        anim.duration = 0.25
         //2.添加到视图
         pop_add(anim, forKey: nil)
-        
-      
-        
-        
+
+        //添加按钮的动画
+        showButtons()
     }
+    
+    //弹力显示所有的按钮
+    private func showButtons(){
+        
+        //1.获取scorllview子视图的第0个视图
+        let v = scrollView.subviews[0]
+        
+        //2.遍历v中的所有的按钮
+        for (i,btn) in v.subviews.enumerated() {
+            
+            //创建动画
+            let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            
+            //设置动画属性
+            anim.fromValue = btn.center.y + 300
+            anim.toValue = btn.center.y
+            anim.springBounciness = 8//弹力系数 默认4 数值越大 速度越快 0-20
+            anim.springSpeed = 8//弹力系数 默认12 数值越大 速度越快 0-20
+            
+            //设置动画启动时间
+            anim.beginTime = CACurrentMediaTime() + CFTimeInterval(i) * 0.025
+            
+            //添加动画
+            btn.pop_add(anim, forKey: nil)
+            
+        }
+    }
+    
 }
 //private 让extension都是私有
 private extension WBComposeTypeView{
