@@ -30,6 +30,10 @@ class WBComposeTypeView: UIView {
     @IBOutlet weak var returnBtn: UIButton!
     private let buttonsInfo = [["imageName":"tabbar_compose_idea","title":"文字","clsName":"WBComposeViewController"],["imageName":"tabbar_compose_photo","title":"照片/视频"],["imageName":"tabbar_compose_weibo","title":"长微博"],["imageName":"tabbar_compose_lbs","title":"签到"],["imageName":"tabbar_compose_review","title":"点评"],["imageName":"tabbar_compose_more","title":"更多","actionName":"clickMore"],["imageName":"tabbar_compose_transfer","title":"好友圈"],["imageName":"tabbar_compose_wbcamera","title":"微博相机"],["imageName":"tabbar_compose_music","title":"音乐"],["imageName":"tabbar_compose_shooting","title":"拍摄"]]
     
+    //完成回调
+    private var completionBlock:((_ clsName:String?) -> ())?
+    
+    //MARK:实例化方法
     class func composeTypeView() -> WBComposeTypeView{
         
         let nib = UINib(nibName: "WBComposeTypeView", bundle: nil)
@@ -46,7 +50,12 @@ class WBComposeTypeView: UIView {
     }
 
       //显示当前视图
-    func show(){
+    //OC中block如果当前方法 不能执行 通常使用属性记录 ,再需要的时候执行
+    func show(completion:@escaping (_ clsName:String?) -> ()){
+        
+        //记录闭包
+        completionBlock = completion
+        
         
         //1 > 将当前视图添加到 根视图控制器
         guard  let vc = UIApplication.shared.keyWindow?.rootViewController else{
@@ -66,7 +75,7 @@ class WBComposeTypeView: UIView {
 //    }
     
     //MARK:监听方法
-    @objc private func clickButton(button:WBComposeTypeButton){
+    @objc private func clickButton(selectedButton:WBComposeTypeButton){
         
         print("点我了")
         
@@ -83,7 +92,7 @@ class WBComposeTypeView: UIView {
             let scaleAnim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
             
             //x,y在系统中使用 cgpoint 表示 如果要转换成id 需要使用 NSValue包装
-            let scale = (button == btn) ? 2 : 0.2
+            let scale = (selectedButton == btn) ? 2 : 0.2
             let value = NSValue(cgPoint: CGPoint(x: scale, y: scale))
             scaleAnim.toValue = value
             scaleAnim.duration = 0.5
@@ -103,7 +112,7 @@ class WBComposeTypeView: UIView {
                 alphaAnim.completionBlock = {_,_ in
                     
                     //执行回调
-                    
+                    self.completionBlock?(selectedButton.clsName)
                     
                 }
 
