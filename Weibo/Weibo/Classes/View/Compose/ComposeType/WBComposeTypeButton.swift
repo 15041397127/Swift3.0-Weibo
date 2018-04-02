@@ -14,7 +14,8 @@ class WBComposeTypeButton: UIControl {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    
+    //点击按钮要展现控制器的类型
+    var clsName:String?
     
     /// 使用xib加载
     ///

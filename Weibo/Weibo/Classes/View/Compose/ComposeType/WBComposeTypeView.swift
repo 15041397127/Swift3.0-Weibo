@@ -28,7 +28,7 @@ class WBComposeTypeView: UIView {
     @IBOutlet weak var returnButtonCenterXCons: NSLayoutConstraint!
     //返回前一页按钮
     @IBOutlet weak var returnBtn: UIButton!
-    private let buttonsInfo = [["imageName":"tabbar_compose_idea","title":"文字","clsName":"MJComposeController"],["imageName":"tabbar_compose_photo","title":"照片/视频"],["imageName":"tabbar_compose_weibo","title":"长微博"],["imageName":"tabbar_compose_lbs","title":"签到"],["imageName":"tabbar_compose_review","title":"点评"],["imageName":"tabbar_compose_more","title":"更多","actionName":"clickMore"],["imageName":"tabbar_compose_transfer","title":"好友圈"],["imageName":"tabbar_compose_wbcamera","title":"微博相机"],["imageName":"tabbar_compose_music","title":"音乐"],["imageName":"tabbar_compose_shooting","title":"拍摄"]]
+    private let buttonsInfo = [["imageName":"tabbar_compose_idea","title":"文字","clsName":"WBComposeViewController"],["imageName":"tabbar_compose_photo","title":"照片/视频"],["imageName":"tabbar_compose_weibo","title":"长微博"],["imageName":"tabbar_compose_lbs","title":"签到"],["imageName":"tabbar_compose_review","title":"点评"],["imageName":"tabbar_compose_more","title":"更多","actionName":"clickMore"],["imageName":"tabbar_compose_transfer","title":"好友圈"],["imageName":"tabbar_compose_wbcamera","title":"微博相机"],["imageName":"tabbar_compose_music","title":"音乐"],["imageName":"tabbar_compose_shooting","title":"拍摄"]]
     
     class func composeTypeView() -> WBComposeTypeView{
         
@@ -66,7 +66,7 @@ class WBComposeTypeView: UIView {
 //    }
     
     //MARK:监听方法
-    @objc private func clickButton(){
+    @objc private func clickButton(btn:WBComposeTypeButton){
         
         print("点我了")
         
@@ -291,7 +291,14 @@ private extension WBComposeTypeView{
                 //OC中 NSSelectorFromString(@"")
                 bt.addTarget(self, action: Selector(actionName), for: .touchUpInside)
                 
+            }else{
+                
+                bt.addTarget(self, action: #selector(clickButton), for: .touchUpInside)
+                
             }
+            
+            //设置要展现的类名 不需要任何的判断
+            bt.clsName = dict["clsName"]
             
         }
         
