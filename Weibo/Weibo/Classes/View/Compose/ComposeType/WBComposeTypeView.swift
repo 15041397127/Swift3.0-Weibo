@@ -77,7 +77,7 @@ class WBComposeTypeView: UIView {
         
         //2.遍历当前视图
         //选中的按钮放大 未选中的按钮缩小
-        for btn in v.subviews {
+        for (i,btn) in v.subviews.enumerated() {
             
             //缩放动画
             let scaleAnim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
@@ -91,7 +91,23 @@ class WBComposeTypeView: UIView {
             btn.pop_add(scaleAnim, forKey: nil)
             
             //渐变动画 - 动画组
+            let alphaAnim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+            alphaAnim.toValue = 0.2
+            alphaAnim.duration = 0.5
             
+            btn.pop_add(alphaAnim, forKey: nil)
+            
+            //3监听动画完成
+            
+            if i == 0{
+                alphaAnim.completionBlock = {_,_ in
+                    
+                    //执行回调
+                    
+                    
+                }
+
+            }
         }
     }
     
