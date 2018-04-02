@@ -66,10 +66,33 @@ class WBComposeTypeView: UIView {
 //    }
     
     //MARK:监听方法
-    @objc private func clickButton(btn:WBComposeTypeButton){
+    @objc private func clickButton(button:WBComposeTypeButton){
         
         print("点我了")
         
+        //1判断当前显示的视图
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        
+        let v = scrollView.subviews[page]
+        
+        //2.遍历当前视图
+        //选中的按钮放大 未选中的按钮缩小
+        for btn in v.subviews {
+            
+            //缩放动画
+            let scaleAnim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
+            
+            //x,y在系统中使用 cgpoint 表示 如果要转换成id 需要使用 NSValue包装
+            let scale = (button == btn) ? 2 : 0.2
+            let value = NSValue(cgPoint: CGPoint(x: scale, y: scale))
+            scaleAnim.toValue = value
+            scaleAnim.duration = 0.5
+            
+            btn.pop_add(scaleAnim, forKey: nil)
+            
+            //渐变动画 - 动画组
+            
+        }
     }
     
     //点击更多按钮
