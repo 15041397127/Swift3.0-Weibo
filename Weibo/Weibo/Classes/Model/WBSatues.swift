@@ -16,6 +16,12 @@ class WBSatues: NSObject {
     //微博信息内容
     @objc var text:String?
     
+    //微博创建时间字符串
+    @objc var created_at:String?
+    
+    //微博来源 
+    @objc var source:String?
+    
     /// 转发数
       @objc  var reposts_count: Int = 0
    /// 评论数
