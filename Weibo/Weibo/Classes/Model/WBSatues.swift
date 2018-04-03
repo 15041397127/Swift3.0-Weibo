@@ -20,7 +20,14 @@ class WBSatues: NSObject {
     @objc var created_at:String?
     
     //微博来源 
-    @objc var source:String?
+    @objc var source:String?{
+        didSet{
+            
+            //重新计算来源并且保存
+            //在didSet 给source再次设值 不会调用didSet
+            source = "来自" + (source?.zx_href()?.text ?? "")
+        }
+    }
     
     /// 转发数
       @objc  var reposts_count: Int = 0

@@ -42,7 +42,7 @@ class WBSatuesViewModel:CustomStringConvertible {
     var likeStr:String?
     
     //来源字符串
-    var sourceStr:String?
+//    var sourceStr:String?
 
     //配图视图大小
     var pictureViewSize = CGSize()
@@ -109,7 +109,7 @@ class WBSatuesViewModel:CustomStringConvertible {
         retweetedText = "@" + (screen_name ?? "") + ":" + (retweeted ?? "")
         
         //设置来源字符串
-        sourceStr = "来自" + (model.source?.zx_href()?.text ?? "")
+//        sourceStr = "来自" + (model.source?.zx_href()?.text ?? "")
         
         //计算行高
         updateRowHeight()
