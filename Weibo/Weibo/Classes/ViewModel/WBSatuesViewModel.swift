@@ -40,6 +40,9 @@ class WBSatuesViewModel:CustomStringConvertible {
     var commentStr:String?
     //点赞文字
     var likeStr:String?
+    
+    //来源字符串
+    var sourceStr:String?
 
     //配图视图大小
     var pictureViewSize = CGSize()
@@ -104,6 +107,9 @@ class WBSatuesViewModel:CustomStringConvertible {
         let screen_name = status.retweeted_status?.user?.screen_name
         let retweeted = status.retweeted_status?.text
         retweetedText = "@" + (screen_name ?? "") + ":" + (retweeted ?? "")
+        
+        //设置来源字符串
+        sourceStr = "来自" + (model.source?.zx_href()?.text ?? "")
         
         //计算行高
         updateRowHeight()

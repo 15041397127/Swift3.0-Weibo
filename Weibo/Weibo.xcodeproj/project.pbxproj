@@ -24,6 +24,7 @@
 		3448058D206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448058C206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib */; };
 		34480591206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34480590206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift */; };
 		3451EF40207268F0005371D2 /* WBComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451EF3F207268F0005371D2 /* WBComposeViewController.swift */; };
+		3451EF7E2073C616005371D2 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451EF7D2073C616005371D2 /* String+Extensions.swift */; };
 		345C9F182020308F001BA70C /* Statuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F172020308E001BA70C /* Statuse.swift */; };
 		345C9F24202030BE001BA70C /* Insecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F19202030BB001BA70C /* Insecurity.swift */; };
 		345C9F25202030BE001BA70C /* CommentManageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F1A202030BB001BA70C /* CommentManageInfo.swift */; };
@@ -123,6 +124,7 @@
 		3448058C206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZXMeiTuanRefreshView.xib; sourceTree = "<group>"; };
 		34480590206BC06D00E54A07 /* ZXMeiTuanRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZXMeiTuanRefreshView.swift; sourceTree = "<group>"; };
 		3451EF3F207268F0005371D2 /* WBComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeViewController.swift; sourceTree = "<group>"; };
+		3451EF7D2073C616005371D2 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		345C9F172020308E001BA70C /* Statuse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statuse.swift; sourceTree = "<group>"; };
 		345C9F19202030BB001BA70C /* Insecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insecurity.swift; sourceTree = "<group>"; };
 		345C9F1A202030BB001BA70C /* CommentManageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentManageInfo.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 		349DDE9B200703FD0078743F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3451EF7D2073C616005371D2 /* String+Extensions.swift */,
 				349DDE9E200708BD0078743F /* Bundle+Extensions.swift */,
 				349DDEA82008898D0078743F /* UIBarButtonitem+Extensions.swift */,
 				349DDE9C200704550078743F /* Extension+Controller.swift */,
@@ -950,6 +953,7 @@
 				3491F54C206D172E007D3247 /* WBComposeTypeButton.swift in Sources */,
 				345C9F29202030BE001BA70C /* Annotation.swift in Sources */,
 				34BE8585201775DB00B268F7 /* WBNetWorkManager+extension.swift in Sources */,
+				3451EF7E2073C616005371D2 /* String+Extensions.swift in Sources */,
 				34AC800420458CF500B1BEBC /* WBNewFeature.swift in Sources */,
 				349DDE95200700280078743F /* NSString+CZHash.m in Sources */,
 				345C9F2C202030BE001BA70C /* User.swift in Sources */,
