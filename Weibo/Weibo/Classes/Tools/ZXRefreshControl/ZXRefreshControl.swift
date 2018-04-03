@@ -108,8 +108,12 @@ class ZXRefreshControl: UIControl {
         
         self.frame = CGRect(x: 0, y: -height, width: sv.bounds.width, height: height)
         
-        //--传递父视图高度
-        refreshView.parentViewHeight = height
+        //--传递父视图高度 如果正在刷新中不传递
+        //--把代码放在最合适的位置!
+        if refreshView.refreshState != .willRefresh {
+             refreshView.parentViewHeight = height
+        }
+       
         
         //判断临界点 -只需要判断一次
         if sv.isDragging {

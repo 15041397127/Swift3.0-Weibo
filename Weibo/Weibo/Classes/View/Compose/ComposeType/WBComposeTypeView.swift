@@ -165,9 +165,6 @@ class WBComposeTypeView: UIView {
 //        removeFromSuperview()
         hideButtons()
     }
-    
-    
- 
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -175,7 +172,6 @@ class WBComposeTypeView: UIView {
         // Drawing code
     }
     */
-
 }
 
 //微博动画方法扩展
