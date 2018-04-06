@@ -33,7 +33,7 @@ class WBSatuesViewModel:CustomStringConvertible {
     
     ///认证类型 -1：没有认证  0：认证用户 2，3，5：企业认证 220：达人
     var vipIcon:UIImage?
-    
+
     //转发文字
     var reteetedStr:String?
     //评论文字
@@ -54,9 +54,11 @@ class WBSatuesViewModel:CustomStringConvertible {
         //如果没有被转发的微博 返回原创微博的配图
         return status.retweeted_status?.pic_urls ?? status.pic_urls
     }
+    //微博正文的属性文本
+    var statusAttrText:NSAttributedString?
     
     //被转发微博的文字
-    var retweetedText:String?
+    var retweetedAttrText:NSAttributedString?
     
     //行高
     var rowHeight:CGFloat = 0
@@ -102,11 +104,18 @@ class WBSatuesViewModel:CustomStringConvertible {
         //有原创的就计算原创   有转发的计算转发的
         pictureViewSize = calcPictureViewSize(count: picURLs?.count)
         
-        
+       let originalFont = UIFont.systemFont(ofSize: 15)
+       let reteetedFont = UIFont.systemFont(ofSize: 14)
         //设置被转发微博的文字
         let screen_name = status.retweeted_status?.user?.screen_name
         let retweeted = status.retweeted_status?.text
-        retweetedText = "@" + (screen_name ?? "") + ":" + (retweeted ?? "")
+        
+        //微博正文的属性文本
+        
+        statusAttrText = WBEmoticonManager.shared.emoticonString(string: model.text ?? "", font: originalFont)
+        
+        let rText = "@" + (screen_name ?? "") + ":" + (retweeted ?? "")
+        retweetedAttrText = WBEmoticonManager.shared.emoticonString(string: rText, font: reteetedFont)
         
         //设置来源字符串
 //        sourceStr = "来自" + (model.source?.zx_href()?.text ?? "")
@@ -143,11 +152,11 @@ class WBSatuesViewModel:CustomStringConvertible {
         height = 2 * margin + iconHeight + margin
         
         //2正文高度
-        if let text = status.text {
+        if let text = statusAttrText {
             
             //预期尺寸 宽度固定 高度尽量大
             //attributes:指定字体字典
-            height += (text as NSString).boundingRect(with: viewSize, options: [.usesLineFragmentOrigin],context: nil).height
+            height += text.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin],context: nil).height
         }
         
         //3.判断是否转发微博
@@ -156,9 +165,9 @@ class WBSatuesViewModel:CustomStringConvertible {
             height += 2*margin
             
             //转发文本高度 一定用 retweetedText 拼接之后的
-            if let text = retweetedText {
+            if let text = retweetedAttrText {
                 
-                height += (text as NSString).boundingRect(with: viewSize, options: [.usesLineFragmentOrigin],context: nil).height
+                height += text.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin],context: nil).height
                 
             }
             

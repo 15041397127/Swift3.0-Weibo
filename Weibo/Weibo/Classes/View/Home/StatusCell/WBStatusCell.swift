@@ -15,7 +15,8 @@ class WBStatusCell: UITableViewCell {
         
         didSet{
             //设置微博文本
-            statusLabel?.text = viewModel?.status.text
+            statusLabel?.attributedText = viewModel?.statusAttrText
+            retweetedLabel?.attributedText = viewModel?.retweetedAttrText
             nameLabel.text = viewModel?.status.user?.screen_name
             
             //设置会员图标  直接获取属性 不需要计算
@@ -55,7 +56,7 @@ class WBStatusCell: UITableViewCell {
             //设置配图
 //            pictureView.urls = viewModel?.picURLs
           
-            retweetedLabel?.text = viewModel?.retweetedText
+          
             
             //设置来源
             sourceLabel.text = viewModel?.status.source
