@@ -167,7 +167,7 @@ class WBSatuesViewModel:CustomStringConvertible {
             //转发文本高度 一定用 retweetedText 拼接之后的
             if let text = retweetedAttrText {
                 
-                height += text.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin],context: nil).height
+                height += (text.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin],context: nil).height + 2)
                 
             }
             

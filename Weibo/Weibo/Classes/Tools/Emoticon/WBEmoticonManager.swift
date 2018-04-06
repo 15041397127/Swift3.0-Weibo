@@ -64,8 +64,9 @@ extension WBEmoticonManager{
             
         }
         
-        //4.统一设置一遍字符串的属性NSFontAttributeName
-        attrString.addAttributes([NSAttributedStringKey.font:font], range: NSRange(location: 0, length: attrString.length))
+        //4.统一设置一遍字符串的属性NSFontAttributeName 必须要写 否则整体布局会错乱 除了要设置字体还要设置颜色
+        attrString.addAttributes([NSAttributedStringKey.font:font,
+                                  NSAttributedStringKey.foregroundColor:UIColor.darkGray], range: NSRange(location: 0, length: attrString.length))
         
         return attrString
         
