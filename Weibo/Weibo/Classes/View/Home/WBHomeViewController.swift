@@ -139,6 +139,12 @@ extension WBHomeViewController{
 
         
          cell.viewModel = vm
+         cell.delegate = self
+        
+        //如果使用block 需要在数据源方法中 给每一个cell设置bolck
+//        cell.compeltionBlock = {
+//            
+//        }
       
 //        cell.textLabel?.text = "aaaaa"
         return cell
@@ -154,6 +160,16 @@ extension WBHomeViewController{
     }
     
     
+}
+
+extension WBHomeViewController:WBStatusCellDelegate{
+    
+    
+    func statusCellDidSelectedURLString(cell: WBStatusCell, urlString: String) {
+        
+        print(urlString)
+        
+    }
 }
 
 
