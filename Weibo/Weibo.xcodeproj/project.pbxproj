@@ -37,6 +37,10 @@
 		345C9F2C202030BE001BA70C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F21202030BD001BA70C /* User.swift */; };
 		345C9F2D202030BE001BA70C /* RetweetedStatu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F22202030BD001BA70C /* RetweetedStatu.swift */; };
 		346FEF7E2007A463003EE3C8 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */; };
+		347ED9F4207791F500E6704C /* WBEmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F0207791F400E6704C /* WBEmoticonManager.swift */; };
+		347ED9F5207791F500E6704C /* WBEmoicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F1207791F400E6704C /* WBEmoicon.swift */; };
+		347ED9F6207791F500E6704C /* WBEmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F2207791F400E6704C /* WBEmoticonPackage.swift */; };
+		347ED9F7207791F500E6704C /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 347ED9F3207791F400E6704C /* HMEmoticon.bundle */; };
 		3481AF7E2005DF96009F58BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF7D2005DF96009F58BF /* AppDelegate.swift */; };
 		3481AF852005DF96009F58BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3481AF842005DF96009F58BF /* Assets.xcassets */; };
 		3481AF932005DF96009F58BF /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF922005DF96009F58BF /* WeiboTests.swift */; };
@@ -137,6 +141,10 @@
 		345C9F21202030BD001BA70C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		345C9F22202030BD001BA70C /* RetweetedStatu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetweetedStatu.swift; sourceTree = "<group>"; };
 		346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
+		347ED9F0207791F400E6704C /* WBEmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoticonManager.swift; sourceTree = "<group>"; };
+		347ED9F1207791F400E6704C /* WBEmoicon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoicon.swift; sourceTree = "<group>"; };
+		347ED9F2207791F400E6704C /* WBEmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoticonPackage.swift; sourceTree = "<group>"; };
+		347ED9F3207791F400E6704C /* HMEmoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMEmoticon.bundle; sourceTree = "<group>"; };
 		3481AF7A2005DF96009F58BF /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3481AF7D2005DF96009F58BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3481AF842005DF96009F58BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -350,6 +358,25 @@
 			path = "测试";
 			sourceTree = "<group>";
 		};
+		347ED9EE207791F400E6704C /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				347ED9F0207791F400E6704C /* WBEmoticonManager.swift */,
+				347ED9EF207791F400E6704C /* Model */,
+				347ED9F3207791F400E6704C /* HMEmoticon.bundle */,
+			);
+			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		347ED9EF207791F400E6704C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				347ED9F1207791F400E6704C /* WBEmoicon.swift */,
+				347ED9F2207791F400E6704C /* WBEmoticonPackage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3481AF712005DF96009F58BF = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +510,7 @@
 		349DDE292006FDC90078743F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				347ED9EE207791F400E6704C /* Emoticon */,
 				34E039872062A54700EF9DC2 /* ZXRefreshControl */,
 				3403743C201762990004A833 /* NetWork */,
 				349DDE9B200703FD0078743F /* Extension */,
@@ -734,6 +762,7 @@
 				3434C7462069217500577C27 /* CZRefreshView.xib in Resources */,
 				34AC800A2046E00A00B1BEBC /* WBNewFeature.xib in Resources */,
 				3491F54E206D174E007D3247 /* WBComposeTypeButton.xib in Resources */,
+				347ED9F7207791F500E6704C /* HMEmoticon.bundle in Resources */,
 				34DCF7D6205AA94200A9FA23 /* WBStatusRetweetedCell.xib in Resources */,
 				3448058B206BBBDD00E54A07 /* ZXRefreshHumanView.xib in Resources */,
 				3444C64D200F79CC00A0F154 /* main.json in Resources */,
@@ -937,10 +966,13 @@
 				3415EC6C200610F30087B901 /* WBBaseViewController.swift in Sources */,
 				349DDE94200700280078743F /* NSAttributedString+CZAdditon.m in Sources */,
 				349DDE98200700280078743F /* NSString+CZBase64.m in Sources */,
+				347ED9F6207791F500E6704C /* WBEmoticonPackage.swift in Sources */,
 				345C9F27202030BE001BA70C /* Visible.swift in Sources */,
+				347ED9F5207791F500E6704C /* WBEmoicon.swift in Sources */,
 				34127FD320287E63000FF9DB /* WBOAuthViewController.swift in Sources */,
 				3415EC74200612620087B901 /* WBProfileViewController.swift in Sources */,
 				34D6DCB62058007100F6E691 /* UIImageView+WebImage.swift in Sources */,
+				347ED9F4207791F500E6704C /* WBEmoticonManager.swift in Sources */,
 				345C9F28202030BE001BA70C /* WeiboCamera.swift in Sources */,
 				3415EC72200612470087B901 /* WBDiscoverViewController.swift in Sources */,
 				3434C74B2069259200577C27 /* CZRefreshView.swift in Sources */,
