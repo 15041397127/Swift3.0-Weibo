@@ -42,6 +42,7 @@
 		347ED9F6207791F500E6704C /* WBEmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F2207791F400E6704C /* WBEmoticonPackage.swift */; };
 		347ED9F7207791F500E6704C /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 347ED9F3207791F400E6704C /* HMEmoticon.bundle */; };
 		347EDA362077AEC500E6704C /* FFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347EDA352077AEC500E6704C /* FFLabel.swift */; };
+		347EDA382077B90900E6704C /* WBWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347EDA372077B90900E6704C /* WBWebViewController.swift */; };
 		3481AF7E2005DF96009F58BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF7D2005DF96009F58BF /* AppDelegate.swift */; };
 		3481AF852005DF96009F58BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3481AF842005DF96009F58BF /* Assets.xcassets */; };
 		3481AF932005DF96009F58BF /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AF922005DF96009F58BF /* WeiboTests.swift */; };
@@ -147,6 +148,7 @@
 		347ED9F2207791F400E6704C /* WBEmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoticonPackage.swift; sourceTree = "<group>"; };
 		347ED9F3207791F400E6704C /* HMEmoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMEmoticon.bundle; sourceTree = "<group>"; };
 		347EDA352077AEC500E6704C /* FFLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFLabel.swift; sourceTree = "<group>"; };
+		347EDA372077B90900E6704C /* WBWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWebViewController.swift; sourceTree = "<group>"; };
 		3481AF7A2005DF96009F58BF /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3481AF7D2005DF96009F58BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3481AF842005DF96009F58BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				34D6DCAC2051595800F6E691 /* StatusCell */,
 				34AC7FFD20457FF500B1BEBC /* TitleButton */,
 				3415EC6D200611E30087B901 /* WBHomeViewController.swift */,
+				347EDA372077B90900E6704C /* WBWebViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1006,6 +1009,7 @@
 				34127FD020287AFC000FF9DB /* WeiboCommon.swift in Sources */,
 				3451EF40207268F0005371D2 /* WBComposeViewController.swift in Sources */,
 				34D6DCAE205159AC00F6E691 /* WBStatusCell.swift in Sources */,
+				347EDA382077B90900E6704C /* WBWebViewController.swift in Sources */,
 				345C9F25202030BE001BA70C /* CommentManageInfo.swift in Sources */,
 				347EDA362077AEC500E6704C /* FFLabel.swift in Sources */,
 				345C9F182020308F001BA70C /* Statuse.swift in Sources */,

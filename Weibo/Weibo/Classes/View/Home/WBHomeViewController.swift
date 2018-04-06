@@ -143,7 +143,7 @@ extension WBHomeViewController{
         
         //如果使用block 需要在数据源方法中 给每一个cell设置bolck
 //        cell.compeltionBlock = {
-//            
+//
 //        }
       
 //        cell.textLabel?.text = "aaaaa"
@@ -167,7 +167,9 @@ extension WBHomeViewController:WBStatusCellDelegate{
     
     func statusCellDidSelectedURLString(cell: WBStatusCell, urlString: String) {
         
-        print(urlString)
+        let vc = WBWebViewController()
+        vc.urlString = urlString
+        navigationController?.pushViewController(vc, animated: true)
         
     }
 }
