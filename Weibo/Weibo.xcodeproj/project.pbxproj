@@ -17,6 +17,7 @@
 		3415EC70200612230087B901 /* WBMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC6F200612230087B901 /* WBMessageViewController.swift */; };
 		3415EC72200612470087B901 /* WBDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC71200612470087B901 /* WBDiscoverViewController.swift */; };
 		3415EC74200612620087B901 /* WBProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3415EC73200612620087B901 /* WBProfileViewController.swift */; };
+		34278359207A493600846396 /* WBComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34278358207A493600846396 /* WBComposeViewController.xib */; };
 		3434C7462069217500577C27 /* CZRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3434C7452069217500577C27 /* CZRefreshView.xib */; };
 		3434C74B2069259200577C27 /* CZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3434C74A2069259200577C27 /* CZRefreshView.swift */; };
 		3444C64D200F79CC00A0F154 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 3444C64C200F79CC00A0F154 /* main.json */; };
@@ -123,6 +124,7 @@
 		3415EC6F200612230087B901 /* WBMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBMessageViewController.swift; sourceTree = "<group>"; };
 		3415EC71200612470087B901 /* WBDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDiscoverViewController.swift; sourceTree = "<group>"; };
 		3415EC73200612620087B901 /* WBProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBProfileViewController.swift; sourceTree = "<group>"; };
+		34278358207A493600846396 /* WBComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeViewController.xib; sourceTree = "<group>"; };
 		3434C7452069217500577C27 /* CZRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CZRefreshView.xib; sourceTree = "<group>"; };
 		3434C74A2069259200577C27 /* CZRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZRefreshView.swift; sourceTree = "<group>"; };
 		3444C64C200F79CC00A0F154 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			children = (
 				3491F546206D0694007D3247 /* ComposeType */,
 				3451EF3F207268F0005371D2 /* WBComposeViewController.swift */,
+				34278358207A493600846396 /* WBComposeViewController.xib */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				3444C64D200F79CC00A0F154 /* main.json in Resources */,
 				3491F54A206D0D24007D3247 /* WBComposeTypeView.xib in Resources */,
 				3481AF852005DF96009F58BF /* Assets.xcassets in Resources */,
+				34278359207A493600846396 /* WBComposeViewController.xib in Resources */,
 				3448058D206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib in Resources */,
 				34AC80082046D10900B1BEBC /* WBWelcomeView.xib in Resources */,
 			);

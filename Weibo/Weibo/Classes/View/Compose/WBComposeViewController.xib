@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WBComposeViewController" customModule="Weibo" customModuleProvider="target">
+            <connections>
+                <outlet property="textView" destination="kdf-tr-7cL" id="WTS-0A-XVZ"/>
+                <outlet property="toolBar" destination="i27-Pz-349" id="pNd-fy-awa"/>
+                <outlet property="view" destination="iN0-l3-epB" id="TF4-uk-GC7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kdf-tr-7cL">
+                    <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i27-Pz-349">
+                    <rect key="frame" x="0.0" y="729" width="375" height="49"/>
+                    <items>
+                        <barButtonItem title="Item" id="tuW-e6-uJO"/>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kdf-tr-7cL" firstAttribute="leading" secondItem="dpt-Oh-L6M" secondAttribute="leading" id="1jo-3D-UMa"/>
+                <constraint firstItem="dpt-Oh-L6M" firstAttribute="bottom" secondItem="i27-Pz-349" secondAttribute="bottom" id="IzZ-vb-Uuz"/>
+                <constraint firstItem="kdf-tr-7cL" firstAttribute="top" secondItem="dpt-Oh-L6M" secondAttribute="top" id="g5X-Lt-zJB"/>
+                <constraint firstItem="i27-Pz-349" firstAttribute="top" secondItem="kdf-tr-7cL" secondAttribute="bottom" id="hTV-gn-1F6"/>
+                <constraint firstItem="i27-Pz-349" firstAttribute="trailing" secondItem="dpt-Oh-L6M" secondAttribute="trailing" id="n30-sW-v84"/>
+                <constraint firstItem="i27-Pz-349" firstAttribute="leading" secondItem="dpt-Oh-L6M" secondAttribute="leading" id="pne-kj-92b"/>
+                <constraint firstAttribute="trailing" secondItem="kdf-tr-7cL" secondAttribute="trailing" id="yh7-bw-shj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="dpt-Oh-L6M"/>
+            <point key="canvasLocation" x="31.5" y="85"/>
+        </view>
+    </objects>
+</document>
