@@ -34,7 +34,15 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i27-Pz-349">
                     <rect key="frame" x="0.0" y="729" width="375" height="49"/>
                     <items>
-                        <barButtonItem title="Item" id="tuW-e6-uJO"/>
+                        <barButtonItem title="Item" image="compose_mentionbutton_background" id="tuW-e6-uJO"/>
+                        <barButtonItem style="plain" id="BkC-ZA-DVD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G9Z-mv-3ZK">
+                                <rect key="frame" x="45" y="12" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="compose_emoticonbutton_background"/>
+                                <state key="highlighted" backgroundImage="compose_emoticonbutton_background_highlighted"/>
+                            </button>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
@@ -106,5 +114,8 @@ IAo
         <image name="common_button_orange" width="11" height="35"/>
         <image name="common_button_orange_highlighted" width="11" height="35"/>
         <image name="common_button_white_disable" width="11" height="35"/>
+        <image name="compose_emoticonbutton_background" width="24" height="24"/>
+        <image name="compose_emoticonbutton_background_highlighted" width="24" height="24"/>
+        <image name="compose_mentionbutton_background" width="24" height="24"/>
     </resources>
 </document>

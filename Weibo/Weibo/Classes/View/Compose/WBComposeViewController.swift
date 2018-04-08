@@ -74,6 +74,7 @@ private extension WBComposeViewController{
         
         view.backgroundColor = UIColor.white
         setupNavigationBar()
+        setupToolBar()
     }
     
     //设置导航栏
@@ -85,8 +86,41 @@ private extension WBComposeViewController{
         //设置标题视图
         navigationItem.titleView = titleLabel
         sendButton.isEnabled = false
+
+    }
+    //设置工具栏
+    func setupToolBar(){
+//        "actionName":"emotionKeyboard"],
+        let itemSettings = [["imageName":"compose_toolbar_picture"],
+                            ["imageName":"compose_mentionbutton_background"],
+                            ["imageName":"compose_trendbutton_background"],
+                            ["imageName":"compose_emoticonbutton_background"],
+                            ["imageName":"compose_add_background"]]
+        //遍历数组
+        var items = [UIBarButtonItem]()
         
-        
+        for s  in itemSettings {
+            
+            guard let imageName = s["imageName"] else {
+                continue
+            }
+            
+            let image = UIImage(named: imageName)
+            let imageHL = UIImage(named: imageName + "_highlighted")
+            let bt = UIButton()
+
+            bt.setImage(image, for: [])
+            bt.setImage(imageHL, for: .highlighted)
+            bt.sizeToFit()
+            items.append(UIBarButtonItem(customView: bt))
+            
+            //追加弹簧  是按钮平均分配
+            items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
+        }
+
+            //删除末尾弹簧
+            items.removeLast()
+            toolBar.items = items
         
     }
 
