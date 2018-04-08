@@ -19,9 +19,9 @@ class WBComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.cz_random()
+       setupUI()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "退出", target: self, action: #selector(close))
+ 
         // Do any additional setup after loading the view.
     }
     
@@ -30,21 +30,47 @@ class WBComposeViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
+    
+    //懒加载 bt
+    lazy var sendButton:UIButton = {
+        
+        let btn = UIButton()
+        btn.setTitle("发布", for: [])
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.setTitleColor(UIColor.white, for: [])
+        btn.setTitleColor(UIColor.gray, for: .disabled)
+        
+        //设置背景图片
+        btn.setBackgroundImage(UIImage(named: "common_button_orange"), for: [])
+        btn.setBackgroundImage(UIImage(named: "common_button_orange_highlighted"), for: .highlighted)
+        btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .disabled)
+        btn.frame = CGRect(x: 0, y: 0, width: 45, height: 35)
+        return btn
+    }()
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+private extension WBComposeViewController{
+    
+    func setupUI(){
+        
+        view.backgroundColor = UIColor.white
+        setupNavigationBar()
     }
-    */
+    
+    //设置导航栏
+    func setupNavigationBar(){
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", target: self, action: #selector(close))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sendButton)
+        sendButton.isEnabled = false
+        
+    }
 
 }
+
