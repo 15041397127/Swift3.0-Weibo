@@ -19,6 +19,8 @@ class WBComposeViewController: UIViewController {
     //发布按钮
     @IBOutlet var sendButton: UIButton!
     //标题标签  换行的热键option +  回车
+    //逐行选中文本并且设置属性
+    //如果要想调整行间距 可以增加一个空行  设置空行的字体  lineHeight
     @IBOutlet var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
