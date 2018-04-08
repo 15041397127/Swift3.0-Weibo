@@ -16,6 +16,8 @@ class WBComposeViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     //底部工具栏
     @IBOutlet weak var toolBar: UIToolbar!
+    //发布按钮
+    @IBOutlet var sendButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,22 +33,29 @@ class WBComposeViewController: UIViewController {
         
     }
     
-    //懒加载 bt
-    lazy var sendButton:UIButton = {
+    //MARK:按钮监听方法
+    //发布微博
+    @IBAction func postStatus(_ sender: Any) {
         
-        let btn = UIButton()
-        btn.setTitle("发布", for: [])
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        btn.setTitleColor(UIColor.white, for: [])
-        btn.setTitleColor(UIColor.gray, for: .disabled)
         
-        //设置背景图片
-        btn.setBackgroundImage(UIImage(named: "common_button_orange"), for: [])
-        btn.setBackgroundImage(UIImage(named: "common_button_orange_highlighted"), for: .highlighted)
-        btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .disabled)
-        btn.frame = CGRect(x: 0, y: 0, width: 45, height: 35)
-        return btn
-    }()
+    }
+    
+//    //懒加载 bt
+//    lazy var sendButton:UIButton = {
+//
+//        let btn = UIButton()
+//        btn.setTitle("发布", for: [])
+//        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+//        btn.setTitleColor(UIColor.white, for: [])
+//        btn.setTitleColor(UIColor.gray, for: .disabled)
+//
+//        //设置背景图片
+//        btn.setBackgroundImage(UIImage(named: "common_button_orange"), for: [])
+//        btn.setBackgroundImage(UIImage(named: "common_button_orange_highlighted"), for: .highlighted)
+//        btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), for: .disabled)
+//        btn.frame = CGRect(x: 0, y: 0, width: 45, height: 35)
+//        return btn
+//    }()
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,7 +77,7 @@ private extension WBComposeViewController{
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", target: self, action: #selector(close))
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sendButton)
-        sendButton.isEnabled = false
+//        sendButton.isEnabled = false
         
     }
 

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WBComposeViewController" customModule="Weibo" customModuleProvider="target">
             <connections>
+                <outlet property="sendButton" destination="J7f-f8-57v" id="X3i-Uo-bMo"/>
                 <outlet property="textView" destination="kdf-tr-7cL" id="WTS-0A-XVZ"/>
                 <outlet property="toolBar" destination="i27-Pz-349" id="pNd-fy-awa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="TF4-uk-GC7"/>
@@ -49,5 +50,24 @@
             <viewLayoutGuide key="safeArea" id="dpt-Oh-L6M"/>
             <point key="canvasLocation" x="31.5" y="85"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J7f-f8-57v">
+            <rect key="frame" x="0.0" y="0.0" width="45" height="35"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <state key="normal" title="发布" backgroundImage="common_button_orange"/>
+            <state key="disabled" backgroundImage="common_button_white_disable">
+                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            </state>
+            <state key="highlighted" backgroundImage="common_button_orange_highlighted"/>
+            <connections>
+                <action selector="postStatus:" destination="-1" eventType="touchUpInside" id="mBV-gU-XU8"/>
+            </connections>
+            <point key="canvasLocation" x="-242" y="-274"/>
+        </button>
     </objects>
+    <resources>
+        <image name="common_button_orange" width="11" height="35"/>
+        <image name="common_button_orange_highlighted" width="11" height="35"/>
+        <image name="common_button_white_disable" width="11" height="35"/>
+    </resources>
 </document>
