@@ -18,6 +18,8 @@ class WBComposeViewController: UIViewController {
     @IBOutlet weak var toolBar: UIToolbar!
     //发布按钮
     @IBOutlet var sendButton: UIButton!
+    //标题标签  换行的热键option +  回车
+    @IBOutlet var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,7 +79,12 @@ private extension WBComposeViewController{
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", target: self, action: #selector(close))
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sendButton)
-//        sendButton.isEnabled = false
+        
+        //设置标题视图
+        navigationItem.titleView = titleLabel
+        sendButton.isEnabled = false
+        
+        
         
     }
 
