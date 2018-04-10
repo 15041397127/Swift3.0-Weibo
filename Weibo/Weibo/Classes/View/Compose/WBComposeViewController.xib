@@ -16,6 +16,7 @@
                 <outlet property="textView" destination="kdf-tr-7cL" id="WTS-0A-XVZ"/>
                 <outlet property="titleLabel" destination="XaS-R3-xLN" id="Dtq-Vf-afm"/>
                 <outlet property="toolBar" destination="i27-Pz-349" id="pNd-fy-awa"/>
+                <outlet property="toolBarBottonmCons" destination="IzZ-vb-Uuz" id="QMZ-gY-Mvf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="TF4-uk-GC7"/>
             </connections>
         </placeholder>

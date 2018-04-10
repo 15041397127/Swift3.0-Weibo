@@ -207,6 +207,7 @@ extension WBHomeViewController {
         
         //取消分割线
         tableView?.separatorStyle = .none
+       
         
         setupNavTitle()
     }

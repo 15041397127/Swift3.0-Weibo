@@ -22,13 +22,51 @@ class WBComposeViewController: UIViewController {
     //逐行选中文本并且设置属性
     //如果要想调整行间距 可以增加一个空行  设置空行的字体  lineHeight
     @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet weak var toolBarBottonmCons: NSLayoutConstraint!//工具栏底部约束
     override func viewDidLoad() {
         super.viewDidLoad()
 
        setupUI()
         
+        //监听键盘通知 - UIWindow.h
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardChanged), name:NSNotification.Name.UIKeyboardWillChangeFrame,
+                                               object: nil)
+        
  
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //键盘监听方法
+    @objc private func keyboardChanged(n:NSNotification){
+        
+        //拿到目标 rect
+        guard let rect = (n.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+             let duration = (n.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
+            else {
+                return;
+        }
+        
+     //   UIKeyboardAnimationDurationUserInfoKey 动画时长
+   
+     
+        //设置底部约束高度
+        let offset = view.bounds.height - rect.origin.y
+        
+        //更新底部约束
+        
+        toolBarBottonmCons.constant = offset
+        
+        //动画更新约束
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
+        }
+        
     }
     
     @objc private func close(){
