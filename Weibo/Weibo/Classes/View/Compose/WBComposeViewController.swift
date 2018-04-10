@@ -38,6 +38,22 @@ class WBComposeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        
+        //激活键盘
+        textView.becomeFirstResponder()
+        
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(animated)
+        
+        textView.resignFirstResponder()
+    }
+    
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
