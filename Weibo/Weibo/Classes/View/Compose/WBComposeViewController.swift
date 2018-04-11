@@ -122,6 +122,11 @@ class WBComposeViewController: UIViewController {
     
 }
 //MARK: -UITextViewDelegate
+/*
+    代理方法 一对一 发生事件是 直接让代理执行方法  可以反向传值
+    通知 一对多  注册监听之后 注销之前都可以接受到消息  将通知发送给通知中心 在广播出去
+    若果层次嵌套很深 可以使用通知
+ */
 extension WBComposeViewController:UITextViewDelegate{
     
     //文本视图文字的变化

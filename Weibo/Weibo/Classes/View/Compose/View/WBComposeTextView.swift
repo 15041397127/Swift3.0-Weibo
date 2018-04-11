@@ -34,11 +34,21 @@ class WBComposeTextView: UITextView {
 
 }
 
+//extension WBComposeTextView:UITextViewDelegate{
+//
+//    func textViewDidChange(_ textView: UITextView) {
+//        print("哈哈哈")
+//    }
+//
+//}
+
+
 private extension WBComposeTextView{
     
     func setupUI(){
         
-        //注册通知
+        //注册通知  一对多 如果其他控件 监听当前文本视图的通知 不会影响
+        //但是使用代理 其他控制 就无法使用代理监听通知
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: NSNotification.Name.UITextViewTextDidChange, object: self)
         
         
@@ -51,7 +61,9 @@ private extension WBComposeTextView{
      
         self.addSubview(placeholderLabel)
         
-        
+        //测试代理
+//        self.delegate = self
+    
     }
 
 }
