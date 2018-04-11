@@ -13,7 +13,7 @@ import UIKit
   */
 class WBComposeViewController: UIViewController {
     //文本编辑视图
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: WBComposeTextView!
     //底部工具栏
     @IBOutlet weak var toolBar: UIToolbar!
     //发布按钮
