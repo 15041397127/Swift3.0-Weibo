@@ -59,7 +59,25 @@ extension WBNetWorkManager{
     }
     
 }
-
+//MARK:发布微博
+extension WBNetWorkManager{
+    func postStatus(text:String,completion:@escaping (_ result:[String:AnyObject]?,_ isSuccess:Bool) ->()) -> () {
+        
+//        urlStr = "https://upload.api.weibo.com/2/statuses/upload.json"
+//
+//    urlStr = "https://api.weibo.com/2/statuses/update.json"
+//        https://api.weibo.com/2/statuses/share.json
+        let urlString = "https://api.weibo.com/2/statuses/update.json"
+        
+        let params = ["status":text]
+        
+        tokenRequest(method: .POST, URLString: urlString, parameters: params) { (json, isSuccess) in
+            
+            completion(json as? [String:AnyObject],isSuccess)
+        }
+        
+    }
+}
 //MARK:-用户信息
 extension WBNetWorkManager{
     

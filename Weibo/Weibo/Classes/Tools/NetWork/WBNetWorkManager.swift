@@ -11,6 +11,8 @@ import AFNetworking
 
 //Swift的枚举支持任意数据类型
 //switch / enum 在oc中都只有支持整数
+//如果日常开发中 发现网络请求返回的状态码是405 是不支持的网络请求方法
+//首先检查网络请求是否正确
 enum WBHTTPMethod {
     case GET
     case POST
@@ -79,7 +81,9 @@ class WBNetWorkManager: AFHTTPSessionManager {
         
         
         //调用request发起真正的网络请求方法
-        request(URLString: URLString, parameters: parameters!, completion: completion)
+//        request(URLString: URLString, parameters: parameters!, completion: completion)
+        
+        request(method: method, URLString: URLString, parameters: parameters!, completion: completion)
         
         
     }
