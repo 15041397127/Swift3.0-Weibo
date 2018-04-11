@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 //微博撰写控制器
 /*
  加载视图控制器的时候 如果XIB和控制器同名 默认的构造函数 会优先加载XIB
@@ -99,14 +100,27 @@ class WBComposeViewController: UIViewController {
         guard let text  = textView.text else {
             return
         }
-        
+        //发布微博
         WBNetWorkManager.shared.postStatus(text: text) { (result, isSuccess) in
             
-            print(result)
+            SVProgressHUD.setDefaultStyle(.dark)
             
+            let message = isSuccess ? "发布成功" : "网络不给力"
+            
+            SVProgressHUD.showInfo(withStatus: message)
+            
+            //如果成功 延迟一段时间关闭
+            
+            if !isSuccess {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1, execute: {
+                    SVProgressHUD.setDefaultStyle(.light)
+                    self.close()
+                })
+ 
+            }
+ 
         }
-        
-        
+
     }
     
 //    //懒加载 bt
