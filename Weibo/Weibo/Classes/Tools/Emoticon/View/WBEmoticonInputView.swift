@@ -26,7 +26,10 @@ class WBEmoticonInputView: UIView {
     
     override func awakeFromNib() {
         //注册可重用cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        
+        let nib = UINib(nibName: "WBEmoticonCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: cellID)
         
     }
     
@@ -48,11 +51,11 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //1取cell
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! WBEmoticonCell
         
         //2设置cell
-        cell.backgroundColor = UIColor.red
-       
+        cell.label.text = "\(indexPath.section) ~~\(indexPath.item)"
+    
         
         //3 返回cell
         
