@@ -87,6 +87,39 @@ class WBNetWorkManager: AFHTTPSessionManager {
         
         
     }
+    //封装AF的上传文件方法 post请求
+    ///
+    /// - Parameters:
+    ///   - URLString: URLString
+    ///   - parameters: 参数字典
+    ///   - name: 接收上传数据的服务器字段 pic
+    ///   - data: 要上传的二进制数据
+    ///   - completion: 完成回调
+    func upload(URLString:String,parameters:[String:Any],name:String,data:Data,completion:@escaping (_ json:Any?,_ isSuccess:Bool) ->()){
+        
+        post(URLString, parameters: parameters, constructingBodyWith: { (formData) in
+            
+            //FIXME:创建formData
+            
+        }, progress: nil, success: { (_, json) in
+            
+            completion(json,true)
+            
+        }) { (task, error) in
+            
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                
+                print("Token过期")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: "bad token")
+                
+            }
+            print("网络请求错误\(error)")
+            completion(nil,false)
+            
+        }
+        
+    }
+
     //使用一个函数封装AFNde get 和post
   
     /// 封装AF get/post请求
