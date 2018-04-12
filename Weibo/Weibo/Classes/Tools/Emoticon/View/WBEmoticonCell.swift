@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+//表情的页面cell  每一个页面显示20个表情  每个cell与collectionView一样大小
+//每一个cell用九宫格算法 自行添加20个表情 和一个删除按钮
 class WBEmoticonCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
