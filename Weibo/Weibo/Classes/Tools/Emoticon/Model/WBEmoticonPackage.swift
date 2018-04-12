@@ -12,6 +12,9 @@ import YYModel
 class WBEmoticonPackage: NSObject {
 
     @objc var groupName:String? //表情包的分组名
+    
+    @objc var bgImageName:String?//背景图片名称
+    
     @objc var directory:String?{
         didSet{
             

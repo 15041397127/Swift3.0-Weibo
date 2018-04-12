@@ -44,7 +44,24 @@ private extension WBEmoticonToolbar{
             bt.setTitleColor(UIColor.white, for: [])
             bt.setTitleColor(UIColor.darkGray, for: .highlighted)
             bt.setTitleColor(UIColor.darkGray, for: .selected)
-            bt.backgroundColor = UIColor.cyan
+            
+            let imageName = "compose_emotion_table_\(p.bgImageName ?? "")_normal"
+            
+            let imageNameHL = "compose_emotion_table_\(p.bgImageName ?? "")_selected"
+            
+            var image = UIImage(named: imageName, in: manager.bundle, compatibleWith: nil)
+
+            var  imageHL = UIImage(named: imageNameHL, in: manager.bundle, compatibleWith: nil)
+            
+            //拉伸图像
+            let size = image?.size ?? CGSize()
+            let inset = UIEdgeInsetsMake(size.height * 0.5, size.width * 0.5, size.height * 0.5, size.width * 0.5)
+            image = image?.resizableImage(withCapInsets: inset)
+            imageHL = imageHL?.resizableImage(withCapInsets: inset)
+            
+            bt.setBackgroundImage(image, for: [])
+            bt.setBackgroundImage(imageHL, for: .highlighted)
+            bt.setBackgroundImage(imageHL, for: .selected)
             bt.sizeToFit()
             addSubview(bt)
             

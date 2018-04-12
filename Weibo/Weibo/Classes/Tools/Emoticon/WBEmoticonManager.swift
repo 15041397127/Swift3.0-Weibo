@@ -16,6 +16,12 @@ class WBEmoticonManager {
     //表情包的懒加载数组
     @objc lazy var packages = [WBEmoticonPackage]()
     
+    //表情素材的bundle
+    lazy var bundle:Bundle = {
+        let path = Bundle.main.path(forResource: "HMEmoticon.bundle", ofType: nil)
+        return Bundle(path: path!)!
+    }()
+    
     //构造函数 如果在init 之前增加private 修饰符 可以要求调用这必须通过 shared访问对象
     //OC要 重写allocWithZone方法
     private init() {
