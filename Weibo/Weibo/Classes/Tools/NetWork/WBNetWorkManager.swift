@@ -56,7 +56,16 @@ class WBNetWorkManager: AFHTTPSessionManager {
     
     
     //专门负责拼接token 的网路请求方法
-    func tokenRequest(method:WBHTTPMethod = .GET,URLString:String,parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool) ->()){
+
+    ///
+    /// - Parameters:
+    ///   - method: GET/POST
+    ///   - URLString: URLString
+    ///   - parameters: 参数字典
+    ///   - name: 上传文件使用的字段名 默认的nil 就不是上传文件
+    ///   - data: 上传文件的二进制数据  默认为nil 不上上传
+    ///   - completion: 完成回调
+    func tokenRequest(method:WBHTTPMethod = .GET,URLString:String,parameters:[String:Any]?,name:String?=nil,data:Data? = nil,completion:@escaping (_ json:Any?,_ isSuccess:Bool) ->()){
         
         //处理token字典
         //0>判断token是否为nil  为nil直接返回
@@ -80,14 +89,20 @@ class WBNetWorkManager: AFHTTPSessionManager {
         parameters!["access_token"] = token
         
         
-        //调用request发起真正的网络请求方法
-//        request(URLString: URLString, parameters: parameters!, completion: completion)
-        
-        request(method: method, URLString: URLString, parameters: parameters!, completion: completion)
-        
-        
+        //3判断name 和data
+        if let name = name,let data = data {
+            
+            upload(URLString: URLString, parameters: parameters!, name: name, data: data, completion: completion)
+            
+        }else{
+            //调用request发起真正的网络请求方法
+            //        request(URLString: URLString, parameters: parameters!, completion: completion)
+            request(method: method, URLString: URLString, parameters: parameters!, completion: completion)
+        }
+ 
     }
-    //封装AF的上传文件方法 post请求
+    
+    //MARK:封装AF的上传文件方法 post请求
     ///
     /// - Parameters:
     ///   - URLString: URLString
