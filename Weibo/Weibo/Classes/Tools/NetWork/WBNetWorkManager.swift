@@ -114,7 +114,6 @@ class WBNetWorkManager: AFHTTPSessionManager {
         
         post(URLString, parameters: parameters, constructingBodyWith: { (formData) in
             
-            //FIXME:创建formData
             /*
              1.data:要上传的二进制的数据
              2.name:服务器接收数据的字段名

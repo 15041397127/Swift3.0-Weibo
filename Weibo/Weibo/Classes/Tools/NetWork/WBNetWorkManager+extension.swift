@@ -60,22 +60,43 @@ extension WBNetWorkManager{
     
 }
 //MARK:发布微博
+
 extension WBNetWorkManager{
-    func postStatus(text:String,completion:@escaping (_ result:[String:AnyObject]?,_ isSuccess:Bool) ->()) -> () {
+    
+    /// 发布微博
+    ///
+    /// - Parameters:
+    ///   - text: 要发布的文本
+    ///   - image: 要上传的图像 为nil时 发布纯文本
+    ///   - completion: 完成回调
+    func postStatus(text:String,image:UIImage?,completion:@escaping (_ result:[String:AnyObject]?,_ isSuccess:Bool) ->()) -> () {
         
 //        urlStr = "https://upload.api.weibo.com/2/statuses/upload.json"
-//
-//    urlStr = "https://api.weibo.com/2/statuses/update.json"
+//        urlStr = "https://api.weibo.com/2/statuses/update.json"
 //        https://api.weibo.com/2/statuses/share.json
-        let urlString = "https://api.weibo.com/2/statuses/update.json"
-        
+        let urlString:String
+        //根据是否有图像 选择不同的接口地址
+        if image == nil {
+            urlString = "https://api.weibo.com/2/statuses/update.json"
+
+        }else{
+            urlString = "https://upload.api.weibo.com/2/statuses/upload.json"
+        }
+
         let params = ["status":text]
         
-        tokenRequest(method: .POST, URLString: urlString, parameters: params) { (json, isSuccess) in
-            
-            completion(json as? [String:AnyObject],isSuccess)
+        //如果图像不为空 需要设置name和data
+        var name:String?
+        var data:Data?
+        if image != nil {
+            name = "pic"
+            data = UIImagePNGRepresentation(image!)
         }
         
+        tokenRequest(method:.POST, URLString: urlString, parameters: params, name: name, data: data) { (json, isSuccess) in
+             completion(json as? [String:AnyObject],isSuccess)
+        }
+
     }
 }
 //MARK:-用户信息

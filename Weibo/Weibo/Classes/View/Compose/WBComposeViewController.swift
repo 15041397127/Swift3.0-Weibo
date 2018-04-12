@@ -101,7 +101,10 @@ class WBComposeViewController: UIViewController {
             return
         }
         //发布微博
-        WBNetWorkManager.shared.postStatus(text: text) { (result, isSuccess) in
+        //FIXME:临时测试发布带图片的微博
+//        let image = UIImage(named: "0713_1")
+        let image:UIImage? = nil
+        WBNetWorkManager.shared.postStatus(text: text, image: image) { (result, isSuccess) in
             
             SVProgressHUD.setDefaultStyle(.dark)
             
