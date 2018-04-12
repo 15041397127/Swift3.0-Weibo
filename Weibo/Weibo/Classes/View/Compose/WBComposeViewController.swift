@@ -142,6 +142,21 @@ class WBComposeViewController: UIViewController {
 //        btn.frame = CGRect(x: 0, y: 0, width: 45, height: 35)
 //        return btn
 //    }()
+    
+    //MARK:切换表情键盘
+    @objc private func emoticonKeyboard(){
+        //textView.inputView 就是文本框的输入视图
+        //如果使用系统的默认的键盘 输入的视图为nil
+        //测试键盘视图 视图的宽度可以随便  就是屏幕的宽度
+        let keyBoardView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 265))
+        keyBoardView.backgroundColor = UIColor.cyan
+
+        textView.inputView =  (textView.inputView == nil) ? keyBoardView : nil
+        
+        textView.reloadInputViews()//刷新键盘视图
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -193,7 +208,7 @@ private extension WBComposeViewController{
         let itemSettings = [["imageName":"compose_toolbar_picture"],
                             ["imageName":"compose_mentionbutton_background"],
                             ["imageName":"compose_trendbutton_background"],
-                            ["imageName":"compose_emoticonbutton_background"],
+                            ["imageName":"compose_emoticonbutton_background","actionName":"emoticonKeyboard"],
                             ["imageName":"compose_add_background"]]
         //遍历数组
         var items = [UIBarButtonItem]()
@@ -211,6 +226,14 @@ private extension WBComposeViewController{
             bt.setImage(image, for: [])
             bt.setImage(imageHL, for: .highlighted)
             bt.sizeToFit()
+            
+            //判断actionName
+            if let actionName = s["actionName"]{
+                //给按钮添加监听方法
+                bt.addTarget(self, action: Selector(actionName), for:.touchUpInside)
+                
+            }
+            
             items.append(UIBarButtonItem(customView: bt))
             
             //追加弹簧  是按钮平均分配
