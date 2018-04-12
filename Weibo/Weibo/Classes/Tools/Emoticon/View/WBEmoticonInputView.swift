@@ -7,6 +7,8 @@
 //
 
 import UIKit
+//可重用标识符
+private let cellID = "cellID"
 //表情输入视图
 class WBEmoticonInputView: UIView {
 
@@ -20,5 +22,40 @@ class WBEmoticonInputView: UIView {
         let v = nib.instantiate(withOwner: nil, options: nil)[0] as! WBEmoticonInputView
         
         return v
+    }
+    
+    override func awakeFromNib() {
+        //注册可重用cell
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        
+    }
+    
+}
+
+extension WBEmoticonInputView:UICollectionViewDataSource{
+    
+    //分组数量  -返回表情包的数量
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return WBEmoticonManager.shared.packages.count
+    }
+    
+    //返回每个分组中的表情页的数量
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //1取cell
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        
+        //2设置cell
+        cell.backgroundColor = UIColor.red
+       
+        
+        //3 返回cell
+        
+        return cell
     }
 }

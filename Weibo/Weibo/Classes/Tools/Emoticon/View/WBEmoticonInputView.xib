@@ -25,6 +25,10 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="Xwu-60-cn6" id="L4l-L6-wV6"/>
+                        <outlet property="delegate" destination="Xwu-60-cn6" id="xra-0j-ivP"/>
+                    </connections>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7T-XR-Cv4" userLabel="底部工具栏" customClass="WBEmoticonToolbar" customModule="表情键盘" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="225" width="375" height="40"/>
