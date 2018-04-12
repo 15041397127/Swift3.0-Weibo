@@ -100,6 +100,14 @@ class WBNetWorkManager: AFHTTPSessionManager {
         post(URLString, parameters: parameters, constructingBodyWith: { (formData) in
             
             //FIXME:创建formData
+            /*
+             1.data:要上传的二进制的数据
+             2.name:服务器接收数据的字段名
+             3.fileName:保存在服务器的文件名 大多数服务器 现在可以乱写
+               很多服务器 上传图片完成后 会生产缩略图 中图  大图...
+             4.mimeType告诉服务器上传文件的类型 如果不想告诉 可以使用application/octet-stream
+             */
+            formData.appendPart(withFileData: data, name: name, fileName: "xxx", mimeType: "application/octex-stream")
             
         }, progress: nil, success: { (_, json) in
             
