@@ -39,13 +39,15 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
     
     //分组数量  -返回表情包的数量
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        print(WBEmoticonManager.shared.packages.count)
         return WBEmoticonManager.shared.packages.count
     }
     
     //返回每个分组中的表情页的数量
+    //每一个分组的表情包 表情页面的数量 emoticons 数组 /20 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 8
+        return WBEmoticonManager.shared.packages[section].numberOfPages
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

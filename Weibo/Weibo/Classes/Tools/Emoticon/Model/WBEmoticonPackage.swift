@@ -47,6 +47,10 @@ class WBEmoticonPackage: NSObject {
     //懒加载表情模型空数组
     //使用懒加载可以避免后续的解包
     @objc lazy var emoticon = [WBEmoicon]()
+    var numberOfPages:Int{
+        
+        return (emoticon.count - 1)/20 + 1 //九宫格行数算法
+    }
     
     override var description: String{
         
