@@ -13,12 +13,22 @@ class WBEmoticonCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
     
-    override func awakeFromNib() {
-        steupUI()
+    override init(frame: CGRect) {
+        super.init(frame:frame)
+         steupUI()
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+//    override func awakeFromNib() {
+//        steupUI()
+//    }
 }
 private extension WBEmoticonCell{
     //-从 XIB加载 bounds是xib中定义的大小 不是size的大小
+    //从纯代码创建 bounds就是布局属性中设置的itemSize
     func steupUI(){
         
         let rowCount = 3//总行
@@ -30,7 +40,7 @@ private extension WBEmoticonCell{
             let row = i/colCount
             let col = i%rowCount
             let btn = UIButton()
-            
+            btn.backgroundColor = UIColor.red
             contentView.addSubview(btn)
             
         }

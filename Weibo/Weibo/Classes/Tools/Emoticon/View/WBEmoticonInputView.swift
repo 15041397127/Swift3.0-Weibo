@@ -28,8 +28,9 @@ class WBEmoticonInputView: UIView {
         //注册可重用cell
 //        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         
-        let nib = UINib(nibName: "WBEmoticonCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: cellID)
+//        let nib = UINib(nibName: "WBEmoticonCell", bundle: nil)
+//        collectionView.register(nib, forCellWithReuseIdentifier: cellID)
+        collectionView.register(WBEmoticonCell.self, forCellWithReuseIdentifier: cellID)
         
     }
     
@@ -56,7 +57,7 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! WBEmoticonCell
         
         //2设置cell
-        cell.label.text = "\(indexPath.section) ~~\(indexPath.item)"
+//        cell.label.text = "\(indexPath.section) ~~\(indexPath.item)"
     
         
         //3 返回cell
