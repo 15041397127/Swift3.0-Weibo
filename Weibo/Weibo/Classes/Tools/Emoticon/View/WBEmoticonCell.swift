@@ -12,4 +12,27 @@ import UIKit
 class WBEmoticonCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
+    
+    override func awakeFromNib() {
+        steupUI()
+    }
+}
+private extension WBEmoticonCell{
+    //-从 XIB加载 bounds是xib中定义的大小 不是size的大小
+    func steupUI(){
+        
+        let rowCount = 3//总行
+        let colCount = 7//总列
+        
+      //连续创建21个按钮
+        for i in 0..<21 {
+            
+            let row = i/colCount
+            let col = i%rowCount
+            let btn = UIButton()
+            
+            contentView.addSubview(btn)
+            
+        }
+    }
 }

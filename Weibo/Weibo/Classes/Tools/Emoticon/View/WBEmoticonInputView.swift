@@ -39,7 +39,7 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
     
     //分组数量  -返回表情包的数量
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print(WBEmoticonManager.shared.packages.count)
+       
         return WBEmoticonManager.shared.packages.count
     }
     
