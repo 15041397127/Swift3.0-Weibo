@@ -33,13 +33,24 @@ private extension WBEmoticonCell{
         
         let rowCount = 3//总行
         let colCount = 7//总列
+        let leftMargin:CGFloat = 8//左右间距
+        let bottomMargin:CGFloat = 16//底部间距 显示pageControl和一些提示
+        
+        let w = (bounds.width - 2 * leftMargin) / CGFloat(colCount)
+        let h = (bounds.height - bottomMargin) / CGFloat(rowCount)
         
       //连续创建21个按钮
         for i in 0..<21 {
             
-            let row = i/colCount
-            let col = i%rowCount
+            let row = i / colCount
+            let col = i % colCount
             let btn = UIButton()
+            //设置按钮的大小
+            let x = leftMargin + CGFloat(col) * w
+            let y = CGFloat(row) * h
+            btn.frame = CGRect(x:x , y: y, width: w, height: h)
+            
+        
             btn.backgroundColor = UIColor.red
             contentView.addSubview(btn)
             
