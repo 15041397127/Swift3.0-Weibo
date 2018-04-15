@@ -56,8 +56,8 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! WBEmoticonCell
         
-        //2设置cell
-//        cell.label.text = "\(indexPath.section) ~~\(indexPath.item)"
+        //2设置cell - 传递对应页面的表情数组 前面是表情包的分组 后面是每个页面的个数
+        cell.emocticons = WBEmoticonManager.shared.packages[indexPath.section].emoticon(page:indexPath.item)
     
         
         //3 返回cell

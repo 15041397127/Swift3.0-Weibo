@@ -11,6 +11,14 @@ import UIKit
 //每一个cell用九宫格算法 自行添加20个表情 和一个删除按钮
 class WBEmoticonCell: UICollectionViewCell {
     
+    //当前页面表情模型数组 最多20个
+    var emocticons:[WBEmoicon]?{
+        didSet{
+            print(emocticons?.count)
+            
+        }
+        
+    }
     @IBOutlet weak var label: UILabel!
     
     override init(frame: CGRect) {

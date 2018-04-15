@@ -51,6 +51,27 @@ class WBEmoticonPackage: NSObject {
         
         return (emoticon.count - 1)/20 + 1 //九宫格行数算法
     }
+    //从懒加载的 表情包中按照page 截取最多20个表情模型的数组
+    //例如总共26个
+    //例如page = 0 返回0-19个模型
+    //page == 1 返回20 - 25
+    func emoticon(page:Int) -> [WBEmoicon]{
+        
+        let count = 20 //每页的数量
+        let location = page * count
+        var length = count
+        
+        //判断数组是否越界
+        if location + length > emoticon.count {
+            length = emoticon.count - location
+        }
+        
+        let range = NSRange(location: location, length: length )
+        //截取数组的子数组
+        let subArray =  (emoticon as NSArray).subarray(with: range)
+        
+        return subArray as! [WBEmoicon]
+    }
     
     override var description: String{
         
