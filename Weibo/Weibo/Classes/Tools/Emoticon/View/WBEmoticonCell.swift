@@ -7,9 +7,22 @@
 //
 
 import UIKit
+
+//表情cell的协议
+@objc protocol WBEmoiconCellDelegate:NSObjectProtocol{
+    
+    /// 表情cell 选中表情模型
+    ///
+    /// - Parameter em: 表情模型 nil表示删除
+    func emoiconCellDidSelectedEmoticon(cell:WBEmoticonCell, em:WBEmoicon?)
+}
+
 //表情的页面cell  每一个页面显示20个表情  每个cell与collectionView一样大小
 //每一个cell用九宫格算法 自行添加20个表情 和一个删除按钮
 class WBEmoticonCell: UICollectionViewCell {
+    
+    //代理
+    weak var delegate:WBEmoiconCellDelegate?
     
     //当前页面表情模型数组 最多20个
     var emocticons:[WBEmoicon]?{
@@ -60,7 +73,8 @@ class WBEmoticonCell: UICollectionViewCell {
         if tag < (emocticons?.count)! {
             em = emocticons?[tag]
         }
-       //em 要么是选中的按钮 如果为nil 对应的是删除按钮
+       //em 要么是选中的模型 如果为nil 对应的是删除按钮
+        delegate?.emoiconCellDidSelectedEmoticon(cell: self, em: em)
         
     }
     
