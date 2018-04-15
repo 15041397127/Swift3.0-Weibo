@@ -14,10 +14,20 @@ class WBEmoticonCell: UICollectionViewCell {
     //当前页面表情模型数组 最多20个
     var emocticons:[WBEmoicon]?{
         didSet{
-            print(emocticons?.count)
-            
-        }
-        
+            //隐藏所有的按钮
+            for v  in contentView.subviews {
+                v.isHidden = true
+            }
+            //遍历表情模型数组 设置按钮图像
+            for (i,em)   in (emocticons ?? []).enumerated(){
+                //取出按钮
+            if let btn = contentView.subviews[i] as? UIButton {
+                btn.setImage(em.image, for: [])
+                btn.isHidden = false
+            }
+   
+         }
+      }
     }
     @IBOutlet weak var label: UILabel!
     
