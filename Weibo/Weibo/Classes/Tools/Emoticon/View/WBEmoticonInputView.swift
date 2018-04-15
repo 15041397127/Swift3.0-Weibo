@@ -58,10 +58,19 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
         
         //2设置cell - 传递对应页面的表情数组 前面是表情包的分组 后面是每个页面的个数
         cell.emocticons = WBEmoticonManager.shared.packages[indexPath.section].emoticon(page:indexPath.item)
-    
+        //设置代理
+        cell.delegate = self
         
         //3 返回cell
         
         return cell
     }
+}
+//MARK:遵守协议
+extension WBEmoticonInputView:WBEmoiconCellDelegate{
+    
+    func emoiconCellDidSelectedEmoticon(cell: WBEmoticonCell, em: WBEmoicon?) {
+        print(em)
+    }
+    
 }
