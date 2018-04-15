@@ -15,12 +15,18 @@ class WBEmoticonInputView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var toolBar: UIView!
-    class func inputView() -> WBEmoticonInputView {
+    
+    //选中表情回调闭包
+    private var selectedEmoticonCallBack: ((_ emoticon:WBEmoicon?) -> ())?
+    
+    class func inputView(selectedEmoticon:@escaping (_ emoticon:WBEmoicon?) -> ()) -> WBEmoticonInputView {
         
         let nib = UINib(nibName: "WBEmoticonInputView", bundle: nil)
         
         let v = nib.instantiate(withOwner: nil, options: nil)[0] as! WBEmoticonInputView
         
+        //记录闭包
+        v.selectedEmoticonCallBack = selectedEmoticon
         return v
     }
     
@@ -70,7 +76,8 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
 extension WBEmoticonInputView:WBEmoiconCellDelegate{
     
     func emoiconCellDidSelectedEmoticon(cell: WBEmoticonCell, em: WBEmoicon?) {
-        print(em)
+        //执行闭包回调选中的表情
+        selectedEmoticonCallBack?(em)
     }
     
 }
