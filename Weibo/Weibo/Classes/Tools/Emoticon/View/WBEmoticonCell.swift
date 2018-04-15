@@ -22,7 +22,7 @@ class WBEmoticonCell: UICollectionViewCell {
             for (i,em)   in (emocticons ?? []).enumerated(){
                 //取出按钮
             if let btn = contentView.subviews[i] as? UIButton {
-                //设置图像
+                //设置图像 - 如果图像为nil 会清空图像 避免复用
                 btn.setImage(em.image, for: [])
                 
                 //设置emoji的字符串
