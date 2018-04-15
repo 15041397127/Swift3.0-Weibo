@@ -51,7 +51,6 @@ class WBEmoicon: NSObject {
     
     //当前图像转换成图片的属性文本
     @objc func imageText(font:UIFont) -> NSAttributedString{
-    
     //判断图像是否存在
     guard let image = image else {
         return NSAttributedString(string: "")
