@@ -18,6 +18,9 @@ class WBEmoticonCell: UICollectionViewCell {
             for v  in contentView.subviews {
                 v.isHidden = true
             }
+            //显示删除按钮
+            contentView.subviews.last?.isHidden = false
+            
             //遍历表情模型数组 设置按钮图像
             for (i,em)   in (emocticons ?? []).enumerated(){
                 //取出按钮
@@ -76,5 +79,11 @@ private extension WBEmoticonCell{
             contentView.addSubview(btn)
             
         }
+        //取出末尾的按钮
+        let removeButton = contentView.subviews.last as! UIButton
+        //设置图像
+        let image = UIImage(named: "compose_emotion_delete_highlighted", in: WBEmoticonManager.shared.bundle, compatibleWith: nil)
+        removeButton.setImage(image, for: [])
+        
     }
 }
