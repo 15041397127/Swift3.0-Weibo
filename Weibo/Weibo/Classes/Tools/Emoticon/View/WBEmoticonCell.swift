@@ -47,6 +47,23 @@ class WBEmoticonCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
+    //MARK:监听方法
+    ///
+    /// - Parameter button: 选中表情按钮
+    @objc private func selectEmoticonButton(button:UIButton){
+         //取tag 0 -20 20是对应的删除按钮
+        let tag = button.tag
+        //根据tag 判断是否是删除按钮 如果不是删除按钮 取得表情
+        var em:WBEmoicon?
+        if tag < (emocticons?.count)! {
+            em = emocticons?[tag]
+        }
+       //em 要么是选中的按钮 如果为nil 对应的是删除按钮
+        
+    }
+    
 //    override func awakeFromNib() {
 //        steupUI()
 //    }
@@ -77,6 +94,10 @@ private extension WBEmoticonCell{
             
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)//emoji大小
             contentView.addSubview(btn)
+            
+            //设置按钮的tag
+            btn.tag = i
+            btn.addTarget(self, action: #selector(selectEmoticonButton), for: .touchUpInside)
             
         }
         //取出末尾的按钮
