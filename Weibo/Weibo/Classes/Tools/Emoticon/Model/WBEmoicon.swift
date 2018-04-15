@@ -14,7 +14,20 @@ class WBEmoicon: NSObject {
    @objc var type = false
    @objc var chs:String? //表情字符串 发送给服务器 节约流量
    @objc var png:String? //表情图片名称 用于图文混排
-   @objc var code:String? //十六进制编码
+    //十六进制编码
+   @objc var code:String?{
+        didSet{
+            guard let code = code else {
+                return
+            }
+            let scanner = Scanner(string: code)
+            var result:UInt32 = 0
+            scanner.scanHexInt32(&result)
+            emoji = String(Character(UnicodeScalar(result)!))
+        }
+    }
+    //emoji的字符串
+   @objc var emoji:String?
     //表情模型所在的目录
    @objc var directory:String?
    

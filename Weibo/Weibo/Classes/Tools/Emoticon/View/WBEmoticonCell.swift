@@ -22,7 +22,11 @@ class WBEmoticonCell: UICollectionViewCell {
             for (i,em)   in (emocticons ?? []).enumerated(){
                 //取出按钮
             if let btn = contentView.subviews[i] as? UIButton {
+                //设置图像
                 btn.setImage(em.image, for: [])
+                
+                //设置emoji的字符串
+                btn.setTitle(em.emoji, for: [])
                 btn.isHidden = false
             }
    
@@ -68,8 +72,7 @@ private extension WBEmoticonCell{
             let y = CGFloat(row) * h
             btn.frame = CGRect(x:x , y: y, width: w, height: h)
             
-        
-            btn.backgroundColor = UIColor.red
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)//emoji大小
             contentView.addSubview(btn)
             
         }
