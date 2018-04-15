@@ -61,7 +61,13 @@ class WBEmoicon: NSObject {
      let height = font.lineHeight
      attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)
    
-        return NSAttributedString(attachment: attachment)
+     //返回图片属性文本
+     let attrStrM = NSMutableAttributedString(attributedString: NSAttributedString(attachment: attachment))
+      
+     //设置字体属性
+        attrStrM.addAttributes([NSAttributedStringKey.font : font], range: NSRange(location: 0, length: 1))
+        //返回属性文本
+        return attrStrM
     }
     
     override var description: String{
