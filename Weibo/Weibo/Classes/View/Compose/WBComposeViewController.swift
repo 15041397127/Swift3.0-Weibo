@@ -25,6 +25,12 @@ class WBComposeViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet weak var toolBarBottonmCons: NSLayoutConstraint!//工具栏底部约束
+    
+    //表情输入视图
+    lazy var enmoiconView:WBEmoticonInputView = WBEmoticonInputView.inputView {[weak self] (emoticon) in
+        //解决循环引用
+       self?.textView.insertEmoticon(em: emoticon)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -148,10 +154,11 @@ class WBComposeViewController: UIViewController {
         //textView.inputView 就是文本框的输入视图
         //如果使用系统的默认的键盘 输入的视图为nil
         //测试键盘视图 视图的宽度可以随便  就是屏幕的宽度
-        let keyBoardView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 265))
-        keyBoardView.backgroundColor = UIColor.cyan
+//        let keyBoardView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 265))
+//        keyBoardView.backgroundColor = UIColor.cyan
+        
 
-        textView.inputView =  (textView.inputView == nil) ? keyBoardView : nil
+        textView.inputView =  (textView.inputView == nil) ? enmoiconView : nil
         
         textView.reloadInputViews()//刷新键盘视图
         
