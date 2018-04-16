@@ -102,15 +102,13 @@ class WBComposeViewController: UIViewController {
     //发布微博
     @IBAction func postStatus(_ sender: Any) {
         
-        //获取微博文字
-        guard let text  = textView.text else {
-            return
-        }
+        //获取发送给服务器的表情微博字符串
+        let text  = textView.emoticonText
         //发布微博
         //FIXME:临时测试发布带图片的微博
 //        let image = UIImage(named: "0713_1")
         let image:UIImage? = nil
-        WBNetWorkManager.shared.postStatus(text: text, image: image) { (result, isSuccess) in
+        WBNetWorkManager.shared.postStatus(text: text!, image: image) { (result, isSuccess) in
             
             SVProgressHUD.setDefaultStyle(.dark)
             

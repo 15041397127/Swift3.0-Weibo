@@ -44,6 +44,42 @@ class WBComposeTextView: UITextView {
 //MARK:表情键盘专属方法
 extension WBComposeTextView{
     
+    //返回textView对应的纯文本的字符串[将属性图片转换成文字]
+    var emoticonText:String?{
+        //1.获取textView的属性文本
+        guard  let attrStr = attributedText else{
+            return ""
+        }
+        
+        //2.需要获得属性文本的图片[附件 attachment]
+        /*
+         1.遍历范围
+         2.选项
+         3.闭包
+         */
+        var result = String()
+        //遍历字符串
+        attrStr.enumerateAttributes(in: NSRange(location: 0, length: attrStr.length), options: [], using: { (dict, range, _) in
+            //如果字典中包含NSAttachment 'key'说明是图片 否则是文本
+            //下一个目标从attachment中如果能够获得 chs就可以了
+            print(NSAttributedStringKey.attachment)
+            //            dict[NSAttributedStringKey.attachment]
+            if let attachment = dict[NSAttributedStringKey.attachment] as? WBEmoticonAttachment {
+                
+                result += attachment.chs ?? ""
+                
+            }else{
+                
+                let subStr = (attrStr.string as NSString).substring(with: range)
+                result += subStr
+            }
+            
+        })
+        
+        return result
+        
+    }
+    
     //向文本视图插入表情符号[图文混排] nil表示删除
     func insertEmoticon(em:WBEmoicon?){
         //1.em == nil 是删除按钮
