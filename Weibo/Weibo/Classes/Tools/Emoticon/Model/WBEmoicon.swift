@@ -56,7 +56,8 @@ class WBEmoicon: NSObject {
         return NSAttributedString(string: "")
     }
     //创建文件附件
-     let attachment = NSTextAttachment()
+     let attachment = WBEmoticonAttachment()
+     attachment.chs = chs//记录属性文本文字
      attachment.image = image
      let height = font.lineHeight
      attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)
