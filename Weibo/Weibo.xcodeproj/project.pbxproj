@@ -40,6 +40,7 @@
 		345C9F2D202030BE001BA70C /* RetweetedStatu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F22202030BD001BA70C /* RetweetedStatu.swift */; };
 		3469810A20876D5F0059400F /* status.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3469810820876D5F0059400F /* status.sql */; };
 		3469810B20876D5F0059400F /* WBSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469810920876D5F0059400F /* WBSQLiteManager.swift */; };
+		3469810D2087772B0059400F /* WBStatusListDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469810C2087772B0059400F /* WBStatusListDAL.swift */; };
 		346FEF7E2007A463003EE3C8 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */; };
 		347ED9F4207791F500E6704C /* WBEmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F0207791F400E6704C /* WBEmoticonManager.swift */; };
 		347ED9F5207791F500E6704C /* WBEmoicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F1207791F400E6704C /* WBEmoicon.swift */; };
@@ -157,6 +158,7 @@
 		345C9F22202030BD001BA70C /* RetweetedStatu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetweetedStatu.swift; sourceTree = "<group>"; };
 		3469810820876D5F0059400F /* status.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.sql; sourceTree = "<group>"; };
 		3469810920876D5F0059400F /* WBSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSQLiteManager.swift; sourceTree = "<group>"; };
+		3469810C2087772B0059400F /* WBStatusListDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListDAL.swift; sourceTree = "<group>"; };
 		346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
 		347ED9F0207791F400E6704C /* WBEmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoticonManager.swift; sourceTree = "<group>"; };
 		347ED9F1207791F400E6704C /* WBEmoicon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoicon.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 			children = (
 				34AAD0402018B1030023BF39 /* WBSatuesListViewModel.swift */,
 				34D6DCB32056B67300F6E691 /* WBSatuesViewModel.swift */,
+				3469810C2087772B0059400F /* WBStatusListDAL.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 				347EDA362077AEC500E6704C /* FFLabel.swift in Sources */,
 				34D2BFC120849E2E000615B8 /* WBEmoticonInputView.swift in Sources */,
 				345C9F182020308F001BA70C /* Statuse.swift in Sources */,
+				3469810D2087772B0059400F /* WBStatusListDAL.swift in Sources */,
 				34DCF7D22059574C00A9FA23 /* WBStatusPicture.swift in Sources */,
 				3481AF7E2005DF96009F58BF /* AppDelegate.swift in Sources */,
 				349DDE9F200708BD0078743F /* Bundle+Extensions.swift in Sources */,
