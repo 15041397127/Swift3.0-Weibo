@@ -54,7 +54,13 @@ class WBSatuesListViewModel {
          //max_id 取出数组中最后一条微博的id
         let max_id = !pullUp ?0:statuesLsit.last?.status.id ?? 0
         
-        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
+        //让数据访问层加载数据
+        WBStatusListDAL.loadStatus(since_id: since_id, max_id: max_id) { (list, isSuccess) in
+            
+//        }
+            
+//没有数据之前的 发起网络请求 加载微博数据
+//        WBNetWorkManager.shared.statusList(since_id: since_id, max_id: max_id){ (list, isSuccess) in
             
         
             //原生解析
