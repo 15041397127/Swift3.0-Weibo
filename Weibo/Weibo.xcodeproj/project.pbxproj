@@ -38,6 +38,8 @@
 		345C9F2B202030BE001BA70C /* ExtendInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F20202030BD001BA70C /* ExtendInfo.swift */; };
 		345C9F2C202030BE001BA70C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F21202030BD001BA70C /* User.swift */; };
 		345C9F2D202030BE001BA70C /* RetweetedStatu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C9F22202030BD001BA70C /* RetweetedStatu.swift */; };
+		3469810A20876D5F0059400F /* status.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3469810820876D5F0059400F /* status.sql */; };
+		3469810B20876D5F0059400F /* WBSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469810920876D5F0059400F /* WBSQLiteManager.swift */; };
 		346FEF7E2007A463003EE3C8 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */; };
 		347ED9F4207791F500E6704C /* WBEmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F0207791F400E6704C /* WBEmoticonManager.swift */; };
 		347ED9F5207791F500E6704C /* WBEmoicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F1207791F400E6704C /* WBEmoicon.swift */; };
@@ -153,6 +155,8 @@
 		345C9F20202030BD001BA70C /* ExtendInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendInfo.swift; sourceTree = "<group>"; };
 		345C9F21202030BD001BA70C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		345C9F22202030BD001BA70C /* RetweetedStatu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetweetedStatu.swift; sourceTree = "<group>"; };
+		3469810820876D5F0059400F /* status.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.sql; sourceTree = "<group>"; };
+		3469810920876D5F0059400F /* WBSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSQLiteManager.swift; sourceTree = "<group>"; };
 		346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
 		347ED9F0207791F400E6704C /* WBEmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoticonManager.swift; sourceTree = "<group>"; };
 		347ED9F1207791F400E6704C /* WBEmoicon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoicon.swift; sourceTree = "<group>"; };
@@ -381,6 +385,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3469810720876D5F0059400F /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				3469810820876D5F0059400F /* status.sql */,
+				3469810920876D5F0059400F /* WBSQLiteManager.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
 		346FEF7C2007A42B003EE3C8 /* 测试 */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,10 +565,11 @@
 		349DDE292006FDC90078743F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3469810720876D5F0059400F /* SQLite */,
+				3403743C201762990004A833 /* NetWork */,
 				347EDA342077AEC500E6704C /* FFLabel */,
 				347ED9EE207791F400E6704C /* Emoticon */,
 				34E039872062A54700EF9DC2 /* ZXRefreshControl */,
-				3403743C201762990004A833 /* NetWork */,
 				349DDE9B200703FD0078743F /* Extension */,
 				349DDE502006FFD80078743F /* Additions */,
 				34127FCF20287AFC000FF9DB /* WeiboCommon.swift */,
@@ -827,6 +841,7 @@
 				3444C64D200F79CC00A0F154 /* main.json in Resources */,
 				3491F54A206D0D24007D3247 /* WBComposeTypeView.xib in Resources */,
 				3481AF852005DF96009F58BF /* Assets.xcassets in Resources */,
+				3469810A20876D5F0059400F /* status.sql in Resources */,
 				34278359207A493600846396 /* WBComposeViewController.xib in Resources */,
 				3448058D206BBE8E00E54A07 /* ZXMeiTuanRefreshView.xib in Resources */,
 				34AC80082046D10900B1BEBC /* WBWelcomeView.xib in Resources */,
@@ -1034,6 +1049,7 @@
 				3415EC74200612620087B901 /* WBProfileViewController.swift in Sources */,
 				34D6DCB62058007100F6E691 /* UIImageView+WebImage.swift in Sources */,
 				347ED9F4207791F500E6704C /* WBEmoticonManager.swift in Sources */,
+				3469810B20876D5F0059400F /* WBSQLiteManager.swift in Sources */,
 				345C9F28202030BE001BA70C /* WeiboCamera.swift in Sources */,
 				3415EC72200612470087B901 /* WBDiscoverViewController.swift in Sources */,
 				3434C74B2069259200577C27 /* CZRefreshView.swift in Sources */,
