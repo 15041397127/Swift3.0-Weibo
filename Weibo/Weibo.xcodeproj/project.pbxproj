@@ -41,6 +41,7 @@
 		3469810A20876D5F0059400F /* status.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3469810820876D5F0059400F /* status.sql */; };
 		3469810B20876D5F0059400F /* WBSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469810920876D5F0059400F /* WBSQLiteManager.swift */; };
 		3469810D2087772B0059400F /* WBStatusListDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469810C2087772B0059400F /* WBStatusListDAL.swift */; };
+		3469810F20878BB40059400F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469810E20878BB40059400F /* Date+Extension.swift */; };
 		346FEF7E2007A463003EE3C8 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */; };
 		347ED9F4207791F500E6704C /* WBEmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F0207791F400E6704C /* WBEmoticonManager.swift */; };
 		347ED9F5207791F500E6704C /* WBEmoicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347ED9F1207791F400E6704C /* WBEmoicon.swift */; };
@@ -159,6 +160,7 @@
 		3469810820876D5F0059400F /* status.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.sql; sourceTree = "<group>"; };
 		3469810920876D5F0059400F /* WBSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSQLiteManager.swift; sourceTree = "<group>"; };
 		3469810C2087772B0059400F /* WBStatusListDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListDAL.swift; sourceTree = "<group>"; };
+		3469810E20878BB40059400F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		346FEF7D2007A463003EE3C8 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
 		347ED9F0207791F400E6704C /* WBEmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoticonManager.swift; sourceTree = "<group>"; };
 		347ED9F1207791F400E6704C /* WBEmoicon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBEmoicon.swift; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 				3495713A200C473A00F77C55 /* WBNavBar.swift */,
 				34D6DCB52058007100F6E691 /* UIImageView+WebImage.swift */,
 				34D6DCB7205804A400F6E691 /* UIImageView+Extensions.swift */,
+				3469810E20878BB40059400F /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 				34D2BFBD20849E2E000615B8 /* WBEmoticonCellLayout.swift in Sources */,
 				347ED9F5207791F500E6704C /* WBEmoicon.swift in Sources */,
 				34127FD320287E63000FF9DB /* WBOAuthViewController.swift in Sources */,
+				3469810F20878BB40059400F /* Date+Extension.swift in Sources */,
 				3415EC74200612620087B901 /* WBProfileViewController.swift in Sources */,
 				34D6DCB62058007100F6E691 /* UIImageView+WebImage.swift in Sources */,
 				347ED9F4207791F500E6704C /* WBEmoticonManager.swift in Sources */,

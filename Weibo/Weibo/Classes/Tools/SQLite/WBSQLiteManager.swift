@@ -8,8 +8,8 @@
 
 import Foundation
 import FMDB
-
-private let maxDBCacheTime = -5 * 24 * 60 * 60 //数据库缓存时间 以秒为单位 5天
+//往前加5天
+private let maxDBCacheTime:TimeInterval = -5 * 24 * 60 * 60 //数据库缓存时间 以秒为单位 5天
 
 //SQLite管理器
 /*
@@ -52,6 +52,8 @@ class WBSQLiteManager {
     //清理数据缓存
     @objc private func clearDBCache(){
         
+        let dateString = Date.wb_dateString(delta: maxDBCacheTime)
+        print(dateString)
         
     }
     
