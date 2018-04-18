@@ -36,6 +36,20 @@ class WBSQLiteManager {
         queue = FMDatabaseQueue(path:path)
         //打开数据库
         createTable()
+        
+        //注册通知 监听应用程序进入后台
+        //模仿sdwebImage
+        NotificationCenter.default.addObserver(self, selector: #selector(clearDBCache), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //清理数据缓存
+    @objc private func clearDBCache(){
+        
+        
     }
     
 }
