@@ -9,8 +9,8 @@
 import Foundation
 import FMDB
 //往前加5天
-private let maxDBCacheTime:TimeInterval = -5 * 24 * 60 * 60 //数据库缓存时间 以秒为单位 5天
-
+//private let maxDBCacheTime:TimeInterval = -5 * 24 * 60 * 60 //数据库缓存时间 以秒为单位 5天
+private let maxDBCacheTime:TimeInterval = -60 //测试时间
 //SQLite管理器
 /*
   1.数据库本质上是保存在沙盒中的一个文件,首先需要创建并且打开数据库
@@ -50,10 +50,24 @@ class WBSQLiteManager {
     }
     
     //清理数据缓存
+    //注意细节 SQLite不断增加数据 数据库文件会不断的增加
+    //但是 如果删除了数据 数据库不会变小
+    //如果要变小 1.将数据库文件复制一个新的副本 status.db.old 2.创建一个空的数据库文件 3.自己编写sQL 从old中将所有的数据读出 写入新的数据库
     @objc private func clearDBCache(){
         
         let dateString = Date.wb_dateString(delta: maxDBCacheTime)
-        print(dateString)
+        //准备sqL
+        let sql = "DELETE FROM T_Status WHERE creatTime < ?;"
+        //执行sqL
+        queue.inDatabase { (db) in
+            
+            if db.executeUpdate(sql, withArgumentsIn: [dateString]) == true {
+                
+                print("删除了多少条\(db.changes)")
+                
+            }
+            
+        }
         
     }
     
