@@ -68,8 +68,9 @@ class WBEmoticonCell: UICollectionViewCell {
             return
         }
         //将视图添加到窗口上
-        //提示在ios6.0之前 很多程序员都喜欢把控件往窗口上添加 
+        //提示在ios6.0之前 很多程序员都喜欢把控件往窗口上添加
         w.addSubview(tipView)
+        tipView.isHidden = true
     }
     
     
@@ -97,7 +98,27 @@ class WBEmoticonCell: UICollectionViewCell {
     //而且可以保证一个对象监听两种点击的手势 而且不需要考虑手势冲突
     @objc private func longGesture(gesture:UILongPressGestureRecognizer){
         
+        //获取触摸的位置
+        let location = gesture.location(in: self)
+        
+        //2.获取触摸位置对于的按钮
+        guard let button = buttonWithLocation(location: location) else{
+            return
+        }
+        
 
+    }
+    private func buttonWithLocation(location:CGPoint) -> UIButton? {
+        //遍历所有的子视图 如果可见同时在location 确认是按钮
+        for btn in contentView.subviews as! [UIButton]{
+            //删除按钮同样需要处理
+            if btn.frame.contains(location) && !btn.isHidden && btn != contentView.subviews.last{
+                
+                return btn
+            }
+            
+        }
+        return nil
     }
 }
 private extension WBEmoticonCell{
