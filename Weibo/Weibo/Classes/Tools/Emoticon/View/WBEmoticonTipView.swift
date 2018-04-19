@@ -10,6 +10,26 @@ import UIKit
 //表情选中提示视图
 class WBEmoticonTipView: UIImageView {
 
+    //之前选中的表情
+    private var preEmoticon:WBEmoicon?
+    
+    var emoticon:WBEmoicon?{
+        //提示视图的表情模型
+        didSet{
+            //判断表情是否变化
+            if emoticon == preEmoticon {
+                return
+            }
+            //记录当前表情
+            preEmoticon = emoticon
+            
+            //设置表情数据
+            tipButton.setTitle(emoticon?.emoji, for: [])
+            tipButton.setImage(emoticon?.image, for: [])
+            
+        }
+    }
+    
     //MARK:私有控件
     private lazy var tipButton = UIButton()
     

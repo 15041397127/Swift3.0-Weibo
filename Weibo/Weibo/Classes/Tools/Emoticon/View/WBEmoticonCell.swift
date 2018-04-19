@@ -114,6 +114,14 @@ class WBEmoticonCell: UICollectionViewCell {
             let center = self.convert(button.center, to: window)
             //设置提示视图的位置
             tipView.center = center
+            
+            //设置提示视图的表情模型
+            if button.tag < (emocticons?.count)!{
+                
+                tipView.emoticon = emocticons?[button.tag]
+                
+            }
+            
         default:
             break
         }
