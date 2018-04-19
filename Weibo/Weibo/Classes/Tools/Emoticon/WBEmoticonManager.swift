@@ -13,7 +13,7 @@ class WBEmoticonManager {
     
     static let shared = WBEmoticonManager()
     
-    //表情包的懒加载数组
+    //表情包的懒加载数组 -第一个数组是最近的表情 加载之后 表情数组为空
     @objc lazy var packages = [WBEmoticonPackage]()
     
     //表情素材的bundle
@@ -26,6 +26,36 @@ class WBEmoticonManager {
     //OC要 重写allocWithZone方法
     private init() {
         loadPackage()
+    }
+    
+    
+    /// 添加最近使用的表情
+    ///
+    /// - Parameter em: 选中的表情
+    func recentEmoticon(em:WBEmoicon){
+        //1. 增加表情的使用次数
+        em.times += 1
+
+        //2.判断是否已经记录了表情 如果没有记录 添加记录
+        if !packages[0].emoticon.contains(em) {
+            packages[0].emoticon.append(em)
+        }
+        
+        
+        //3.根据使用次数排序 使用次数多的排序靠前
+        //对当前数组排序
+        packages[0].emoticon.sort { (em1, em2) -> Bool in
+            
+            return em1.times > em2.times
+            
+        }
+        //4.判断表情数据是否超出20  如果超出 删除末尾的表情
+        if packages[0].emoticon.count > 20 {
+            
+           packages[0].emoticon.removeSubrange(20..<packages[0].emoticon.count)
+        }
+        
+    
     }
     
 }

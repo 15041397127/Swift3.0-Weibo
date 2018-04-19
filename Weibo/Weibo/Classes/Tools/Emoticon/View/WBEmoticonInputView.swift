@@ -75,9 +75,20 @@ extension WBEmoticonInputView:UICollectionViewDataSource{
 //MARK:遵守协议
 extension WBEmoticonInputView:WBEmoiconCellDelegate{
     
+    /// 选中的表情回掉
+    ///
+    /// - Parameters:
+    ///   - cell: 分页cell
+    ///   - em: 选中的表情 删除键为nil
     func emoiconCellDidSelectedEmoticon(cell: WBEmoticonCell, em: WBEmoicon?) {
         //执行闭包回调选中的表情
         selectedEmoticonCallBack?(em)
+        
+        //添加最近使用的表情
+        guard let em = em else {
+            return
+        }
+        WBEmoticonManager.shared.recentEmoticon(em: em)
     }
     
 }

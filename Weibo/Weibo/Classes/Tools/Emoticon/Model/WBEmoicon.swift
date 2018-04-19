@@ -26,6 +26,9 @@ class WBEmoicon: NSObject {
             emoji = String(Character(UnicodeScalar(result)!))
         }
     }
+    //表情使用的次数
+    @objc var times:Int = 0
+    
     //emoji的字符串
    @objc var emoji:String?
     //表情模型所在的目录
