@@ -61,6 +61,17 @@ class WBEmoticonCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //当视图从页面上删除 同样会调用此方法 newwidow = nil
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super .willMove(toWindow: newWindow)
+        guard let w = newWindow else {
+            return
+        }
+        //将视图添加到窗口上
+        //提示在ios6.0之前 很多程序员都喜欢把控件往窗口上添加 
+        w.addSubview(tipView)
+    }
+    
     
     
     //MARK:监听方法
