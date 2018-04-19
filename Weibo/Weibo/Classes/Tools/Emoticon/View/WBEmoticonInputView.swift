@@ -48,6 +48,10 @@ class WBEmoticonInputView: UIView {
 extension WBEmoticonInputView:WBEmoticonToolbarDelegate{
     
     func emoticonToolbarDidSelectedItemIndex(tool: WBEmoticonToolbar, index: Int) {
+        //让collectionView发生滚动 滚动到每个分组的第0页
+        let indexPath = IndexPath(item: 0, section: index)
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+        
         
     }
 }
