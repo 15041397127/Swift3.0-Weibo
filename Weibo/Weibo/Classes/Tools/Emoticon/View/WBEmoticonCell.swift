@@ -103,6 +103,7 @@ class WBEmoticonCell: UICollectionViewCell {
         
         //2.获取触摸位置对于的按钮
         guard let button = buttonWithLocation(location: location) else{
+            tipView.isHidden = true
             return
         }
         //处理手势状态
@@ -121,7 +122,12 @@ class WBEmoticonCell: UICollectionViewCell {
                 tipView.emoticon = emocticons?[button.tag]
                 
             }
-            
+        case .ended:
+            tipView.isHidden = true
+            //执行选中按钮的函数
+            selectEmoticonButton(button: button)
+        case .cancelled,.failed:
+            tipView.isHidden = true
         default:
             break
         }
