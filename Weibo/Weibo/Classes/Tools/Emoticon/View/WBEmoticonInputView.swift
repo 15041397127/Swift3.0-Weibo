@@ -14,7 +14,7 @@ class WBEmoticonInputView: UIView {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var toolBar: UIView!
+    @IBOutlet weak var toolBar: WBEmoticonToolbar!
     
     //选中表情回调闭包
     private var selectedEmoticonCallBack: ((_ emoticon:WBEmoicon?) -> ())?
@@ -38,8 +38,18 @@ class WBEmoticonInputView: UIView {
 //        collectionView.register(nib, forCellWithReuseIdentifier: cellID)
         collectionView.register(WBEmoticonCell.self, forCellWithReuseIdentifier: cellID)
         
+        //设置工具栏代理
+        toolBar.delegate = self
+        
     }
     
+}
+
+extension WBEmoticonInputView:WBEmoticonToolbarDelegate{
+    
+    func emoticonToolbarDidSelectedItemIndex(tool: WBEmoticonToolbar, index: Int) {
+        
+    }
 }
 
 extension WBEmoticonInputView:UICollectionViewDataSource{

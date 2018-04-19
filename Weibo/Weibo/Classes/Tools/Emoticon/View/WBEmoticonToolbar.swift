@@ -7,10 +7,16 @@
 //
 
 import UIKit
-
+@objc protocol WBEmoticonToolbarDelegate:NSObjectProtocol{
+    
+    //表情工具栏选中分组项索引
+    func emoticonToolbarDidSelectedItemIndex(tool:WBEmoticonToolbar,index:Int)
+    
+}
 /// 表情键盘底部工具栏
 class WBEmoticonToolbar: UIView {
 
+    weak var delegate:WBEmoticonToolbarDelegate?
     override func awakeFromNib() {
         
         stupUI()
@@ -31,6 +37,7 @@ class WBEmoticonToolbar: UIView {
     //点击分组项按钮
     @objc private func clickItem(button:UIButton){
         
+        delegate?.emoticonToolbarDidSelectedItemIndex(tool: self, index: button.tag)
         
     }
 
