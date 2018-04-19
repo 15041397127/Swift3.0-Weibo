@@ -27,6 +27,12 @@ class WBEmoticonToolbar: UIView {
             bt.frame = rect.offsetBy(dx: CGFloat(i) * w, dy: 0)
         }
     }
+    //MARK:监听方法
+    //点击分组项按钮
+    @objc private func clickItem(button:UIButton){
+        
+        
+    }
 
 }
 
@@ -37,7 +43,7 @@ private extension WBEmoticonToolbar{
         //从表情包的分组名称 设置按钮
         let manager = WBEmoticonManager.shared
         
-        for p in manager.packages {
+        for (i,p) in manager.packages.enumerated() {
             let bt = UIButton()
             bt.setTitle(p.groupName, for: [])
             bt.titleLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -65,7 +71,14 @@ private extension WBEmoticonToolbar{
             bt.sizeToFit()
             addSubview(bt)
             
+            //设置按钮的tag
+            bt.tag = i
+            
+            //添加监听方法
+            bt.addTarget(self, action: #selector(clickItem), for: .touchUpInside)
         }
+        //默认选中第0个按钮
+        (subviews[0] as! UIButton).isSelected = true
 
     }
 }
