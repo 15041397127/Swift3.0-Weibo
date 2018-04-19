@@ -50,7 +50,8 @@ class WBEmoticonCell: UICollectionViewCell {
       }
     }
     @IBOutlet weak var label: UILabel!
-    
+    //表情选中提示视图
+    private lazy var tipView = WBEmoticonTipView()
     override init(frame: CGRect) {
         super.init(frame:frame)
          steupUI()
@@ -85,7 +86,7 @@ class WBEmoticonCell: UICollectionViewCell {
     //而且可以保证一个对象监听两种点击的手势 而且不需要考虑手势冲突
     @objc private func longGesture(gesture:UILongPressGestureRecognizer){
         
-        
+
     }
 }
 private extension WBEmoticonCell{
