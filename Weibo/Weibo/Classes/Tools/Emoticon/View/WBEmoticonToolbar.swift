@@ -17,6 +17,17 @@ import UIKit
 class WBEmoticonToolbar: UIView {
 
     weak var delegate:WBEmoticonToolbarDelegate?
+    //选中的索引
+    var selectedIndex:Int = 0{
+        
+        didSet{
+            //取消所有的选中状态
+            for btn in subviews as! [UIButton] {
+                btn.isSelected = false
+            }
+            (subviews[selectedIndex] as! UIButton).isSelected = true
+        }
+    }
     override func awakeFromNib() {
         
         stupUI()

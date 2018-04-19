@@ -52,6 +52,8 @@ extension WBEmoticonInputView:WBEmoticonToolbarDelegate{
         let indexPath = IndexPath(item: 0, section: index)
         collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
         
+        //设置选中状态
+        toolBar.selectedIndex = index
         
     }
 }
