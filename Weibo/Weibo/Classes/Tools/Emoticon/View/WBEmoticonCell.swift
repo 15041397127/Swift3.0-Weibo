@@ -105,6 +105,18 @@ class WBEmoticonCell: UICollectionViewCell {
         guard let button = buttonWithLocation(location: location) else{
             return
         }
+        //处理手势状态
+        switch gesture.state {
+        case .began,.changed:
+            tipView.isHidden = false
+            
+            //坐标系的转换 将按钮参照cell的坐标系 转换到window的坐标系
+            let center = self.convert(button.center, to: window)
+            //设置提示视图的位置
+            tipView.center = center
+        default:
+            break
+        }
         
 
     }
