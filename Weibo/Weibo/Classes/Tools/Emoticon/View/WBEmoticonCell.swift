@@ -81,6 +81,12 @@ class WBEmoticonCell: UICollectionViewCell {
 //    override func awakeFromNib() {
 //        steupUI()
 //    }
+    //长按手势识别 是一个非常重要的手势
+    //而且可以保证一个对象监听两种点击的手势 而且不需要考虑手势冲突
+    @objc private func longGesture(gesture:UILongPressGestureRecognizer){
+        
+        
+    }
 }
 private extension WBEmoticonCell{
     //-从 XIB加载 bounds是xib中定义的大小 不是size的大小
@@ -119,6 +125,11 @@ private extension WBEmoticonCell{
         //设置图像
         let image = UIImage(named: "compose_emotion_delete_highlighted", in: WBEmoticonManager.shared.bundle, compatibleWith: nil)
         removeButton.setImage(image, for: [])
+        
+        //添加长按手势
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longGesture))
+        longPress.minimumPressDuration = 0.1
+        addGestureRecognizer(longPress)
         
     }
 }
