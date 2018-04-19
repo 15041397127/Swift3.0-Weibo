@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 //表情选中提示视图
 class WBEmoticonTipView: UIImageView {
 
@@ -26,6 +27,14 @@ class WBEmoticonTipView: UIImageView {
             //设置表情数据
             tipButton.setTitle(emoticon?.emoji, for: [])
             tipButton.setImage(emoticon?.image, for: [])
+            
+            //动画 弹力动画的结束时间是根据速度自动计算的 不需要也不能指定duration
+            let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            anim.fromValue = 30
+            anim.toValue = 8
+            anim.springBounciness = 20
+            anim.springSpeed = 20
+            tipButton.layer.pop_add(anim, forKey: nil)
             
         }
     }
