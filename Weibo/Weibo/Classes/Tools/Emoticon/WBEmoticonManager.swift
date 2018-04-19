@@ -44,11 +44,19 @@ class WBEmoticonManager {
         
         //3.根据使用次数排序 使用次数多的排序靠前
         //对当前数组排序
-        packages[0].emoticon.sort { (em1, em2) -> Bool in
+//        packages[0].emoticon.sort { (em1, em2) -> Bool in
+//
+//            return em1.times > em2.times
+//
+//        }
+        //在swift中 如果闭包只有一个return 参数可以省略 参数名 用$0..替代
+        packages[0].emoticon.sort {
             
-            return em1.times > em2.times
-            
+            $0.times > $1.times
+        
         }
+        
+        
         //4.判断表情数据是否超出20  如果超出 删除末尾的表情
         if packages[0].emoticon.count > 20 {
             

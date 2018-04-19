@@ -88,7 +88,16 @@ extension WBEmoticonInputView:WBEmoiconCellDelegate{
         guard let em = em else {
             return
         }
+        //如果当前的collectionView就是最近的分组 不添加最近使用的表情
+        let indexPath = collectionView.indexPathsForVisibleItems[0]
+        if indexPath.section == 0 {
+            return
+        }
         WBEmoticonManager.shared.recentEmoticon(em: em)
+        //刷新第0组
+        var indexSet = IndexSet()
+        indexSet.insert(0)
+        collectionView.reloadSections(indexSet)
     }
     
 }
