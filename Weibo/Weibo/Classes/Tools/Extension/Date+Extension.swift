@@ -9,6 +9,8 @@
 import Foundation
 //日期格式化器 不要频繁的释放和创建 会影响性能
 private let dateFormater = DateFormatter()
+//当前日历对象
+private let calendar = Calendar.current
 extension Date{
     
     
@@ -41,5 +43,49 @@ extension Date{
  
     }
     
+    /*
+     刚刚
+     x分钟内
+     x小时前
+     昨天
+     一年内
+     更早期
+     */
+    var wb_dateDescription:String{
+        
+        //判断日期是否是今天
+        if calendar.isDateInToday(self) {
+            let delta = -Int(self.timeIntervalSinceNow)
 
+            if delta < 60{
+                return "刚刚"
+            }
+
+            if delta < 3600{
+                return "\(delta / 60)分钟前"
+            }
+
+            return "\(delta / 3600 )小时前"
+        }
+        
+        //其他天
+        var fmt = "HH:mm"
+        if calendar.isDateInYesterday(self) {
+            fmt = "昨天" + fmt
+        }else{
+            
+            fmt = "MM-dd" + fmt
+            let year =  calendar.component(.year, from: self)
+            let thisYear =  calendar.component(.year, from: Date())
+            if year  != thisYear{
+                
+                fmt = "yyyy-" + fmt
+            }
+        }
+        
+        //设置日期格式字符串
+        dateFormater.dateFormat = fmt
+        return dateFormater.string(from: self)
+    }
+    
 }
