@@ -104,13 +104,37 @@ class WBStatusPictureView: UIView {
     }
     
     //MARK:监听方法
+    /// @param selectedIndex    选中照片索引
+    /// @param urls             浏览照片 URL 字符串数组
+    /// @param parentImageViews 父视图的图像视图数组，用户展现和解除转场动画参照
     @objc private func tapImageView(tap:UITapGestureRecognizer){
         
-        let iv = tap.view
         
+        guard let iv = tap.view,
+              let picUrls = viewModel?.picURLs  else {
+            return
+        }
+        
+        var selectedIndex = iv.tag
+        //针对四张图处理
+        if picUrls.count == 4 && selectedIndex > 1 {
+            
+            selectedIndex -= 1
+            
+        }
+        let urls = (picUrls as NSArray) .value(forKey: "thumbnail_pic") as! [String]
+        
+        //处理可见的图像视图数组
+        var imageViewList = [UIImageView]()
+        for iv  in subviews as! [UIImageView] {
+            
+            if iv.isHidden {
+                imageViewList.append(iv)
+            }
+        }
+
     }
-    
-    
+
 }
 
 //MARK: - 设置页面
