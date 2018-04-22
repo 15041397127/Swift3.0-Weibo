@@ -92,6 +92,11 @@ extension WBEmoticonInputView:UICollectionViewDelegate{
        // indepath.section => 对应的就是分组
         toolBar.selectedIndex = target.section
         
+        //5.设置分页控件
+        //总页数 不同的分组 页数不一样
+        pageControl.numberOfPages = collectionView.numberOfItems(inSection: target.section)
+        pageControl.currentPage = target.item
+        
     }
     
 }

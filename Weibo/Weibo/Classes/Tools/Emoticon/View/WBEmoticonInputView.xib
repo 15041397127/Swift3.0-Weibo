@@ -30,8 +30,8 @@
                         <outlet property="delegate" destination="Xwu-60-cn6" id="xra-0j-ivP"/>
                     </connections>
                 </collectionView>
-                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="mng-uq-3Ag">
-                    <rect key="frame" x="160" y="155" width="55" height="37"/>
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="mng-uq-3Ag">
+                    <rect key="frame" x="187.66666666666666" y="192" width="0.0" height="0.0"/>
                     <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="currentPageIndicatorTintColor" red="0.93193349319999996" green="1" blue="0.285112804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
