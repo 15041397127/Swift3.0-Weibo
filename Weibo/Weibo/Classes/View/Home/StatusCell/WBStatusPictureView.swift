@@ -184,7 +184,20 @@ extension WBStatusPictureView{
             
             //设置imageview 的tag
             iv.tag = i
-        
+            //向图像视图 添加gif提示图像
+            addGifView(iv: iv)
         }
+    }
+    private func addGifView(iv:UIImageView){
+        
+//        timeline_image_gif
+        let gifImageView = UIImageView(image: UIImage(named: "timeline_image_gif"))
+        iv.addSubview(gifImageView)
+        gifImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        iv.addConstraint(NSLayoutConstraint(item: gifImageView, attribute: .right, relatedBy: .equal, toItem: iv, attribute: .right, multiplier: 1.0, constant: 0))
+        
+        iv.addConstraint(NSLayoutConstraint(item: gifImageView, attribute: .bottom, relatedBy: .equal, toItem: iv, attribute: .bottom, multiplier: 1.0, constant: 0))
+        
     }
 }
