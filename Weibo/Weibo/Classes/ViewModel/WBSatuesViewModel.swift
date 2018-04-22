@@ -199,6 +199,7 @@ class WBSatuesViewModel:CustomStringConvertible {
         if size.width > maxWidth {
     
             size.width = maxWidth
+            //size.width = 200 //避免大图的时候过宽 适配小手机
             //等比例调整高度
             size.height = size.width * image.size.height/image.size.width
             
@@ -211,6 +212,11 @@ class WBSatuesViewModel:CustomStringConvertible {
             //要特殊处理高度 否则高度太大 会影响用户
             size.height = size.width * image.size.height/image.size.width/4
             
+        }
+        
+        //过高图片处理 图片填充模式就是 scleTofill 高度减小会自动裁切
+        if size.height > 200 {
+            size.height = 200
         }
         
         //尺寸增加顶部的12个点
