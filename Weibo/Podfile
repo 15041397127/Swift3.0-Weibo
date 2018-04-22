@@ -11,8 +11,11 @@ pod "YYModel"
 pod "FMDB" 
 pod "SVProgressHUD" 
 pod "pop" 
-
-  # Pods for Weibo
+pod "YYWebImage"
+pod "YYImage"
+pod "YYCache"
+pod "YYWebImage" ,'~> 1.0.4'
+ # Pods for Weibo
 
   target 'WeiboTests' do
     inherit! :search_paths

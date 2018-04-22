@@ -12,4 +12,5 @@
 
 #endif /* Weibo_Bridge_h */
 #import "CZAdditions.h"
+#import "HMPhotoBrowserController.h"
 //桥接文件,专门用于引入oc的头文件 宏除外

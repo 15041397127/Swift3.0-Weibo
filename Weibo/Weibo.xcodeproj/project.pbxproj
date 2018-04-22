@@ -766,7 +766,6 @@
 				3481AF772005DF96009F58BF /* Frameworks */,
 				3481AF782005DF96009F58BF /* Resources */,
 				94E4476EC4B9BAF118879FD9 /* [CP] Embed Pods Frameworks */,
-				B767412DA26638F2C0AC21D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -785,8 +784,6 @@
 				3481AF8A2005DF96009F58BF /* Sources */,
 				3481AF8B2005DF96009F58BF /* Frameworks */,
 				3481AF8C2005DF96009F58BF /* Resources */,
-				B996E7CAE8B4E2BABB51F15B /* [CP] Embed Pods Frameworks */,
-				5A7868CCBC7D17E36126F9A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -806,8 +803,6 @@
 				3481AF952005DF96009F58BF /* Sources */,
 				3481AF962005DF96009F58BF /* Frameworks */,
 				3481AF972005DF96009F58BF /* Resources */,
-				C7E99A37D402D3CB7DE5667F /* [CP] Embed Pods Frameworks */,
-				EE2D2AA923B6D0901AA79A2A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -925,21 +920,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5A7868CCBC7D17E36126F9A8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiboTests/Pods-WeiboTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5B730C89F14B8B936E19C62E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -969,7 +949,10 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+				"${BUILT_PRODUCTS_DIR}/YYWebImage/YYWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -978,72 +961,15 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weibo/Pods-Weibo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B767412DA26638F2C0AC21D7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weibo/Pods-Weibo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B996E7CAE8B4E2BABB51F15B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiboTests/Pods-WeiboTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C7E99A37D402D3CB7DE5667F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiboUITests/Pods-WeiboUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE2D2AA923B6D0901AA79A2A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiboUITests/Pods-WeiboUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F388EE17E73BAD239C60C36B /* [CP] Check Pods Manifest.lock */ = {
