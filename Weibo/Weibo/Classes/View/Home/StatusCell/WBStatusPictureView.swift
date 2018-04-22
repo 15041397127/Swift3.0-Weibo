@@ -103,6 +103,13 @@ class WBStatusPictureView: UIView {
         
     }
     
+    //MARK:监听方法
+    @objc private func tapImageView(tap:UITapGestureRecognizer){
+        
+        let iv = tap.view
+        
+    }
+    
     
 }
 
@@ -140,6 +147,15 @@ extension WBStatusPictureView{
             
             iv.frame = rect.offsetBy(dx:xOffset , dy: yOffset)
             addSubview(iv)
+            
+            //让imageview 能够接受用户交互
+            iv.isUserInteractionEnabled = true
+            //添加手势识别
+            let tap = UITapGestureRecognizer(target: self, action: #selector(tapImageView))
+            iv.addGestureRecognizer(tap)
+            
+            //设置imageview 的tag
+            iv.tag = i
         
         }
     }
