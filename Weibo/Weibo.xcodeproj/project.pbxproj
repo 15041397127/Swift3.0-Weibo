@@ -661,11 +661,11 @@
 		34D2BFB520849E2D000615B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				34D2BFB620849E2E000615B8 /* WBEmoticonCellLayout.swift */,
-				34D2BFB720849E2E000615B8 /* WBEmoticonCell.swift */,
-				34D2BFB820849E2E000615B8 /* WBEmoticonInputView.xib */,
-				34D2BFB920849E2E000615B8 /* WBEmoticonToolbar.swift */,
 				34D2BFBA20849E2E000615B8 /* WBEmoticonInputView.swift */,
+				34D2BFB720849E2E000615B8 /* WBEmoticonCell.swift */,
+				34D2BFB920849E2E000615B8 /* WBEmoticonToolbar.swift */,
+				34D2BFB620849E2E000615B8 /* WBEmoticonCellLayout.swift */,
+				34D2BFB820849E2E000615B8 /* WBEmoticonInputView.xib */,
 				34D2BFBB20849E2E000615B8 /* WBEmoticonCell.xib */,
 				34D2BFBC20849E2E000615B8 /* WBEmoticonAttachment.swift */,
 				34E0996A2088BD8400EA0FC8 /* WBEmoticonTipView.swift */,

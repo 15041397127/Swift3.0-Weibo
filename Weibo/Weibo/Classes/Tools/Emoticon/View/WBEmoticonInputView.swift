@@ -59,6 +59,44 @@ extension WBEmoticonInputView:WBEmoticonToolbarDelegate{
     }
 }
 
+//MARK:-UICollectionViewDelegate
+extension WBEmoticonInputView:UICollectionViewDelegate{
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //1.获取中心点
+        var center = scrollView.center
+        center.x += scrollView.contentOffset.x
+        
+        //2.获取当前显示的indexPath
+        let paths = collectionView.indexPathsForVisibleItems
+        
+       
+        //3.判断中心点在哪一个indexPath 上 在哪一个页面上
+        var targetIndexPath:IndexPath?
+        
+        for indexPath in paths {
+            
+            //1.根据indexPath获得cell
+            let cell = collectionView.cellForItem(at: indexPath)
+            
+            //2. 判断中心点位置
+            if cell?.frame.contains(center) == true{
+                targetIndexPath = indexPath
+                break
+            }
+        }
+        guard let target = targetIndexPath else{
+            return
+        }
+        //4.判断是否找到目标的indexPath
+       // indepath.section => 对应的就是分组
+        toolBar.selectedIndex = target.section
+        
+    }
+    
+}
+
+//MARK: UICollectionViewDataSource
 extension WBEmoticonInputView:UICollectionViewDataSource{
     
     //分组数量  -返回表情包的数量
