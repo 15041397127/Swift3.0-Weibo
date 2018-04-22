@@ -42,6 +42,22 @@ class WBEmoticonInputView: UIView {
         //设置工具栏代理
         toolBar.delegate = self
         
+        //设置分页控件的图片
+        let bundle = WBEmoticonManager.shared.bundle
+        
+        guard let normalImage = UIImage(named: "compose_keyboard_dot_normal", in: bundle, compatibleWith: nil),
+            let selectedImage = UIImage(named: "compose_keyboard_dot_selected", in: bundle, compatibleWith: nil) else{
+                return
+        }
+        //使用填充图片 设置颜色
+        //        pageControl.pageIndicatorTintColor = UIColor(patternImage: normalImage)
+        //        pageControl.currentPageIndicatorTintColor = UIColor(patternImage: selectedImage)//平铺
+        
+        
+        //使用KVC设置私有成员属性
+        pageControl.setValue(normalImage, forKey: "_pageImage")
+        pageControl.setValue(selectedImage, forKey: "_currentPageImage")
+        
     }
     
 }
@@ -96,6 +112,8 @@ extension WBEmoticonInputView:UICollectionViewDelegate{
         //总页数 不同的分组 页数不一样
         pageControl.numberOfPages = collectionView.numberOfItems(inSection: target.section)
         pageControl.currentPage = target.item
+        
+
         
     }
     
