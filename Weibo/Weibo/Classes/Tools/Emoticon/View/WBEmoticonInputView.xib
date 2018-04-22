@@ -12,14 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Xwu-60-cn6" customClass="WBEmoticonInputView" customModule="表情键盘" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Xwu-60-cn6" customClass="WBEmoticonInputView" customModule="Weibo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="258"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wOU-MA-U6N">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FzQ-2W-A5n" customClass="WBEmoticonCellLayout" customModule="表情键盘" customModuleProvider="target">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FzQ-2W-A5n" customClass="WBEmoticonCellLayout" customModule="Weibo" customModuleProvider="target">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -30,7 +30,12 @@
                         <outlet property="delegate" destination="Xwu-60-cn6" id="xra-0j-ivP"/>
                     </connections>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7T-XR-Cv4" userLabel="底部工具栏" customClass="WBEmoticonToolbar" customModule="表情键盘" customModuleProvider="target">
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="mng-uq-3Ag">
+                    <rect key="frame" x="160" y="155" width="55" height="37"/>
+                    <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" red="0.93193349319999996" green="1" blue="0.285112804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7T-XR-Cv4" userLabel="底部工具栏" customClass="WBEmoticonToolbar" customModule="Weibo" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="184" width="375" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -44,9 +49,11 @@
                 <constraint firstAttribute="trailing" secondItem="wOU-MA-U6N" secondAttribute="trailing" id="62H-Th-pKR"/>
                 <constraint firstItem="wOU-MA-U6N" firstAttribute="leading" secondItem="Xwu-60-cn6" secondAttribute="leading" id="9wG-ar-1As"/>
                 <constraint firstItem="U7T-XR-Cv4" firstAttribute="bottom" secondItem="2rf-hD-cUS" secondAttribute="bottom" id="ARy-JA-B6r"/>
+                <constraint firstItem="mng-uq-3Ag" firstAttribute="centerX" secondItem="Xwu-60-cn6" secondAttribute="centerX" id="TCG-fs-mNV"/>
                 <constraint firstItem="U7T-XR-Cv4" firstAttribute="top" secondItem="wOU-MA-U6N" secondAttribute="bottom" id="VK5-f4-x11"/>
                 <constraint firstAttribute="bottom" secondItem="U7T-XR-Cv4" secondAttribute="bottom" constant="34" id="Yed-i4-njR"/>
                 <constraint firstItem="U7T-XR-Cv4" firstAttribute="leading" secondItem="Xwu-60-cn6" secondAttribute="leading" id="Zfp-gL-1Wb"/>
+                <constraint firstItem="U7T-XR-Cv4" firstAttribute="top" secondItem="mng-uq-3Ag" secondAttribute="bottom" constant="-8" id="a67-C1-qDf"/>
                 <constraint firstItem="U7T-XR-Cv4" firstAttribute="trailing" secondItem="Xwu-60-cn6" secondAttribute="trailing" id="cKt-hR-FlA"/>
                 <constraint firstItem="wOU-MA-U6N" firstAttribute="top" secondItem="Xwu-60-cn6" secondAttribute="top" id="wEg-AD-QOT"/>
             </constraints>
@@ -54,6 +61,7 @@
             <viewLayoutGuide key="safeArea" id="2rf-hD-cUS"/>
             <connections>
                 <outlet property="collectionView" destination="wOU-MA-U6N" id="Ad7-5b-pfL"/>
+                <outlet property="pageControl" destination="mng-uq-3Ag" id="sHN-5O-23w"/>
                 <outlet property="toolBar" destination="U7T-XR-Cv4" id="I8z-dw-NgV"/>
             </connections>
             <point key="canvasLocation" x="135.5" y="-200"/>

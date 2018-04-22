@@ -14,8 +14,9 @@ class WBEmoticonInputView: UIView {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var toolBar: WBEmoticonToolbar!
+    @IBOutlet weak var toolBar: WBEmoticonToolbar!//工具栏
     
+    @IBOutlet weak var pageControl: UIPageControl!//分页控件
     //选中表情回调闭包
     private var selectedEmoticonCallBack: ((_ emoticon:WBEmoicon?) -> ())?
     
