@@ -84,6 +84,10 @@ class WBStatusPictureView: UIView {
                 //设置图像
                iv.cz_setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
                 
+              //判断是否是gif,根据扩展名
+               iv.subviews[0].isHidden = (((url.thumbnail_pic ?? "") as NSString).pathExtension.lowercased() != "gif")
+                
+                
                //显示图像
                 iv.isHidden = false
                 
