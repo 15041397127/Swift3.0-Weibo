@@ -22,6 +22,21 @@ let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 //用户登录成功通知
 let WBUserLoginSuccessNotification = "WBUserLoginSuccessNotification"
 
+/// 照片浏览通知定义
+///
+/// @param selectedIndex    选中照片索引
+/// @param urls             浏览照片 URL 字符串数组
+/// @param parentImageViews 父视图的图像视图数组，用户展现和解除转场动画参照
+///
+/// @return 微博cell 的浏览照片通知
+let WBStatusCellBrowserPhotoNotication = "WBStatusCellBrowserPhotoNotication"
+//选中索引
+let WBStatusCellBrowserPhotoSelectedInexKey = "WBStatusCellBrowserPhotoSelectedInexKey"
+//浏览照片URL字符串key
+let WBStatusCellBrowserPhotoURlsKey = "WBStatusCellBrowserPhotoURlsKey"
+// 父视图的图像视图数组，用户展现和解除转场动画参照
+let WBStatusCellBrowserPhotoImageViewsKey = "WBStatusCellBrowserPhotoImageViewsKey"
+
 
 //MARK:微博视图常量
 //微博视图外侧间距
