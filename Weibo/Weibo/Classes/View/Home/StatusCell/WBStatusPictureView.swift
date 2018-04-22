@@ -122,17 +122,21 @@ class WBStatusPictureView: UIView {
             selectedIndex -= 1
             
         }
-        let urls = (picUrls as NSArray) .value(forKey: "thumbnail_pic") as! [String]
+        let urls = (picUrls as NSArray) .value(forKey: "largePic") as! [String]
         
         //处理可见的图像视图数组
         var imageViewList = [UIImageView]()
         for iv  in subviews as! [UIImageView] {
             
-            if iv.isHidden {
+            if !iv.isHidden {
                 imageViewList.append(iv)
             }
         }
-
+        //发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBStatusCellBrowserPhotoNotication), object: selectedIndex, userInfo: [WBStatusCellBrowserPhotoSelectedInexKey:selectedIndex,
+                                                                                            WBStatusCellBrowserPhotoURlsKey:urls,
+                                                                                            WBStatusCellBrowserPhotoImageViewsKey:imageViewList                                                           ])
+        
     }
 
 }

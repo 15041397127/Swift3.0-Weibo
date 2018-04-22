@@ -14,10 +14,18 @@ class WBStatusPicture: NSObject {
     @objc var thumbnail_pic:String?{
         
         didSet{
+            
+            //设置大尺寸图片
+            largePic = thumbnail_pic?.replacingOccurrences(of: "/thumbnail/", with: "/large/")
+            
+            
             //更改缩略图地址
             thumbnail_pic = thumbnail_pic?.replacingOccurrences(of:"/thumbnail/", with: "/wap360/")
         }
     }
+    
+    //大尺寸图片
+    @objc var largePic:String?
     
     
     

@@ -27,7 +27,30 @@ class WBHomeViewController: WBBaseViewController {
     override func viewDidLoad(){
         
        super.viewDidLoad()
-   
+       //注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(browserPhoto), name: NSNotification.Name(rawValue: WBStatusCellBrowserPhotoNotication), object: nil)
+        
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        
+    }
+    //浏览照片通知监听方法
+    @objc private func browserPhoto(n:Notification){
+        //1.从通知中 userInfo 提取参数
+        guard let selectedIndex = n.userInfo?[WBStatusCellBrowserPhotoSelectedInexKey] as? Int,
+              let urls = n.userInfo?[WBStatusCellBrowserPhotoURlsKey] as? [String],
+              let imageViewList = n.userInfo?[WBStatusCellBrowserPhotoImageViewsKey] as? [UIImageView]
+        else{
+            return
+        }
+        
+        //展现照片浏览控制器
+        let vc = HMPhotoBrowserController.photoBrowser(withSelectedIndex: selectedIndex, urls: urls, parentImageViews: imageViewList)
+        present(vc, animated: true) {
+            
+        }
+        
         
     }
     
