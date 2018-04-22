@@ -17,7 +17,16 @@ class WBSatues: NSObject {
     @objc var text:String?
     
     //微博创建时间字符串
-    @objc var created_at:String?
+    @objc var created_at:String?{
+        
+        didSet{
+            
+         createdDate = Date.wb_sinaDate(string: created_at ?? "")
+        }
+    }
+    
+    //微博创建日期
+    @objc var createdDate:Date?
     
     //微博来源 
     @objc var source:String?{

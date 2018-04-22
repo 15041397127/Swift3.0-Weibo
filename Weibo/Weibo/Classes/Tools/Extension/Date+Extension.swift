@@ -25,5 +25,21 @@ extension Date{
         
         return dateFormater.string(from: date)
     }
+    
+    
+    /// 将新浪格式的字符转成日期
+    ///
+    /// - Parameter string: 新浪格式的
+    /// - Returns: 日期
+    static func wb_sinaDate(string:String) -> Date? {
+        
+        //1.设置日期格式
+        dateFormater.dateFormat = "EEE MMM dd HH:mm:ss zzz yyyy"
+        
+        //2转换并且返回日期
+     return dateFormater.date(from: string)
+ 
+    }
+    
 
 }
